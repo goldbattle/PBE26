@@ -17,10 +17,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -57,6 +60,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import org.json.JSONArray
 
 // ---------- data ----------
@@ -577,7 +581,7 @@ private fun Blurb(text: String) {
 @Composable
 private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
     val ctx = LocalContext.current
-    var zoomed by remember { mutableStateOf<Swatch?>(null) }
+    var zoomed by remember { mutableStateOf<Int?>(null) } // index into v.swatches
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -634,8 +638,8 @@ private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
                 )
             }
         }
-        items(v.swatches, key = { it.file }) { sw ->
-            Column(Modifier.clickable { zoomed = sw }) {
+        itemsIndexed(v.swatches, key = { _, sw -> sw.file }) { i, sw ->
+            Column(Modifier.clickable { zoomed = i }) {
                 val bmp = rememberAsset(sw.file, sample = 2)
                 Box(
                     Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(10.dp))
@@ -652,24 +656,51 @@ private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
         }
     }
 
-    zoomed?.let { sw ->
-        Dialog(onDismissRequest = { zoomed = null }) {
-            Column(
-                Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp))
-                    .background(MaterialTheme.colorScheme.surface).padding(12.dp),
-            ) {
-                rememberAsset(sw.file)?.let {
-                    Image(
-                        it,
-                        sw.name,
-                        Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp)),
-                        contentScale = ContentScale.FillWidth,
-                    )
+    zoomed?.let { start ->
+        SwatchPager(v, start) { zoomed = null }
+    }
+}
+
+/** Full-size swatches: swipe left/right through everything the vendor is bringing. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SwatchPager(v: Vendor, start: Int, onClose: () -> Unit) {
+    val pager = rememberPagerState(initialPage = start) { v.swatches.size }
+    Dialog(onDismissRequest = onClose, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.96f))) {
+            HorizontalPager(state = pager, Modifier.fillMaxSize()) { page ->
+                val sw = v.swatches[page]
+                Column(
+                    Modifier.fillMaxSize().padding(16.dp),
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    rememberAsset(sw.file)?.let {
+                        Image(
+                            it,
+                            sw.name,
+                            Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)),
+                            contentScale = ContentScale.FillWidth,
+                        )
+                    }
+                    if (sw.name.isNotBlank()) {
+                        Text(
+                            sw.name,
+                            Modifier.padding(top = 14.dp),
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 18.sp,
+                        )
+                    }
+                    Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                 }
-                if (sw.name.isNotBlank()) {
-                    Text(sw.name, Modifier.padding(top = 10.dp), fontWeight = FontWeight.SemiBold)
-                }
-                Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
+            }
+            Text(
+                "${pager.currentPage + 1} / ${v.swatches.size}",
+                Modifier.align(Alignment.TopCenter).padding(top = 16.dp),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 13.sp,
+            )
+            IconButton(onClick = onClose, modifier = Modifier.align(Alignment.TopEnd).padding(8.dp)) {
+                Icon(Icons.Default.Close, "Close", tint = Color.White)
             }
         }
     }

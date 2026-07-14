@@ -22,6 +22,8 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -36,6 +38,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
@@ -43,11 +46,13 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
@@ -65,7 +70,11 @@ data class Vendor(
     val img: String, // asset path, e.g. "vendors/pinnacle-polish.jpg"
     val socials: List<Pair<String, String>>, // platform -> url
     val swatches: List<Swatch>,
+    val booth: Booth?, // null = not on the booth map
 )
+
+/** Table number, and where that table sits on booth_map.png (fractions of the image). */
+data class Booth(val table: Int, val x: Float, val y: Float)
 
 data class Swatch(val name: String, val file: String)
 
@@ -87,6 +96,11 @@ private fun loadVendors(ctx: Context): List<Vendor> {
             swatches = (0 until (sw?.length() ?: 0)).map { i ->
                 val e = sw!!.getJSONObject(i)
                 Swatch(e.optString("name"), e.getString("file"))
+            },
+            booth = if (o.has("booth")) {
+                Booth(o.getInt("booth"), o.getDouble("boothX").toFloat(), o.getDouble("boothY").toFloat())
+            } else {
+                null
             },
         )
     }.sortedBy { it.name.lowercase() }
@@ -230,7 +244,19 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     var tab by rememberSaveable { mutableStateOf(Tab.Info) }
     var journal by rememberSaveable { mutableStateOf<String?>(null) } // open journal entry, null = none
     var openVendor by rememberSaveable { mutableStateOf<String?>(null) } // vendor page, null = none
+    var mapFocus by rememberSaveable { mutableStateOf<String?>(null) } // vendor to pin on the map
     val vendor = vendors.firstOrNull { it.name == openVendor }
+
+    // Hoisted so coming back from a vendor page lands where you left the list.
+    val vendorList = rememberLazyListState()
+    var query by rememberSaveable { mutableStateOf("") }
+
+    fun showOnMap(v: Vendor) {
+        openVendor = null
+        journal = null
+        mapFocus = v.name
+        tab = Tab.Map
+    }
 
     // Back unwinds the app instead of leaving it: page -> tab -> Info -> (system handles exit).
     BackHandler(enabled = journal != null || openVendor != null || tab != Tab.Info) {
@@ -278,12 +304,17 @@ fun App(vendors: List<Vendor>, saved: Saved) {
             val open = journal
             when {
                 open != null -> JournalScreen(open, saved)
-                vendor != null -> VendorScreen(vendor, saved)
+                vendor != null -> VendorScreen(vendor, saved, ::showOnMap)
                 else -> when (tab) {
                     Tab.Info -> InfoScreen(saved) { journal = it }
-                    Tab.Vendors -> VendorsScreen(vendors, saved) { openVendor = it.name }
-                    Tab.Map -> MapScreen()
-                    Tab.Saved -> SavedScreen(vendors, saved, { journal = it }, { openVendor = it.name })
+                    Tab.Vendors -> VendorsScreen(
+                        vendors, saved, vendorList, query, { query = it },
+                        { openVendor = it.name }, ::showOnMap,
+                    )
+                    Tab.Map -> MapScreen(vendors.firstOrNull { it.name == mapFocus }) { mapFocus = null }
+                    Tab.Saved -> SavedScreen(
+                        vendors, saved, { journal = it }, { openVendor = it.name }, ::showOnMap,
+                    )
                 }
             }
         }
@@ -407,33 +438,40 @@ private fun JournalScreen(key: String, saved: Saved) {
 // ---------- vendors ----------
 
 @Composable
-private fun VendorsScreen(vendors: List<Vendor>, saved: Saved, onOpen: (Vendor) -> Unit) {
-    var query by rememberSaveable { mutableStateOf("") }
+private fun VendorsScreen(
+    vendors: List<Vendor>,
+    saved: Saved,
+    listState: LazyListState,
+    query: String,
+    onQuery: (String) -> Unit,
+    onOpen: (Vendor) -> Unit,
+    onMap: (Vendor) -> Unit,
+) {
     val shown = vendors.filter {
         query.isBlank() || it.name.contains(query, true) || it.owner.contains(query, true)
     }
     Column(Modifier.fillMaxSize()) {
         OutlinedTextField(
             value = query,
-            onValueChange = { query = it },
+            onValueChange = onQuery,
             placeholder = { Text("Search ${vendors.size} vendors") },
             leadingIcon = { Icon(Icons.Default.Search, null) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
         )
         LazyColumn(
+            state = listState,
             contentPadding = PaddingValues(16.dp, 0.dp, 16.dp, 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(shown, key = { it.name }) { VendorRow(it, saved, onOpen) }
+            items(shown, key = { it.name }) { VendorRow(it, saved, onOpen, onMap) }
         }
     }
 }
 
 @Composable
-private fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit) {
+private fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit, onMap: (Vendor) -> Unit) {
     val note = saved.notes[v.name] ?: ""
-    val marked = v.name in saved.bookmarks
     Card(Modifier.fillMaxWidth().clickable { onOpen(v) }) {
         Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Avatar(v, 48.dp)
@@ -443,21 +481,45 @@ private fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit) {
                 if (v.owner.isNotBlank()) {
                     Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                 }
-                if (v.swatches.isNotEmpty()) {
-                    Text("${v.swatches.size} polishes", color = Pink, fontSize = 12.sp)
-                }
+                Text(
+                    listOfNotNull(
+                        v.booth?.let { "Table ${it.table}" },
+                        if (v.swatches.isNotEmpty()) "${v.swatches.size} polishes" else null,
+                    ).joinToString(" · "),
+                    color = Pink,
+                    fontSize = 12.sp,
+                )
                 if (note.isNotBlank()) {
                     Text("✎ $note", color = Pink, fontSize = 12.sp, maxLines = 1)
                 }
             }
-            IconButton(onClick = { saved.toggleBookmark(v.name) }) {
-                Icon(
-                    if (marked) Icons.Default.Star else Icons.Outlined.StarBorder,
-                    contentDescription = if (marked) "Remove bookmark" else "Bookmark",
-                    tint = if (marked) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+            MapButton(v, onMap)
+            StarButton(v, saved)
         }
+    }
+}
+
+@Composable
+private fun MapButton(v: Vendor, onMap: (Vendor) -> Unit) {
+    if (v.booth == null) return
+    IconButton(onClick = { onMap(v) }) {
+        Icon(
+            Icons.Default.Place,
+            "Show table ${v.booth.table} on the map",
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun StarButton(v: Vendor, saved: Saved) {
+    val marked = v.name in saved.bookmarks
+    IconButton(onClick = { saved.toggleBookmark(v.name) }) {
+        Icon(
+            if (marked) Icons.Default.Star else Icons.Outlined.StarBorder,
+            contentDescription = if (marked) "Remove bookmark" else "Bookmark",
+            tint = if (marked) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 
@@ -503,9 +565,8 @@ private fun Blurb(text: String) {
 
 /** A vendor's own page: who they are, what they wrote, and every polish they are bringing. */
 @Composable
-private fun VendorScreen(v: Vendor, saved: Saved) {
+private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
     val ctx = LocalContext.current
-    val marked = v.name in saved.bookmarks
     var zoomed by remember { mutableStateOf<Swatch?>(null) }
 
     LazyVerticalGrid(
@@ -524,14 +585,12 @@ private fun VendorScreen(v: Vendor, saved: Saved) {
                         if (v.owner.isNotBlank()) {
                             Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
+                        v.booth?.let {
+                            Text("Table ${it.table}", color = Pink, fontSize = 13.sp)
+                        }
                     }
-                    IconButton(onClick = { saved.toggleBookmark(v.name) }) {
-                        Icon(
-                            if (marked) Icons.Default.Star else Icons.Outlined.StarBorder,
-                            contentDescription = if (marked) "Remove bookmark" else "Bookmark",
-                            tint = if (marked) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    MapButton(v, onMap)
+                    StarButton(v, saved)
                 }
                 Blurb(v.blurb.ifBlank { v.bio })
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -613,13 +672,18 @@ private enum class Layer(val label: String, val res: Int) {
     Venue("Venue", R.drawable.floorplan),
 }
 
+private const val MAP_ASPECT = 2048f / 1387f // booth_map.png
+private const val PIN_ZOOM = 3.5f
+
 @Composable
-private fun MapScreen() {
+private fun MapScreen(focus: Vendor?, onFocusShown: () -> Unit) {
     var layer by rememberSaveable { mutableStateOf(Layer.Booths) }
     var scale by remember { mutableStateOf(1f) }
     var offsetX by remember { mutableStateOf(0f) }
     var offsetY by remember { mutableStateOf(0f) }
     fun reset() { scale = 1f; offsetX = 0f; offsetY = 0f }
+
+    val booth = focus?.booth?.takeIf { layer == Layer.Booths }
 
     Column(Modifier.fillMaxSize()) {
         SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth().padding(12.dp)) {
@@ -632,36 +696,78 @@ private fun MapScreen() {
             }
         }
         Text(
-            when (layer) {
-                Layer.Booths -> "Show floor tables. Pinch to zoom, drag to pan, double-tap to reset."
-                Layer.Venue -> "Whole building: show floor is South Exhibit (11), reception is South Pavilion (12) & Promenade (32)."
+            when {
+                booth != null -> "${focus.name} — table ${booth.table}"
+                layer == Layer.Booths -> "Show floor tables. Pinch to zoom, drag to pan, double-tap to reset."
+                else -> "Whole building: show floor is South Exhibit (11), reception is South Pavilion (12) & Promenade (32)."
             },
             Modifier.padding(horizontal = 16.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            fontSize = 12.sp,
+            color = if (booth != null) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
+            fontWeight = if (booth != null) FontWeight.SemiBold else FontWeight.Normal,
+            fontSize = if (booth != null) 14.sp else 12.sp,
         )
         Box(
             Modifier.weight(1f).fillMaxWidth().padding(top = 8.dp).background(Color(0xFF1A1A1A))
+                .clipToBounds() // a zoomed map must not paint over the layer switch
                 .pointerInput(Unit) {
                     detectTransformGestures { _, pan, zoom, _ ->
                         scale = (scale * zoom).coerceIn(1f, 8f)
                         offsetX += pan.x
                         offsetY += pan.y
+                        onFocusShown() // touching the map drops the pin
                     }
                 }
-                .pointerInput(Unit) { detectTapGestures(onDoubleTap = { reset() }) },
+                .pointerInput(Unit) { detectTapGestures(onDoubleTap = { reset(); onFocusShown() }) },
             contentAlignment = Alignment.Center,
         ) {
-            Image(
-                painter = painterResource(layer.res),
-                contentDescription = layer.label,
-                modifier = Modifier.fillMaxSize().graphicsLayer(
-                    scaleX = scale, scaleY = scale, translationX = offsetX, translationY = offsetY,
-                ),
-            )
+            // The transformed box IS the drawn image, so a booth's fractional position maps
+            // straight onto it and the pin pans and zooms with the map.
+            var mapSize by remember { mutableStateOf(IntSize.Zero) }
+            BoxWithConstraints(
+                Modifier
+                    .fillMaxSize()
+                    .wrapContentSize()
+                    .aspectRatioOfMap(layer)
+                    .onSizeChanged { mapSize = it }
+                    .graphicsLayer(
+                        scaleX = scale, scaleY = scale, translationX = offsetX, translationY = offsetY,
+                    ),
+            ) {
+                Image(
+                    painter = painterResource(layer.res),
+                    contentDescription = layer.label,
+                    modifier = Modifier.fillMaxSize(),
+                )
+                if (booth != null) {
+                    val w = maxWidth
+                    val h = maxHeight
+                    Icon(
+                        Icons.Default.Place,
+                        "Table ${booth.table}",
+                        Modifier
+                            .size(28.dp)
+                            .offset(x = w * booth.x - 14.dp, y = h * booth.y - 28.dp),
+                        tint = Pink,
+                    )
+                }
+            }
+
+            LaunchedEffect(booth, mapSize) {
+                if (booth != null && mapSize != IntSize.Zero) {
+                    // Scaling happens about the centre, so shifting by this much lands the
+                    // booth's point in the middle of the viewport.
+                    scale = PIN_ZOOM
+                    offsetX = (0.5f - booth.x) * mapSize.width * PIN_ZOOM
+                    offsetY = (0.5f - booth.y) * mapSize.height * PIN_ZOOM
+                }
+            }
         }
     }
 }
+
+/** Both maps are drawn to fill their box, so pin maths only needs the booth map's shape. */
+private fun Modifier.aspectRatioOfMap(layer: Layer) =
+    if (layer == Layer.Booths) this.aspectRatio(MAP_ASPECT) else this
 
 // ---------- saved ----------
 
@@ -671,6 +777,7 @@ private fun SavedScreen(
     saved: Saved,
     openJournal: (String) -> Unit,
     openVendor: (Vendor) -> Unit,
+    onMap: (Vendor) -> Unit,
 ) {
     val ctx = LocalContext.current
     val prefs = remember { ctx.getSharedPreferences("pbe26", Context.MODE_PRIVATE) }
@@ -713,7 +820,7 @@ private fun SavedScreen(
                 )
             }
         }
-        items(mine, key = { it.name }) { VendorRow(it, saved, openVendor) }
+        items(mine, key = { it.name }) { VendorRow(it, saved, openVendor, onMap) }
     }
 }
 

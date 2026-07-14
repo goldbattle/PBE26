@@ -59,7 +59,10 @@
     "name": "Don't Sweat the Fall Stuff Collection",
     "file": "swatches/kbshimmer/10.jpg"
    }
-  ]
+  ],
+  "booth": 17,
+  "boothX": 0.444,
+  "boothY": 0.275
  },
  {
   "name": "Polish & Beauty Expo",
@@ -74,7 +77,10 @@
   "img": "vendors/polish-beauty-expo.jpg",
   "swatches": [],
   "airtableInfo": "",
-  "website": ""
+  "website": "",
+  "booth": 18,
+  "boothX": 0.556,
+  "boothY": 0.274
  },
  {
   "name": "Glitter Unique",
@@ -106,7 +112,10 @@
     "name": "",
     "file": "swatches/glitter-unique/03.jpg"
    }
-  ]
+  ],
+  "booth": 19,
+  "boothX": 0.654,
+  "boothY": 0.274
  },
  {
   "name": "1422 Designs",
@@ -146,7 +155,10 @@
     "name": "Tentacled Terrace",
     "file": "swatches/1422-designs/05.jpg"
    }
-  ]
+  ],
+  "booth": 35,
+  "boothX": 0.464,
+  "boothY": 0.567
  },
  {
   "name": "Alchemy Lacquers",
@@ -183,7 +195,10 @@
     "name": "Oleander Blush",
     "file": "swatches/alchemy-lacquers/04.jpg"
    }
-  ]
+  ],
+  "booth": 30,
+  "boothX": 0.709,
+  "boothY": 0.58
  },
  {
   "name": "Arcana Lacquer",
@@ -207,7 +222,10 @@
     "name": "Ride or Die",
     "file": "swatches/arcana-lacquer/01.jpg"
    }
-  ]
+  ],
+  "booth": 14,
+  "boothX": 0.194,
+  "boothY": 0.422
  },
  {
   "name": "Atomic Polish",
@@ -247,7 +265,10 @@
     "name": "Chocolate",
     "file": "swatches/atomic-polish/05.jpg"
    }
-  ]
+  ],
+  "booth": 1,
+  "boothX": 0.767,
+  "boothY": 0.345
  },
  {
   "name": "Aura Bloom Polish",
@@ -291,7 +312,10 @@
     "name": "Shell Yeah!",
     "file": "swatches/aura-bloom-polish/06.jpg"
    }
-  ]
+  ],
+  "booth": 20,
+  "boothX": 0.714,
+  "boothY": 0.274
  },
  {
   "name": "BCB Lacquers",
@@ -339,7 +363,10 @@
     "name": "",
     "file": "swatches/bcb-lacquers/07.jpg"
    }
-  ]
+  ],
+  "booth": 34,
+  "boothX": 0.461,
+  "boothY": 0.677
  },
  {
   "name": "Beaux Rêves Lacquer",
@@ -407,7 +434,10 @@
    }
   ],
   "airtableInfo": "The Purr-Fect Duo w/Monarch Lacquer -includes FREE light up cat ears \nIridescent Beaux Rêves logo reusable tote & glitter sticker- while supplies last!!\nPPU Rewind Octi-Evil\nPBE Exclusives 'Fantasea' \nfeaturing Whispering Pearl our $5 doorbuster!!\nInspired by the mystical and magical underworld hidden beneath the waters.\nAll 4 polishes are flake heavy with a dreamy color shifting shimmer and holo sparkle\nDesert Blooms collection of 4 polishes inspired by wildflowers.\nSofter hues with a shimmer that mirrors a sunset, shifting from golden/amber/magenta.",
-  "website": "https://www.beauxreveslacquer.com/"
+  "website": "https://www.beauxreveslacquer.com/",
+  "booth": 9,
+  "boothX": 0.417,
+  "boothY": 0.772
  },
  {
   "name": "Bluebird Lacquer",
@@ -459,7 +489,10 @@
     "name": "THAT LITTLE KENNY BASTARD",
     "file": "swatches/bluebird-lacquer/08.jpg"
    }
-  ]
+  ],
+  "booth": 22,
+  "boothX": 0.707,
+  "boothY": 0.45
  },
  {
   "name": "Botanique by Monae",
@@ -473,7 +506,10 @@
   "img": "vendors/botanique-by-monae.jpg",
   "airtableInfo": "",
   "website": "https://botaniquebymonae.etsy.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 42,
+  "boothX": 0.299,
+  "boothY": 0.752
  },
  {
   "name": "Broken Pixel Polish",
@@ -529,7 +565,10 @@
     "name": "Working as Intended",
     "file": "swatches/broken-pixel-polish/09.jpg"
    }
-  ]
+  ],
+  "booth": 43,
+  "boothX": 0.255,
+  "boothY": 0.747
  },
  {
   "name": "Clionadh Cosmetics",
@@ -581,7 +620,10 @@
     "name": "Chocholo Chips",
     "file": "swatches/clionadh-cosmetics/08.jpg"
    }
-  ]
+  ],
+  "booth": 23,
+  "boothX": 0.575,
+  "boothY": 0.463
  },
  {
   "name": "Copacetic Cosmetics",
@@ -649,7 +691,10 @@
     "name": "Cascade Polishes - $10ea",
     "file": "swatches/copacetic-cosmetics/12.jpg"
    }
-  ]
+  ],
+  "booth": 13,
+  "boothX": 0.12,
+  "boothY": 0.49
  },
  {
   "name": "Cupcake Polish",
@@ -742,7 +787,10 @@
     "name": "Sunbleached",
     "file": "swatches/cupcake-polish/18.jpg"
    }
-  ]
+  ],
+  "booth": 8,
+  "boothX": 0.51,
+  "boothY": 0.76
  },
  {
   "name": "Dark Moon Esscentuals",
@@ -757,7 +805,10 @@
   "img": "vendors/dark-moon-esscentuals.jpg",
   "airtableInfo": "",
   "website": "https://darkmoonesscentuals.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 25,
+  "boothX": 0.464,
+  "boothY": 0.465
  },
  {
   "name": "Dew Nail Polish",
@@ -772,7 +823,10 @@
   "img": "vendors/dew-nail-polish.jpg",
   "airtableInfo": "",
   "website": "https://www.dewnailpolish.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 36,
+  "boothX": 0.51,
+  "boothY": 0.56
  },
  {
   "name": "Dreamland Lacquer",
@@ -884,7 +938,10 @@
     "name": "Welcome to Dreamland",
     "file": "swatches/dreamland-lacquer/23.jpg"
    }
-  ]
+  ],
+  "booth": 37,
+  "boothX": 0.545,
+  "boothY": 0.56
  },
  {
   "name": "Envy Lacquer",
@@ -899,7 +956,10 @@
   "img": "vendors/envy-lacquer.jpg",
   "airtableInfo": "",
   "website": "https://envylacquer.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 26,
+  "boothX": 0.459,
+  "boothY": 0.359
  },
  {
   "name": "Garden Path Lacquers",
@@ -955,7 +1015,10 @@
     "name": "After Midnight",
     "file": "swatches/garden-path-lacquers/09.jpg"
    }
-  ]
+  ],
+  "booth": 21,
+  "boothX": 0.707,
+  "boothY": 0.36
  },
  {
   "name": "Glisten & Glow",
@@ -1015,7 +1078,10 @@
     "name": "",
     "file": "swatches/glisten-glow/10.jpg"
    }
-  ]
+  ],
+  "booth": 7,
+  "boothX": 0.587,
+  "boothY": 0.76
  },
  {
   "name": "Hearts and Promises",
@@ -1047,7 +1113,10 @@
     "name": "",
     "file": "swatches/hearts-and-promises/03.jpg"
    }
-  ]
+  ],
+  "booth": 11,
+  "boothX": 0.147,
+  "boothY": 0.725
  },
  {
   "name": "Jen & Berries",
@@ -1151,7 +1220,10 @@
     "name": "Chaos is its Own Reward",
     "file": "swatches/jen-berries/21.jpg"
    }
-  ]
+  ],
+  "booth": 3,
+  "boothX": 0.767,
+  "boothY": 0.55
  },
  {
   "name": "Lurid Lacquer",
@@ -1239,7 +1311,10 @@
     "name": "Yellow Coneflower",
     "file": "swatches/lurid-lacquer/17.jpg"
    }
-  ]
+  ],
+  "booth": 16,
+  "boothX": 0.377,
+  "boothY": 0.397
  },
  {
   "name": "LynBDesigns",
@@ -1270,7 +1345,10 @@
   "img": "vendors/manimod.jpg",
   "airtableInfo": "",
   "website": "https://themanimod.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 15,
+  "boothX": 0.262,
+  "boothY": 0.395
  },
  {
   "name": "Monarch Lacquer",
@@ -1318,7 +1396,10 @@
     "name": "Spiral Mode",
     "file": "swatches/monarch-lacquer/07.jpg"
    }
-  ]
+  ],
+  "booth": 40,
+  "boothX": 0.377,
+  "boothY": 0.665
  },
  {
   "name": "Peculiar Polish",
@@ -1338,7 +1419,10 @@
     "name": "",
     "file": "swatches/peculiar-polish/00.jpg"
    }
-  ]
+  ],
+  "booth": 44,
+  "boothX": 0.228,
+  "boothY": 0.69
  },
  {
   "name": "PI Colors",
@@ -1407,7 +1491,10 @@
     "name": "Black Manzanita",
     "file": "swatches/pi-colors/12.jpg"
    }
-  ]
+  ],
+  "booth": 45,
+  "boothX": 0.199,
+  "boothY": 0.617
  },
  {
   "name": "Pinnacle Polish",
@@ -1431,7 +1518,10 @@
     "name": "Midwest Salads collection",
     "file": "swatches/pinnacle-polish/01.jpg"
    }
-  ]
+  ],
+  "booth": 28,
+  "boothX": 0.555,
+  "boothY": 0.358
  },
  {
   "name": "Polish Pickup",
@@ -1447,7 +1537,10 @@
   "img": "vendors/polish-pickup.jpg",
   "airtableInfo": "",
   "website": "https://polishpickup.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 10,
+  "boothX": 0.198,
+  "boothY": 0.83
  },
  {
   "name": "Prism Parade",
@@ -1499,7 +1592,10 @@
     "name": "The Last Pharaoh",
     "file": "swatches/prism-parade/08.jpg"
    }
-  ]
+  ],
+  "booth": 48,
+  "boothX": 0.299,
+  "boothY": 0.487
  },
  {
   "name": "Psyche Minerals",
@@ -1523,7 +1619,10 @@
     "name": "",
     "file": "swatches/psyche-minerals/01.jpg"
    }
-  ]
+  ],
+  "booth": 46,
+  "boothX": 0.191,
+  "boothY": 0.56
  },
  {
   "name": "Raven Lacquer",
@@ -1574,7 +1673,10 @@
     "name": "Coffee Flight",
     "file": "swatches/raven-lacquer/08.jpg"
    }
-  ]
+  ],
+  "booth": 41,
+  "boothX": 0.341,
+  "boothY": 0.715
  },
  {
   "name": "Red Eyed Lacquer",
@@ -1686,7 +1788,10 @@
     "name": "",
     "file": "swatches/red-eyed-lacquer/23.jpg"
    }
-  ]
+  ],
+  "booth": 38,
+  "boothX": 0.603,
+  "boothY": 0.56
  },
  {
   "name": "Ribbits Stickits",
@@ -1710,7 +1815,10 @@
     "name": "All the Toads are Frogs",
     "file": "swatches/ribbits-stickits/01.jpg"
    }
-  ]
+  ],
+  "booth": 27,
+  "boothX": 0.498,
+  "boothY": 0.358
  },
  {
   "name": "Rogue Lacquer",
@@ -1770,7 +1878,10 @@
     "name": "Dirty Dancing Collection",
     "file": "swatches/rogue-lacquer/10.jpg"
    }
-  ]
+  ],
+  "booth": 2,
+  "boothX": 0.767,
+  "boothY": 0.44
  },
  {
   "name": "Sassy Sauce Polish",
@@ -1798,7 +1909,10 @@
     "name": "",
     "file": "swatches/sassy-sauce-polish/02.jpg"
    }
-  ]
+  ],
+  "booth": 24,
+  "boothX": 0.498,
+  "boothY": 0.463
  },
  {
   "name": "Snacker Lacquer",
@@ -1841,7 +1955,10 @@
     "name": "",
     "file": "swatches/snacker-lacquer/06.jpg"
    }
-  ]
+  ],
+  "booth": 47,
+  "boothX": 0.24,
+  "boothY": 0.505
  },
  {
   "name": "STELLA CHROMA",
@@ -1865,7 +1982,10 @@
     "name": "Romeo and Juliet",
     "file": "swatches/stella-chroma/01.jpg"
    }
-  ]
+  ],
+  "booth": 29,
+  "boothX": 0.615,
+  "boothY": 0.358
  },
  {
   "name": "Swamp Gloss",
@@ -1897,7 +2017,10 @@
     "name": "Leaky Space Blob",
     "file": "swatches/swamp-gloss/03.jpg"
    }
-  ]
+  ],
+  "booth": 31,
+  "boothX": 0.709,
+  "boothY": 0.665
  },
  {
   "name": "Sweet & Sour Lacquer",
@@ -2037,7 +2160,10 @@
     "name": "Just Because Flowers",
     "file": "swatches/sweet-sour-lacquer/30.jpg"
    }
-  ]
+  ],
+  "booth": 5,
+  "boothX": 0.767,
+  "boothY": 0.725
  },
  {
   "name": "Twinkle Hex Polish",
@@ -2097,7 +2223,10 @@
     "name": "Scenes from PBE",
     "file": "swatches/twinkle-hex-polish/10.jpg"
    }
-  ]
+  ],
+  "booth": 33,
+  "boothX": 0.567,
+  "boothY": 0.665
  },
  {
   "name": "Tyler’s Trinkets",
@@ -2181,7 +2310,10 @@
     "name": "Level-Headed Glitter Smoother",
     "file": "swatches/tyler-s-trinkets/16.jpg"
    }
-  ]
+  ],
+  "booth": 39,
+  "boothX": 0.378,
+  "boothY": 0.48
  },
  {
   "name": "Victorian Varnish",
@@ -2293,7 +2425,10 @@
     "name": "Lunar Libations",
     "file": "swatches/victorian-varnish/23.jpg"
    }
-  ]
+  ],
+  "booth": 12,
+  "boothX": 0.111,
+  "boothY": 0.63
  },
  {
   "name": "Waabooz Cosmetics",
@@ -2308,7 +2443,10 @@
   "img": "vendors/waabooz-cosmetics.jpg",
   "airtableInfo": "",
   "website": "https://waaboozcosmetics.com/",
-  "swatches": []
+  "swatches": [],
+  "booth": 6,
+  "boothX": 0.675,
+  "boothY": 0.76
  },
  {
   "name": "Zombie Claw",
@@ -2361,6 +2499,9 @@
     "name": "Zombie Claw Jen & Berries duo",
     "file": "swatches/zombie-claw/08.jpg"
    }
-  ]
+  ],
+  "booth": 4,
+  "boothX": 0.767,
+  "boothY": 0.635
  }
 ]

@@ -125,7 +125,7 @@ fun InfoScreen(saved: Saved, openJournal: (String) -> Unit) {
                 Column(Modifier.weight(1f)) {
                     Text("Swatches by the community Airtable", fontWeight = FontWeight.SemiBold)
                     Text(
-                        "Every polish photo and brand description in this app was collected by the " +
+                        "Every swatch photo and brand description in this app was collected by the " +
                             "swatchers who built the PBE 2026 community swatch Airtable. Go thank " +
                             "them — and add your own.",
                         color = MaterialTheme.colorScheme.onSurfaceVariant,

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 
 /**
  * The Saved tab: one place for everything the user marked — scratch notes, journal entries,
- * favourited polishes, and the vendors they starred or wrote a note about.
+ * favourited swatches, and the vendors they starred or wrote a note about.
  */
 @Composable
 fun SavedScreen(
@@ -69,7 +69,7 @@ fun SavedScreen(
         }
 
         if (loved.isNotEmpty()) {
-            item { Section("Saved polishes") }
+            item { Section("Saved swatches") }
             item {
                 LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     items(loved, key = { (_, sw) -> sw.file }) { (v, sw) ->

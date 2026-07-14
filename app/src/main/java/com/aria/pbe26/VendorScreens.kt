@@ -93,7 +93,7 @@ internal fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit, onMap:
                 Text(
                     listOfNotNull(
                         v.booth?.let { "Table ${it.table}" },
-                        if (v.swatches.isNotEmpty()) "${v.swatches.size} polishes" else null,
+                        if (v.swatches.isNotEmpty()) "${v.swatches.size} swatches" else null,
                     ).joinToString(" · "),
                     color = Pink,
                     fontSize = 12.sp,
@@ -108,7 +108,7 @@ internal fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit, onMap:
     }
 }
 
-/** A vendor's own page: who they are, what they wrote, and every polish they are bringing. */
+/** A vendor's own page: who they are, what they wrote, and every swatch posted for them. */
 @Composable
 fun VendorScreen(
     v: Vendor,
@@ -120,7 +120,7 @@ fun VendorScreen(
     val ctx = LocalContext.current
     var zoomed by remember { mutableStateOf<Int?>(null) } // index into v.swatches
 
-    // Arriving from a favourited polish: open straight onto it.
+    // Arriving from a favourited swatch: open straight onto it.
     LaunchedEffect(openSwatch) {
         val i = v.swatches.indexOfFirst { it.file == openSwatch }
         if (i >= 0) zoomed = i
@@ -174,7 +174,7 @@ fun VendorScreen(
                 )
                 Text(
                     if (v.swatches.isEmpty()) "No swatches posted for this vendor"
-                    else "${v.swatches.size} polishes",
+                    else "${v.swatches.size} swatches",
                     color = Pink,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = 6.dp),
@@ -213,7 +213,7 @@ fun VendorScreen(
     }
 }
 
-/** Full-size swatches: swipe left/right through the vendor's polishes, pinch any of them to zoom. */
+/** Full-size swatches: swipe left/right through the vendor's swatches, pinch any of them to zoom. */
 @Composable
 private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit) {
     val pager = rememberPagerState(initialPage = start) { v.swatches.size }
@@ -252,7 +252,7 @@ private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit
  * Pinch to zoom, drag to pan once zoomed, double-tap to reset.
  *
  * Gestures are only swallowed when they are ours (two fingers, or a drag while zoomed in), so a
- * plain swipe still flips the pager to the next polish.
+ * plain swipe still flips the pager to the next swatch.
  */
 @Composable
 private fun ZoomableImage(bmp: ImageBitmap, desc: String) {

@@ -92,7 +92,7 @@ internal fun rememberAsset(path: String, sample: Int = 1): ImageBitmap? {
     }
 }
 
-/** Bookmarks, favourite polishes, vendor notes and journals. Everything autosaves to prefs. */
+/** Bookmarks, favourite swatches, vendor notes and journals. Everything autosaves to prefs. */
 class Saved(ctx: Context) {
     private val prefs = ctx.getSharedPreferences("pbe26", Context.MODE_PRIVATE)
 

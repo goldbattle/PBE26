@@ -107,14 +107,14 @@ internal fun StarButton(v: Vendor, saved: Saved) {
     }
 }
 
-/** Favourite a polish. The heart is what puts it in the Saved tab. */
+/** Favourite a swatch. The heart is what puts it in the Saved tab. */
 @Composable
 internal fun HeartButton(file: String, saved: Saved, modifier: Modifier = Modifier) {
     val loved = file in saved.favourites
     IconButton(onClick = { saved.toggleFavourite(file) }, modifier = modifier) {
         Icon(
             if (loved) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-            contentDescription = if (loved) "Remove from saved polishes" else "Save this polish",
+            contentDescription = if (loved) "Remove from saved swatches" else "Save this swatch",
             tint = if (loved) Pink else Color.White.copy(alpha = 0.85f),
         )
     }

@@ -1,0 +1,29 @@
+{
+  "view": {
+    "lat": 41.555129,
+    "lon": -87.789539,
+    "zoom": 19
+  },
+  "layers": {
+    "floorplan": {
+      "image": "floorplan.png",
+      "width_px": 1800,
+      "height_px": 1390,
+      "lat": 41.5551074,
+      "lon": -87.7898503,
+      "rot_deg": 89.5,
+      "metres_per_px": 0.196097,
+      "alpha": 1.0
+    },
+    "booth_map": {
+      "image": "booth_map.png",
+      "width_px": 2048,
+      "height_px": 1387,
+      "lat": 41.5554521,
+      "lon": -87.7892602,
+      "rot_deg": 119.5,
+      "metres_per_px": 0.045935,
+      "alpha": 0.47
+    }
+  }
+}

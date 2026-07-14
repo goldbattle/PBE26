@@ -1,9 +1,9 @@
 package com.aria.pbe26
 
 import android.net.Uri
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -63,10 +63,10 @@ private val DAY2 = listOf(
 // ---------- screens ----------
 
 @Composable
-fun InfoScreen(saved: Saved, openJournal: (String) -> Unit) {
+fun InfoScreen(saved: Saved, scroll: ScrollState, openJournal: (String) -> Unit) {
     val ctx = LocalContext.current
     Column(
-        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
+        Modifier.fillMaxSize().verticalScroll(scroll).padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Card(Modifier.fillMaxWidth()) {

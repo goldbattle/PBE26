@@ -11,8 +11,8 @@ android {
         applicationId = "com.aria.pbe26"
         minSdk = 29
         targetSdk = 36
-        versionCode = 17
-        versionName = "3.3"
+        versionCode = 22
+        versionName = "3.8"
     }
 
     buildTypes {

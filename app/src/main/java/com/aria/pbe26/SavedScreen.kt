@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,6 +29,8 @@ import androidx.compose.ui.unit.sp
 fun SavedScreen(
     vendors: List<Vendor>,
     saved: Saved,
+    listState: LazyListState,
+    swatchRow: LazyListState,
     openJournal: (String) -> Unit,
     openVendor: (Vendor) -> Unit,
     onMap: (Vendor) -> Unit,
@@ -42,6 +45,7 @@ fun SavedScreen(
 
     LazyColumn(
         Modifier.fillMaxSize(),
+        state = listState,
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -69,9 +73,12 @@ fun SavedScreen(
         }
 
         if (loved.isNotEmpty()) {
-            item { Section("Saved swatches") }
+            item { Section("Saved Swatches") }
             item {
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                LazyRow(
+                    state = swatchRow,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
                     items(loved, key = { (_, sw) -> sw.file }) { (v, sw) ->
                         Column(Modifier.width(110.dp).clickable { openSwatch(v, sw.file) }) {
                             rememberAsset(sw.file, sample = 4)?.let {
@@ -100,7 +107,7 @@ fun SavedScreen(
             }
         }
 
-        item { Section("Vendors") }
+        item { Section("Saved Vendors") }
         if (mine.isEmpty()) {
             item {
                 Text(

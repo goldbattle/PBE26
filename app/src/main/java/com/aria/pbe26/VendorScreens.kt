@@ -36,6 +36,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
@@ -55,14 +56,19 @@ fun VendorsScreen(
     onOpen: (Vendor) -> Unit,
     onMap: (Vendor) -> Unit,
 ) {
+    // A search hits a vendor by their own name, or by any polish they are bringing — "heatwave"
+    // should find whoever makes it.
     val shown = vendors.filter {
-        query.isBlank() || it.name.contains(query, true) || it.owner.contains(query, true)
+        query.isBlank() ||
+            it.name.contains(query, true) ||
+            it.owner.contains(query, true) ||
+            it.swatches.any { sw -> sw.name.contains(query, true) }
     }
     Column(Modifier.fillMaxSize()) {
         OutlinedTextField(
             value = query,
             onValueChange = onQuery,
-            placeholder = { Text("Search ${vendors.size} vendors") },
+            placeholder = { Text("Search vendors and polishes") },
             leadingIcon = { Icon(Icons.Default.Search, null) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
@@ -72,38 +78,76 @@ fun VendorsScreen(
             contentPadding = PaddingValues(16.dp, 0.dp, 16.dp, 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(shown, key = { it.name }) { VendorRow(it, saved, onOpen, onMap) }
+            items(shown, key = { it.name }) { VendorRow(it, saved, onOpen, onMap, query) }
         }
     }
 }
 
-/** One line in the vendor list. Also reused by the Saved tab. */
+/**
+ * One line in the vendor list. Also reused by the Saved tab, which passes no [query].
+ *
+ * When the row is only in the list because one of its polishes matched, say which — otherwise a
+ * search for "heatwave" returns a list of brand names with no hint of why.
+ */
 @Composable
-internal fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit, onMap: (Vendor) -> Unit) {
+internal fun VendorRow(
+    v: Vendor,
+    saved: Saved,
+    onOpen: (Vendor) -> Unit,
+    onMap: (Vendor) -> Unit,
+    query: String = "",
+) {
     val note = saved.notes[v.name] ?: ""
+    // Only when a swatch is the *reason* this row is here: if the brand itself matched, the names
+    // add nothing and every row grows a paragraph.
+    val byName = v.name.contains(query, true) || v.owner.contains(query, true)
+    val hits = if (query.isBlank() || byName) emptyList()
+    else v.swatches.filter { it.name.contains(query, true) }
     Card(Modifier.fillMaxWidth().clickable { onOpen(v) }) {
-        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Avatar(v, 48.dp)
-            Spacer(Modifier.width(12.dp))
-            Column(Modifier.weight(1f)) {
-                Text(v.name, fontWeight = FontWeight.SemiBold)
-                if (v.owner.isNotBlank()) {
-                    Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
+        Column(Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Avatar(v, 48.dp)
+                Spacer(Modifier.width(12.dp))
+                Column(Modifier.weight(1f)) {
+                    Text(v.name, fontWeight = FontWeight.SemiBold)
+                    if (v.owner.isNotBlank()) {
+                        Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
+                    }
+                    Text(
+                        listOfNotNull(
+                            v.booth?.let { "Table ${it.table}" },
+                            if (v.swatches.isNotEmpty()) "${v.swatches.size} swatches" else null,
+                        ).joinToString(" · "),
+                        color = Pink,
+                        fontSize = 12.sp,
+                    )
                 }
+                NavigateButton(v, onMap)
+                StarButton(v, saved)
+            }
+            // Full card width, under everything: the matches are a list of names, and squeezing them
+            // into the column next to the avatar wraps them one word to a line.
+            if (hits.isNotEmpty()) {
                 Text(
-                    listOfNotNull(
-                        v.booth?.let { "Table ${it.table}" },
-                        if (v.swatches.isNotEmpty()) "${v.swatches.size} swatches" else null,
-                    ).joinToString(" · "),
+                    hits.joinToString(", ") { it.name },
+                    Modifier.padding(top = 8.dp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 12.sp,
+                    lineHeight = 16.sp,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            if (note.isNotBlank()) {
+                Text(
+                    "✎ $note",
+                    Modifier.padding(top = 6.dp),
                     color = Pink,
                     fontSize = 12.sp,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                 )
-                if (note.isNotBlank()) {
-                    Text("✎ $note", color = Pink, fontSize = 12.sp, maxLines = 1)
-                }
             }
-            NavigateButton(v, onMap)
-            StarButton(v, saved)
         }
     }
 }
@@ -217,32 +261,37 @@ fun VendorScreen(
 @Composable
 private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit) {
     val pager = rememberPagerState(initialPage = start) { v.swatches.size }
+    // Full width, but only as tall as the swatch it is showing — a portrait photo and a wide one
+    // should not both come wrapped in a screenful of black.
     Dialog(onDismissRequest = onClose, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-        Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.96f))) {
-            HorizontalPager(state = pager, Modifier.fillMaxSize()) { page ->
-                val sw = v.swatches[page]
-                Column(
-                    Modifier.fillMaxSize().padding(16.dp),
-                    verticalArrangement = Arrangement.Center,
-                ) {
-                    rememberAsset(sw.file)?.let { ZoomableImage(it, sw.name) }
-                    if (sw.name.isNotBlank()) {
-                        Text(
-                            sw.name,
-                            Modifier.padding(top = 14.dp),
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 18.sp,
-                        )
+        Surface(
+            Modifier.fillMaxWidth().padding(horizontal = 10.dp),
+            shape = RoundedCornerShape(18.dp),
+            color = MaterialTheme.colorScheme.surface,
+        ) {
+            Box {
+                HorizontalPager(state = pager, Modifier.fillMaxWidth()) { page ->
+                    val sw = v.swatches[page]
+                    Column(Modifier.fillMaxWidth().padding(12.dp)) {
+                        rememberAsset(sw.file)?.let { ZoomableImage(it, sw.name) }
+                        if (sw.name.isNotBlank()) {
+                            Text(
+                                sw.name,
+                                Modifier.padding(top = 12.dp),
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 18.sp,
+                            )
+                        }
+                        Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                     }
-                    Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                 }
-            }
-            Row(
-                Modifier.align(Alignment.TopEnd).padding(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                HeartButton(v.swatches[pager.currentPage].file, saved)
-                IconButton(onClick = onClose) { Icon(Icons.Default.Close, "Close", tint = Color.White) }
+                Row(
+                    Modifier.align(Alignment.TopEnd).padding(4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    HeartButton(v.swatches[pager.currentPage].file, saved)
+                    IconButton(onClick = onClose) { Icon(Icons.Default.Close, "Close", tint = Color.White) }
+                }
             }
         }
     }

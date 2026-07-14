@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
@@ -59,8 +60,12 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     var mapFocus by rememberSaveable { mutableStateOf<String?>(null) } // vendor to pin on the map
     val vendor = vendors.firstOrNull { it.name == openVendor }
 
-    // Hoisted so coming back from a vendor page lands where you left the list.
+    // Hoisted so coming back from a vendor page or a journal entry lands where you left off: these
+    // screens leave the composition while the page is open, and would otherwise scroll back to top.
     val vendorList = rememberLazyListState()
+    val infoScroll = rememberScrollState()
+    val savedList = rememberLazyListState()
+    val savedSwatchRow = rememberLazyListState()
     var query by rememberSaveable { mutableStateOf("") }
 
     // True while the Map tab was opened from a vendor, so back returns to the vendor list.
@@ -138,7 +143,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                 open != null -> JournalScreen(open, saved)
                 vendor != null -> VendorScreen(vendor, saved, ::showOnMap, openSwatch) { openSwatch = null }
                 else -> when (tab) {
-                    Tab.Info -> InfoScreen(saved) { journal = it }
+                    Tab.Info -> InfoScreen(saved, infoScroll) { journal = it }
                     Tab.Vendors -> VendorsScreen(
                         vendors, saved, vendorList, query, { query = it },
                         { openVendor = it.name }, ::showOnMap,
@@ -147,7 +152,8 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                         openVendor = it.name
                     }
                     Tab.Saved -> SavedScreen(
-                        vendors, saved, { journal = it }, { openVendor = it.name }, ::showOnMap,
+                        vendors, saved, savedList, savedSwatchRow,
+                        { journal = it }, { openVendor = it.name }, ::showOnMap,
                     ) { v, file -> openVendor = v.name; openSwatch = file }
                 }
             }

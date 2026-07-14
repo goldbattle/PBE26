@@ -9,3 +9,7 @@
 .cxx
 local.properties
 .aria_uploads/
+
+# python
+__pycache__/
+*.pyc

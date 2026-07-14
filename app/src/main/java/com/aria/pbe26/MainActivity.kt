@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.LruCache
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.AnimatedVisibility
@@ -229,6 +230,15 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     var journal by rememberSaveable { mutableStateOf<String?>(null) } // open journal entry, null = none
     var openVendor by rememberSaveable { mutableStateOf<String?>(null) } // vendor page, null = none
     val vendor = vendors.firstOrNull { it.name == openVendor }
+
+    // Back unwinds the app instead of leaving it: page -> tab -> Info -> (system handles exit).
+    BackHandler(enabled = journal != null || openVendor != null || tab != Tab.Info) {
+        when {
+            journal != null -> journal = null
+            openVendor != null -> openVendor = null
+            else -> tab = Tab.Info
+        }
+    }
 
     Scaffold(
         topBar = {

@@ -14,6 +14,10 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.calculatePan
+import androidx.compose.foundation.gestures.calculateZoom
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
@@ -25,6 +29,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.items
@@ -42,6 +47,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
@@ -151,6 +157,15 @@ class Saved(ctx: Context) {
         }
     }
 
+    val favourites = mutableStateSetOf<String>().apply {
+        addAll(prefs.getStringSet("favourites", emptySet())!!)
+    }
+
+    fun toggleFavourite(file: String) {
+        if (!favourites.remove(file)) favourites.add(file)
+        prefs.edit().putStringSet("favourites", favourites.toSet()).apply()
+    }
+
     fun toggleBookmark(name: String) {
         if (!bookmarks.remove(name)) bookmarks.add(name)
         prefs.edit().putStringSet("bookmarks", bookmarks.toSet()).apply()
@@ -249,6 +264,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     var tab by rememberSaveable { mutableStateOf(Tab.Info) }
     var journal by rememberSaveable { mutableStateOf<String?>(null) } // open journal entry, null = none
     var openVendor by rememberSaveable { mutableStateOf<String?>(null) } // vendor page, null = none
+    var openSwatch by rememberSaveable { mutableStateOf<String?>(null) } // swatch to pop up on it
     var mapFocus by rememberSaveable { mutableStateOf<String?>(null) } // vendor to pin on the map
     val vendor = vendors.firstOrNull { it.name == openVendor }
 
@@ -271,7 +287,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     BackHandler(enabled = journal != null || openVendor != null || tab != Tab.Info) {
         when {
             journal != null -> journal = null
-            openVendor != null -> openVendor = null
+            openVendor != null -> { openVendor = null; openSwatch = null }
             tab == Tab.Map && cameFromVendors -> {
                 cameFromVendors = false
                 mapFocus = null
@@ -293,7 +309,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                 },
                 navigationIcon = {
                     if (journal != null || vendor != null) {
-                        IconButton(onClick = { journal = null; openVendor = null }) {
+                        IconButton(onClick = { journal = null; openVendor = null; openSwatch = null }) {
                             Icon(Icons.Default.ArrowBack, "Back")
                         }
                     }
@@ -306,7 +322,13 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                 Tab.entries.forEach { t ->
                     NavigationBarItem(
                         selected = tab == t && journal == null && openVendor == null,
-                        onClick = { tab = t; journal = null; openVendor = null; cameFromVendors = false },
+                        onClick = {
+                            tab = t
+                            journal = null
+                            openVendor = null
+                            openSwatch = null
+                            cameFromVendors = false
+                        },
                         icon = { Icon(t.icon, null) },
                         label = { Text(t.label) },
                     )
@@ -318,7 +340,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
             val open = journal
             when {
                 open != null -> JournalScreen(open, saved)
-                vendor != null -> VendorScreen(vendor, saved, ::showOnMap)
+                vendor != null -> VendorScreen(vendor, saved, ::showOnMap, openSwatch) { openSwatch = null }
                 else -> when (tab) {
                     Tab.Info -> InfoScreen(saved) { journal = it }
                     Tab.Vendors -> VendorsScreen(
@@ -328,7 +350,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                     Tab.Map -> MapScreen(vendors.firstOrNull { it.name == mapFocus }) { mapFocus = null }
                     Tab.Saved -> SavedScreen(
                         vendors, saved, { journal = it }, { openVendor = it.name }, ::showOnMap,
-                    )
+                    ) { v, file -> openVendor = v.name; openSwatch = file }
                 }
             }
         }
@@ -579,9 +601,21 @@ private fun Blurb(text: String) {
 
 /** A vendor's own page: who they are, what they wrote, and every polish they are bringing. */
 @Composable
-private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
+private fun VendorScreen(
+    v: Vendor,
+    saved: Saved,
+    onMap: (Vendor) -> Unit,
+    openSwatch: String? = null,
+    onSwatchShown: () -> Unit = {},
+) {
     val ctx = LocalContext.current
     var zoomed by remember { mutableStateOf<Int?>(null) } // index into v.swatches
+
+    // Arriving from a favourited polish: open straight onto it.
+    LaunchedEffect(openSwatch) {
+        val i = v.swatches.indexOfFirst { it.file == openSwatch }
+        if (i >= 0) zoomed = i
+    }
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -648,6 +682,7 @@ private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
                     if (bmp != null) {
                         Image(bmp, sw.name, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
                     }
+                    HeartButton(sw.file, saved, Modifier.align(Alignment.TopEnd))
                 }
                 if (sw.name.isNotBlank()) {
                     Text(sw.name, fontSize = 12.sp, maxLines = 2, modifier = Modifier.padding(top = 4.dp))
@@ -657,14 +692,26 @@ private fun VendorScreen(v: Vendor, saved: Saved, onMap: (Vendor) -> Unit) {
     }
 
     zoomed?.let { start ->
-        SwatchPager(v, start) { zoomed = null }
+        SwatchPager(v, start, saved) { zoomed = null; onSwatchShown() }
     }
 }
 
-/** Full-size swatches: swipe left/right through everything the vendor is bringing. */
-@OptIn(ExperimentalMaterial3Api::class)
+/** Favourite a polish. The heart is what puts it in the Saved tab. */
 @Composable
-private fun SwatchPager(v: Vendor, start: Int, onClose: () -> Unit) {
+private fun HeartButton(file: String, saved: Saved, modifier: Modifier = Modifier) {
+    val loved = file in saved.favourites
+    IconButton(onClick = { saved.toggleFavourite(file) }, modifier = modifier) {
+        Icon(
+            if (loved) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+            contentDescription = if (loved) "Remove from saved polishes" else "Save this polish",
+            tint = if (loved) Pink else Color.White.copy(alpha = 0.85f),
+        )
+    }
+}
+
+/** Full-size swatches: swipe left/right through the vendor's polishes, pinch any of them to zoom. */
+@Composable
+private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit) {
     val pager = rememberPagerState(initialPage = start) { v.swatches.size }
     Dialog(onDismissRequest = onClose, properties = DialogProperties(usePlatformDefaultWidth = false)) {
         Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.96f))) {
@@ -674,14 +721,7 @@ private fun SwatchPager(v: Vendor, start: Int, onClose: () -> Unit) {
                     Modifier.fillMaxSize().padding(16.dp),
                     verticalArrangement = Arrangement.Center,
                 ) {
-                    rememberAsset(sw.file)?.let {
-                        Image(
-                            it,
-                            sw.name,
-                            Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)),
-                            contentScale = ContentScale.FillWidth,
-                        )
-                    }
+                    rememberAsset(sw.file)?.let { ZoomableImage(it, sw.name) }
                     if (sw.name.isNotBlank()) {
                         Text(
                             sw.name,
@@ -693,16 +733,59 @@ private fun SwatchPager(v: Vendor, start: Int, onClose: () -> Unit) {
                     Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                 }
             }
-            Text(
-                "${pager.currentPage + 1} / ${v.swatches.size}",
-                Modifier.align(Alignment.TopCenter).padding(top = 16.dp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                fontSize = 13.sp,
-            )
-            IconButton(onClick = onClose, modifier = Modifier.align(Alignment.TopEnd).padding(8.dp)) {
-                Icon(Icons.Default.Close, "Close", tint = Color.White)
+            Row(
+                Modifier.align(Alignment.TopEnd).padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                HeartButton(v.swatches[pager.currentPage].file, saved)
+                IconButton(onClick = onClose) { Icon(Icons.Default.Close, "Close", tint = Color.White) }
             }
         }
+    }
+}
+
+/**
+ * Pinch to zoom, drag to pan once zoomed, double-tap to reset.
+ *
+ * Gestures are only swallowed when they are ours (two fingers, or a drag while zoomed in), so a
+ * plain swipe still flips the pager to the next polish.
+ */
+@Composable
+private fun ZoomableImage(bmp: ImageBitmap, desc: String) {
+    var scale by remember { mutableStateOf(1f) }
+    var offset by remember { mutableStateOf(Offset.Zero) }
+    fun reset() { scale = 1f; offset = Offset.Zero }
+
+    Box(Modifier.fillMaxWidth().clipToBounds()) {
+        Image(
+            bmp,
+            desc,
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(12.dp))
+                .pointerInput(Unit) {
+                    awaitEachGesture {
+                        awaitFirstDown(requireUnconsumed = false)
+                        do {
+                            val event = awaitPointerEvent()
+                            val zoomed = scale > 1f
+                            if (event.changes.size > 1 || zoomed) {
+                                scale = (scale * event.calculateZoom()).coerceIn(1f, 6f)
+                                offset = if (scale > 1f) offset + event.calculatePan() else Offset.Zero
+                                event.changes.forEach { it.consume() }
+                            }
+                        } while (event.changes.any { it.pressed })
+                    }
+                }
+                .pointerInput(Unit) { detectTapGestures(onDoubleTap = { reset() }) }
+                .graphicsLayer {
+                    scaleX = scale
+                    scaleY = scale
+                    translationX = offset.x
+                    translationY = offset.y
+                },
+            contentScale = ContentScale.FillWidth,
+        )
     }
 }
 
@@ -828,6 +911,7 @@ private fun SavedScreen(
     openJournal: (String) -> Unit,
     openVendor: (Vendor) -> Unit,
     onMap: (Vendor) -> Unit,
+    openSwatch: (Vendor, String) -> Unit,
 ) {
     val ctx = LocalContext.current
     val prefs = remember { ctx.getSharedPreferences("pbe26", Context.MODE_PRIVATE) }
@@ -857,6 +941,40 @@ private fun SavedScreen(
                         Icon(Icons.Default.EditNote, null, tint = Pink)
                         Spacer(Modifier.width(12.dp))
                         Text(k, Modifier.weight(1f))
+                    }
+                }
+            }
+        }
+        val loved = vendors.flatMap { v -> v.swatches.filter { it.file in saved.favourites }.map { v to it } }
+        if (loved.isNotEmpty()) {
+            item { Section("Saved polishes") }
+            item {
+                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    items(loved, key = { (_, sw) -> sw.file }) { (v, sw) ->
+                        Column(
+                            Modifier.width(110.dp).clickable { openSwatch(v, sw.file) },
+                        ) {
+                            rememberAsset(sw.file, sample = 4)?.let {
+                                Image(
+                                    it,
+                                    sw.name,
+                                    Modifier.size(110.dp).clip(RoundedCornerShape(10.dp)),
+                                    contentScale = ContentScale.Crop,
+                                )
+                            }
+                            Text(
+                                sw.name.ifBlank { v.name },
+                                fontSize = 11.sp,
+                                maxLines = 2,
+                                modifier = Modifier.padding(top = 4.dp),
+                            )
+                            Text(
+                                v.name,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                fontSize = 10.sp,
+                                maxLines = 1,
+                            )
+                        }
                     }
                 }
             }

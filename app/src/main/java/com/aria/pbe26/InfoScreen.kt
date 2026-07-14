@@ -31,11 +31,15 @@ private data class Link(val label: String, val url: String, val icon: ImageVecto
 
 private const val ADDRESS = "18451 Convention Center Dr, Tinley Park, IL 60477"
 
+/** Where every swatch photo and brand blurb in this app came from; credited on each vendor too. */
+internal const val AIRTABLE = "https://airtable.com/embed/appHCStOEjlIqVBea/shrPc6rx46s6keM1T"
+
 private val LINKS = listOf(
     Link("Tickets (Eventbrite)", "https://polishandbeautyexpo2026.eventbrite.com", Icons.Default.ConfirmationNumber),
     Link("Official site", "https://polishandbeautyexpo.com/", Icons.Default.Language),
     Link("Full schedule", "https://polishandbeautyexpo.com/schedule/", Icons.Default.Schedule),
     Link("Vendor list", "https://polishandbeautyexpo.com/more-about-vendors/", Icons.Default.Storefront),
+    Link("Community swatch Airtable", AIRTABLE, Icons.Default.Palette),
     Link("Instagram @polishandbeautyexpo", "https://www.instagram.com/polishandbeautyexpo", Icons.Default.PhotoCamera),
     Link("Facebook group", "https://www.facebook.com/share/g/cmwJWG9PHfAMGb5p/", Icons.Default.Group),
     Link("Venue: Tinley Park Convention Center", "https://www.tinleyparkconventioncenter.net/", Icons.Default.Business),
@@ -110,6 +114,25 @@ fun InfoScreen(saved: Saved, openJournal: (String) -> Unit) {
                     Text(l.label, Modifier.weight(1f))
                     Icon(Icons.Default.OpenInNew, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
+            }
+        }
+
+        Section("Credits")
+        Card(Modifier.fillMaxWidth().clickable { open(ctx, AIRTABLE) }) {
+            Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.Favorite, null, tint = Pink)
+                Spacer(Modifier.width(12.dp))
+                Column(Modifier.weight(1f)) {
+                    Text("Swatches by the community Airtable", fontWeight = FontWeight.SemiBold)
+                    Text(
+                        "Every polish photo and brand description in this app was collected by the " +
+                            "swatchers who built the PBE 2026 community swatch Airtable. Go thank " +
+                            "them — and add your own.",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 13.sp,
+                    )
+                }
+                Icon(Icons.Default.OpenInNew, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
         Spacer(Modifier.height(8.dp))

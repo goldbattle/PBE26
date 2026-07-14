@@ -179,6 +179,14 @@ fun VendorScreen(
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = 6.dp),
                 )
+                if (v.swatchers.isNotEmpty()) {
+                    Text(
+                        "Swatched by ${v.swatchers.joinToString(", ")} for the community Airtable ↗",
+                        Modifier.clickable { open(ctx, AIRTABLE) },
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 12.sp,
+                    )
+                }
             }
         }
         itemsIndexed(v.swatches, key = { _, sw -> sw.file }) { i, sw ->

@@ -8,8 +8,8 @@ script writes:
 
 Writes:
     app/src/main/assets/swatches/<slug>/NN.jpg   one image per polish
-    app/src/main/assets/vendors.json             + swatches[], airtableInfo, website
-    app/src/main/res/drawable/booth_map.png      the expo's booth map
+    app/src/main/assets/vendors.json             + swatches[], swatchers[], airtableInfo, website
+    app/src/main/assets/maps/booth_map.png       the expo's booth map, only if we don't have it yet
 
 Needs: python 3, ImageMagick (`magick`) on PATH.
 """
@@ -28,7 +28,7 @@ SHARE = "https://airtable.com/embed/appHCStOEjlIqVBea/shrPc6rx46s6keM1T"
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ASSETS = os.path.join(ROOT, "app", "src", "main", "assets")
 SWATCH_DIR = os.path.join(ASSETS, "swatches")
-MAP_PNG = os.path.join(ROOT, "app", "src", "main", "res", "drawable", "booth_map.png")
+MAP_PNG = os.path.join(ASSETS, "maps", "booth_map.png")
 
 # The expo's own row (Brand = "Polish & Beauty Expo"). Its Swatches cell holds, in order:
 #   [0] accepted-payment-methods chart, [1] THE BOOTH MAP.
@@ -77,6 +77,11 @@ def rich_text(cell):
         return ""
     parts = [op.get("insert") for op in cell.get("documentValue", [])]
     return "".join(p for p in parts if isinstance(p, str)).strip()
+
+
+def people(cell):
+    """The "Owner/Swatcher info" cell: one name per line, sometimes two joined by "&"."""
+    return [n.strip() for n in re.split(r"[\n&]+", cell or "") if n.strip()]
 
 
 def norm(name):
@@ -163,9 +168,14 @@ def main():
         attachments = cell.get(swatch_col) or []
 
         if row["id"] == MAP_ROW:
-            if len(attachments) > MAP_ATTACHMENT:
+            # The shipped map is edited (feathered edges) and georeferenced against its exact pixel
+            # size, so never overwrite it. Delete the file to pull a fresh one -- and then re-align.
+            if os.path.exists(MAP_PNG):
+                print("booth map: keeping the aligned copy on disk")
+            elif len(attachments) > MAP_ATTACHMENT:
                 att = attachments[MAP_ATTACHMENT]
                 signed = signer.sign_row(row["id"], [swatch_col])
+                os.makedirs(os.path.dirname(MAP_PNG), exist_ok=True)
                 save_image(signed.get(att["url"], att["url"]), MAP_PNG, width=2400)
                 print("booth map ->", os.path.relpath(MAP_PNG, ROOT))
             continue
@@ -177,6 +187,7 @@ def main():
 
         vendor["airtableInfo"] = rich_text(cell.get(cols["Information"]))
         vendor["website"] = cell.get(cols["Website"]) or vendor.get("website", "")
+        vendor["swatchers"] = people(cell.get(cols["Owner/Swatcher info"]))
 
         slug = vendor["slug"]
         out = os.path.join(SWATCH_DIR, slug)
@@ -202,6 +213,7 @@ def main():
 
     for v in vendors:
         v.setdefault("swatches", [])
+        v.setdefault("swatchers", [])
         v.setdefault("airtableInfo", "")
         v.setdefault("website", "")
 

@@ -27,6 +27,7 @@ data class Vendor(
     val img: String, // asset path, e.g. "vendors/pinnacle-polish.jpg"
     val socials: List<Pair<String, String>>, // platform -> url
     val swatches: List<Swatch>,
+    val swatchers: List<String>, // who swatched this brand for the community Airtable
     val booth: Booth?, // null = not on the booth map
 )
 
@@ -42,6 +43,7 @@ internal fun parseVendors(json: String): List<Vendor> {
         val o = arr.getJSONObject(i)
         val s = o.getJSONObject("socials")
         val sw = o.optJSONArray("swatches")
+        val by = o.optJSONArray("swatchers")
         Vendor(
             name = o.getString("name"),
             owner = o.optString("owner"),
@@ -55,6 +57,7 @@ internal fun parseVendors(json: String): List<Vendor> {
                 val e = sw!!.getJSONObject(j)
                 Swatch(e.optString("name"), e.getString("file"))
             },
+            swatchers = (0 until (by?.length() ?: 0)).map { j -> by!!.getString(j) },
             booth = if (o.has("booth")) {
                 Booth(o.getInt("booth"), o.getDouble("boothX").toFloat(), o.getDouble("boothY").toFloat())
             } else {

@@ -62,7 +62,10 @@
   ],
   "booth": 17,
   "boothX": 0.444,
-  "boothY": 0.275
+  "boothY": 0.275,
+  "swatchers": [
+   "Christy Rose"
+  ]
  },
  {
   "name": "Polish & Beauty Expo",
@@ -80,7 +83,8 @@
   "website": "",
   "booth": 18,
   "boothX": 0.556,
-  "boothY": 0.274
+  "boothY": 0.274,
+  "swatchers": []
  },
  {
   "name": "Glitter Unique",
@@ -115,7 +119,11 @@
   ],
   "booth": 19,
   "boothX": 0.654,
-  "boothY": 0.274
+  "boothY": 0.274,
+  "swatchers": [
+   "Nikki",
+   "Brian Naumann"
+  ]
  },
  {
   "name": "1422 Designs",
@@ -158,7 +166,10 @@
   ],
   "booth": 35,
   "boothX": 0.464,
-  "boothY": 0.567
+  "boothY": 0.567,
+  "swatchers": [
+   "Bonnie Sytsma"
+  ]
  },
  {
   "name": "Alchemy Lacquers",
@@ -198,7 +209,10 @@
   ],
   "booth": 30,
   "boothX": 0.709,
-  "boothY": 0.58
+  "boothY": 0.58,
+  "swatchers": [
+   "Rebecca Schachter"
+  ]
  },
  {
   "name": "Arcana Lacquer",
@@ -225,7 +239,11 @@
   ],
   "booth": 14,
   "boothX": 0.194,
-  "boothY": 0.422
+  "boothY": 0.422,
+  "swatchers": [
+   "Abby Kraycar",
+   "Brandi David"
+  ]
  },
  {
   "name": "Atomic Polish",
@@ -268,7 +286,10 @@
   ],
   "booth": 1,
   "boothX": 0.767,
-  "boothY": 0.345
+  "boothY": 0.345,
+  "swatchers": [
+   "Stacey Matern"
+  ]
  },
  {
   "name": "Aura Bloom Polish",
@@ -315,7 +336,11 @@
   ],
   "booth": 20,
   "boothX": 0.714,
-  "boothY": 0.274
+  "boothY": 0.274,
+  "swatchers": [
+   "Laura Solis",
+   "Chelsea Brewer"
+  ]
  },
  {
   "name": "BCB Lacquers",
@@ -366,7 +391,10 @@
   ],
   "booth": 34,
   "boothX": 0.461,
-  "boothY": 0.677
+  "boothY": 0.677,
+  "swatchers": [
+   "Brittany Branecki"
+  ]
  },
  {
   "name": "Beaux Rêves Lacquer",
@@ -437,7 +465,10 @@
   "website": "https://www.beauxreveslacquer.com/",
   "booth": 9,
   "boothX": 0.417,
-  "boothY": 0.772
+  "boothY": 0.772,
+  "swatchers": [
+   "Sarah Bleything"
+  ]
  },
  {
   "name": "Bluebird Lacquer",
@@ -492,7 +523,11 @@
   ],
   "booth": 22,
   "boothX": 0.707,
-  "boothY": 0.45
+  "boothY": 0.45,
+  "swatchers": [
+   "Loucie Paskiewicz",
+   "Raechel Elizabeth"
+  ]
  },
  {
   "name": "Botanique by Monae",
@@ -509,7 +544,10 @@
   "swatches": [],
   "booth": 42,
   "boothX": 0.299,
-  "boothY": 0.752
+  "boothY": 0.752,
+  "swatchers": [
+   "Kenyae Gusta"
+  ]
  },
  {
   "name": "Broken Pixel Polish",
@@ -568,7 +606,10 @@
   ],
   "booth": 43,
   "boothX": 0.255,
-  "boothY": 0.747
+  "boothY": 0.747,
+  "swatchers": [
+   "Michelle Varsallona"
+  ]
  },
  {
   "name": "Clionadh Cosmetics",
@@ -623,7 +664,11 @@
   ],
   "booth": 23,
   "boothX": 0.575,
-  "boothY": 0.463
+  "boothY": 0.463,
+  "swatchers": [
+   "Leigh Cavanaugh",
+   "Maggie Cavanaugh"
+  ]
  },
  {
   "name": "Copacetic Cosmetics",
@@ -694,7 +739,10 @@
   ],
   "booth": 13,
   "boothX": 0.12,
-  "boothY": 0.49
+  "boothY": 0.49,
+  "swatchers": [
+   "Olivia Trujillo"
+  ]
  },
  {
   "name": "Cupcake Polish",
@@ -790,7 +838,11 @@
   ],
   "booth": 8,
   "boothX": 0.51,
-  "boothY": 0.76
+  "boothY": 0.76,
+  "swatchers": [
+   "Sara Casey",
+   "Ronita Dasgupta"
+  ]
  },
  {
   "name": "Dark Moon Esscentuals",
@@ -808,7 +860,10 @@
   "swatches": [],
   "booth": 25,
   "boothX": 0.464,
-  "boothY": 0.465
+  "boothY": 0.465,
+  "swatchers": [
+   "Aly Vanderlinde"
+  ]
  },
  {
   "name": "Dew Nail Polish",
@@ -826,7 +881,10 @@
   "swatches": [],
   "booth": 36,
   "boothX": 0.51,
-  "boothY": 0.56
+  "boothY": 0.56,
+  "swatchers": [
+   "Ruby Kay"
+  ]
  },
  {
   "name": "Dreamland Lacquer",
@@ -941,7 +999,10 @@
   ],
   "booth": 37,
   "boothX": 0.545,
-  "boothY": 0.56
+  "boothY": 0.56,
+  "swatchers": [
+   "Noelie Schaefer"
+  ]
  },
  {
   "name": "Envy Lacquer",
@@ -959,7 +1020,10 @@
   "swatches": [],
   "booth": 26,
   "boothX": 0.459,
-  "boothY": 0.359
+  "boothY": 0.359,
+  "swatchers": [
+   "Melody Mandegar"
+  ]
  },
  {
   "name": "Garden Path Lacquers",
@@ -1018,7 +1082,11 @@
   ],
   "booth": 21,
   "boothX": 0.707,
-  "boothY": 0.36
+  "boothY": 0.36,
+  "swatchers": [
+   "Karen Sloan",
+   "Kay Law"
+  ]
  },
  {
   "name": "Glisten & Glow",
@@ -1081,7 +1149,10 @@
   ],
   "booth": 7,
   "boothX": 0.587,
-  "boothY": 0.76
+  "boothY": 0.76,
+  "swatchers": [
+   "Jill Rehm"
+  ]
  },
  {
   "name": "Hearts and Promises",
@@ -1116,7 +1187,10 @@
   ],
   "booth": 11,
   "boothX": 0.147,
-  "boothY": 0.725
+  "boothY": 0.725,
+  "swatchers": [
+   "Christine Gieringer"
+  ]
  },
  {
   "name": "Jen & Berries",
@@ -1223,7 +1297,11 @@
   ],
   "booth": 3,
   "boothX": 0.767,
-  "boothY": 0.55
+  "boothY": 0.55,
+  "swatchers": [
+   "Jenny Locicero",
+   "Ezgi Sang"
+  ]
  },
  {
   "name": "Lurid Lacquer",
@@ -1314,7 +1392,10 @@
   ],
   "booth": 16,
   "boothX": 0.377,
-  "boothY": 0.397
+  "boothY": 0.397,
+  "swatchers": [
+   "Karen Cralli"
+  ]
  },
  {
   "name": "LynBDesigns",
@@ -1330,7 +1411,8 @@
   "img": "vendors/lynbdesigns.jpg",
   "swatches": [],
   "airtableInfo": "",
-  "website": ""
+  "website": "",
+  "swatchers": []
  },
  {
   "name": "Manimod",
@@ -1348,7 +1430,10 @@
   "swatches": [],
   "booth": 15,
   "boothX": 0.262,
-  "boothY": 0.395
+  "boothY": 0.395,
+  "swatchers": [
+   "Courtney and Ryan Halverson"
+  ]
  },
  {
   "name": "Monarch Lacquer",
@@ -1399,7 +1484,10 @@
   ],
   "booth": 40,
   "boothX": 0.377,
-  "boothY": 0.665
+  "boothY": 0.665,
+  "swatchers": [
+   "Adrienne Baird"
+  ]
  },
  {
   "name": "Peculiar Polish",
@@ -1422,7 +1510,10 @@
   ],
   "booth": 44,
   "boothX": 0.228,
-  "boothY": 0.69
+  "boothY": 0.69,
+  "swatchers": [
+   "Jessica Cuevas"
+  ]
  },
  {
   "name": "PI Colors",
@@ -1494,7 +1585,10 @@
   ],
   "booth": 45,
   "boothX": 0.199,
-  "boothY": 0.617
+  "boothY": 0.617,
+  "swatchers": [
+   "Trish Robal"
+  ]
  },
  {
   "name": "Pinnacle Polish",
@@ -1521,7 +1615,10 @@
   ],
   "booth": 28,
   "boothX": 0.555,
-  "boothY": 0.358
+  "boothY": 0.358,
+  "swatchers": [
+   "Liz Lampson"
+  ]
  },
  {
   "name": "Polish Pickup",
@@ -1540,7 +1637,11 @@
   "swatches": [],
   "booth": 10,
   "boothX": 0.198,
-  "boothY": 0.83
+  "boothY": 0.83,
+  "swatchers": [
+   "A community effort, organized by Adrienne Baird",
+   "Sarah Holmgren"
+  ]
  },
  {
   "name": "Prism Parade",
@@ -1595,7 +1696,10 @@
   ],
   "booth": 48,
   "boothX": 0.299,
-  "boothY": 0.487
+  "boothY": 0.487,
+  "swatchers": [
+   "Jill Patton"
+  ]
  },
  {
   "name": "Psyche Minerals",
@@ -1622,7 +1726,10 @@
   ],
   "booth": 46,
   "boothX": 0.191,
-  "boothY": 0.56
+  "boothY": 0.56,
+  "swatchers": [
+   "Molly Crane"
+  ]
  },
  {
   "name": "Raven Lacquer",
@@ -1676,7 +1783,10 @@
   ],
   "booth": 41,
   "boothX": 0.341,
-  "boothY": 0.715
+  "boothY": 0.715,
+  "swatchers": [
+   "Raven Johns"
+  ]
  },
  {
   "name": "Red Eyed Lacquer",
@@ -1791,7 +1901,10 @@
   ],
   "booth": 38,
   "boothX": 0.603,
-  "boothY": 0.56
+  "boothY": 0.56,
+  "swatchers": [
+   "Bianca Chapman"
+  ]
  },
  {
   "name": "Ribbits Stickits",
@@ -1818,7 +1931,10 @@
   ],
   "booth": 27,
   "boothX": 0.498,
-  "boothY": 0.358
+  "boothY": 0.358,
+  "swatchers": [
+   "Kristina Lilly"
+  ]
  },
  {
   "name": "Rogue Lacquer",
@@ -1881,7 +1997,11 @@
   ],
   "booth": 2,
   "boothX": 0.767,
-  "boothY": 0.44
+  "boothY": 0.44,
+  "swatchers": [
+   "Rachel Wraith",
+   "Rachel Ciardi"
+  ]
  },
  {
   "name": "Sassy Sauce Polish",
@@ -1912,7 +2032,11 @@
   ],
   "booth": 24,
   "boothX": 0.498,
-  "boothY": 0.463
+  "boothY": 0.463,
+  "swatchers": [
+   "Carrie Duffy",
+   "Maria Parton"
+  ]
  },
  {
   "name": "Snacker Lacquer",
@@ -1958,7 +2082,10 @@
   ],
   "booth": 47,
   "boothX": 0.24,
-  "boothY": 0.505
+  "boothY": 0.505,
+  "swatchers": [
+   "Leah Wylie"
+  ]
  },
  {
   "name": "STELLA CHROMA",
@@ -1985,7 +2112,10 @@
   ],
   "booth": 29,
   "boothX": 0.615,
-  "boothY": 0.358
+  "boothY": 0.358,
+  "swatchers": [
+   "Pam Rodgers"
+  ]
  },
  {
   "name": "Swamp Gloss",
@@ -2020,7 +2150,10 @@
   ],
   "booth": 31,
   "boothX": 0.709,
-  "boothY": 0.665
+  "boothY": 0.665,
+  "swatchers": [
+   "Katie Yazbeck"
+  ]
  },
  {
   "name": "Sweet & Sour Lacquer",
@@ -2163,7 +2296,11 @@
   ],
   "booth": 5,
   "boothX": 0.767,
-  "boothY": 0.725
+  "boothY": 0.725,
+  "swatchers": [
+   "Darlene Cavazos",
+   "Mani Centric"
+  ]
  },
  {
   "name": "Twinkle Hex Polish",
@@ -2226,7 +2363,11 @@
   ],
   "booth": 33,
   "boothX": 0.567,
-  "boothY": 0.665
+  "boothY": 0.665,
+  "swatchers": [
+   "Tracey Dunn",
+   "Rachel Mercier"
+  ]
  },
  {
   "name": "Tyler’s Trinkets",
@@ -2313,7 +2454,10 @@
   ],
   "booth": 39,
   "boothX": 0.378,
-  "boothY": 0.48
+  "boothY": 0.48,
+  "swatchers": [
+   "Tyler Seelbinder"
+  ]
  },
  {
   "name": "Victorian Varnish",
@@ -2428,7 +2572,13 @@
   ],
   "booth": 12,
   "boothX": 0.111,
-  "boothY": 0.63
+  "boothY": 0.63,
+  "swatchers": [
+   "Tammy Childers",
+   "Jackie Bodick",
+   "Jenn Baril",
+   "Aparna Agarwal"
+  ]
  },
  {
   "name": "Waabooz Cosmetics",
@@ -2446,7 +2596,10 @@
   "swatches": [],
   "booth": 6,
   "boothX": 0.675,
-  "boothY": 0.76
+  "boothY": 0.76,
+  "swatchers": [
+   "Alicia De La Cruz"
+  ]
  },
  {
   "name": "Zombie Claw",
@@ -2502,6 +2655,10 @@
   ],
   "booth": 4,
   "boothX": 0.767,
-  "boothY": 0.635
+  "boothY": 0.635,
+  "swatchers": [
+   "Sabrina Berg",
+   "Kelsey Throne"
+  ]
  }
 ]

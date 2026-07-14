@@ -42,6 +42,7 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
@@ -251,10 +252,14 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     val vendorList = rememberLazyListState()
     var query by rememberSaveable { mutableStateOf("") }
 
+    // True while the Map tab was opened from a vendor, so back returns to the vendor list.
+    var cameFromVendors by rememberSaveable { mutableStateOf(false) }
+
     fun showOnMap(v: Vendor) {
         openVendor = null
         journal = null
         mapFocus = v.name
+        cameFromVendors = true
         tab = Tab.Map
     }
 
@@ -263,6 +268,11 @@ fun App(vendors: List<Vendor>, saved: Saved) {
         when {
             journal != null -> journal = null
             openVendor != null -> openVendor = null
+            tab == Tab.Map && cameFromVendors -> {
+                cameFromVendors = false
+                mapFocus = null
+                tab = Tab.Vendors
+            }
             else -> tab = Tab.Info
         }
     }
@@ -292,7 +302,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                 Tab.entries.forEach { t ->
                     NavigationBarItem(
                         selected = tab == t && journal == null && openVendor == null,
-                        onClick = { tab = t; journal = null; openVendor = null },
+                        onClick = { tab = t; journal = null; openVendor = null; cameFromVendors = false },
                         icon = { Icon(t.icon, null) },
                         label = { Text(t.label) },
                     )
@@ -674,6 +684,7 @@ private enum class Layer(val label: String, val res: Int) {
 
 private const val MAP_ASPECT = 2048f / 1387f // booth_map.png
 private const val PIN_ZOOM = 3.5f
+private val PIN_SIZE = 30.dp
 
 @Composable
 private fun MapScreen(focus: Vendor?, onFocusShown: () -> Unit) {
@@ -739,14 +750,22 @@ private fun MapScreen(focus: Vendor?, onFocusShown: () -> Unit) {
                     modifier = Modifier.fillMaxSize(),
                 )
                 if (booth != null) {
-                    val w = maxWidth
-                    val h = maxHeight
+                    // The pin lives inside the zoomed layer, so undo the zoom on it: it stays the
+                    // same size on screen and its tip keeps pointing at the table.
                     Icon(
                         Icons.Default.Place,
                         "Table ${booth.table}",
                         Modifier
-                            .size(28.dp)
-                            .offset(x = w * booth.x - 14.dp, y = h * booth.y - 28.dp),
+                            .size(PIN_SIZE)
+                            .offset(
+                                x = maxWidth * booth.x - PIN_SIZE / 2,
+                                y = maxHeight * booth.y - PIN_SIZE,
+                            )
+                            .graphicsLayer {
+                                scaleX = 1f / scale
+                                scaleY = 1f / scale
+                                transformOrigin = TransformOrigin(0.5f, 1f) // the pin's tip
+                            },
                         tint = Pink,
                     )
                 }

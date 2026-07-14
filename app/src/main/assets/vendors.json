@@ -1,0 +1,583 @@
+[
+ {
+  "name": "KBShimmer",
+  "owner": "Christy Rose",
+  "page": "https://polishandbeautyexpo.com/vendors/kbshimmer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/KBShimmerBathandBody",
+   "x": "https://www.twitter.com/kbshimmer",
+   "youtube": "https://www.youtube.com/user/dudley3183/videos",
+   "instagram": "https://www.instagram.com/kbshimmer/"
+  },
+  "slug": "kbshimmer",
+  "bio": "Founded in 2008 by Christy Rose, KBShimmer proudly offers a distinctive collection of vibrant shades that can spark confidence and invoke joy in people everywhere. Now run by both Christy and her husband Jason, KBShimmer offers a dizzying array of beautiful nail polishes along with colorful sugar scrubs and luxurious hand care products! KBShimmer is proud to host Polish & Beauty Expo for the 6th year, and Christy and Jason look forward to also returning as a vendor and again offering PBE swag.",
+  "img": "vendors/kbshimmer.jpg"
+ },
+ {
+  "name": "Polish & Beauty Expo",
+  "owner": "",
+  "page": "https://polishandbeautyexpo.com/vendors/polish-beauty-expo/",
+  "socials": {
+   "facebook": "https://www.facebook.com/share/g/cmwJWG9PHfAMGb5p/",
+   "instagram": "https://www.instagram.com/polishandbeautyexpo"
+  },
+  "slug": "polish-beauty-expo",
+  "bio": "https://polishandbeautyexpo2025.eventbrite.com",
+  "img": "vendors/polish-beauty-expo.jpg"
+ },
+ {
+  "name": "Glitter Unique",
+  "owner": "Nikki & Brian Naumann",
+  "page": "https://polishandbeautyexpo.com/vendors/glitter-unique/",
+  "socials": {
+   "facebook": "https://www.facebook.com/GlitterUnique/",
+   "instagram": "https://www.instagram.com/glitterunique/"
+  },
+  "slug": "glitter-unique",
+  "bio": "Glitter Unique has supported the indie nail community since 2012, offering glitter, pigments, and supplies for every creator. From bulk products for established brands to smaller quantities for new makers and hobbyists, Glitter Unique helps bring visions to life. Sponsorships at Polish & Beauty Expo, Indie Expo Canada, and Polish & Dreams reflect a commitment to quality and community.",
+  "img": "vendors/glitter-unique.jpg"
+ },
+ {
+  "name": "1422 Designs",
+  "owner": "Bonnie Sytsma",
+  "page": "https://polishandbeautyexpo.com/vendors/1422-designs/",
+  "socials": {
+   "facebook": "https://www.facebook.com/1422designs",
+   "instagram": "https://www.instagram.com/1422designs"
+  },
+  "slug": "1422-designs",
+  "bio": "1422 Designs is celebrating its third year at PBE, and we couldn’t be more excited! Our journey began when founder Bonnie looked for a creative outlet to spend time with her two sons, making melt-and-pour soap. When she learned she could also create her own nail polishes, she was hooked. Bonnie fell in love with a process that lets her create a product that brings joy to so many.\n\nWe are excited to see all our friends and make new ones in Chicago in 2026!",
+  "img": "vendors/1422-designs.jpg"
+ },
+ {
+  "name": "Alchemy Lacquers",
+  "owner": "Rebecca Schachter",
+  "page": "https://polishandbeautyexpo.com/vendors/alchemy-lacquers/",
+  "socials": {
+   "facebook": "https://www.facebook.com/AlchemyLacquers",
+   "x": "https://www.twitter.com/alchemylacquers",
+   "instagram": "https://www.instagram.com/alchemylacquers/?hl=en"
+  },
+  "slug": "alchemy-lacquers",
+  "bio": "Made with love from Philadelphia, Alchemy Lacquers focuses on transforming ordinary glitter and pigments into extraordinary nail lacquers. In addition to our alchemy and nature themed 5-free nail lacquers, we also offer a variety of hand & nail care items, facial products, and bath & body products.",
+  "img": "vendors/alchemy-lacquers.jpg"
+ },
+ {
+  "name": "Arcana Lacquer",
+  "owner": "Abby Kraycar & Brandi David",
+  "page": "https://polishandbeautyexpo.com/vendors/arcana-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=61559641151461",
+   "instagram": "https://www.instagram.com/arcanalacquer"
+  },
+  "slug": "arcana-lacquer",
+  "bio": "Arcana Lacquer is a Baltimore-born indie nail polish brand, handcrafted by two friends fueled by witchy inspiration, video game lore, and the worlds all around us both real and fantastical. We create cruelty free, vegan, 10 free polishes in magical shades, mixed in small batches with love and designed to let everyone express their own unique magic.",
+  "img": "vendors/arcana-lacquer.jpg"
+ },
+ {
+  "name": "Atomic Polish",
+  "owner": "Stacey Matern",
+  "page": "https://polishandbeautyexpo.com/vendors/atomic_polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/atomicpolish",
+   "instagram": "http://www.instagram.com/atomicpolishmn"
+  },
+  "slug": "atomic-polish",
+  "bio": "Based in Minneapolis, Minnesota, Atomic Polish brings the science to beauty. Specializing in vivid neons and vibrant, long-wear colors, each shade is designed to spark creativity and confidence.",
+  "img": "vendors/atomic-polish.jpg"
+ },
+ {
+  "name": "Aura Bloom Polish",
+  "owner": "Laura Solis",
+  "page": "https://polishandbeautyexpo.com/vendors/aura-bloom-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/aurabloompolish",
+   "instagram": "https://www.instagram.com/aurabloompolish"
+  },
+  "slug": "aura-bloom-polish",
+  "bio": "Aura Bloom Polish is based around aura colors and their meanings. Auras are dynamic and ever-changing, they shift between a rainbow of bright, light, and dark colors. I created ABP out of my long term love of polish, my strong passion for creative expression, and my belief in auras, karma, and destiny.\n\nABP was founded in late 2024 and based in Kansas City. All polishes are 10-free, vegan, & cruelty free. We strongly believe and support equality, diversity, inclusiveness, and are a LGBTQIA+ ally.",
+  "img": "vendors/aura-bloom-polish.jpg"
+ },
+ {
+  "name": "BCB Lacquers",
+  "owner": "Brittany Branecki",
+  "page": "https://polishandbeautyexpo.com/vendors/bcb-lacquers/",
+  "socials": {
+   "facebook": "https://www.facebook.com/bcblacquers/",
+   "instagram": "https://www.instagram.com/bcblacquers/"
+  },
+  "slug": "bcb-lacquers",
+  "bio": "Founded in 2020 and based in Southern Florida, BCB Lacquers is a labor of love inspired by the spirit of my grandmother. We’re all about bold offerings and a diverse mix of colors and finishes that let your personality shine through. We also pride ourselves on top-of-the-line cuticle oils and whipped sugar scrubs!",
+  "img": "vendors/bcb-lacquers.jpg"
+ },
+ {
+  "name": "Beaux Rêves Lacquer",
+  "owner": "Sarah Bleything",
+  "page": "https://polishandbeautyexpo.com/vendors/beaux-reves-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/beauxreveslacquer/",
+   "instagram": "https://www.instagram.com/beauxreveslacquer/"
+  },
+  "slug": "beaux-r-ves-lacquer",
+  "bio": "Beaux Rêves Lacquer is made with love in Minnesota, created in 2023 in honor of my late French grandmother. She was the spark that ignited my passion for creativity. Specializing in eye-catching shimmers, our polishes feature a range of finishes. Whether you’re drawn to subtle pastels or bold, vibrant hues, each bottle is infused with a story of love, creativity, and a touch of magic.",
+  "img": "vendors/beaux-r-ves-lacquer.jpg"
+ },
+ {
+  "name": "Bluebird Lacquer",
+  "owner": "Loucie Paskiewicz",
+  "page": "https://polishandbeautyexpo.com/vendors/bluebird-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/groups/LouitYourself/",
+   "instagram": "https://www.instagram.com/bluebirdlacquer/?hl=en"
+  },
+  "slug": "bluebird-lacquer",
+  "bio": "Bluebird is beauty for everybirdy. Inspired by my love of birds and all things sparkly, I create nail polish that’s bold, whimsical, and inclusive. From shimmering multichromes to dazzling neons, each shade is made to bring joy and a little magic to everybirdy who wears it.",
+  "img": "vendors/bluebird-lacquer.jpg"
+ },
+ {
+  "name": "Botanique by Monae",
+  "owner": "Kenyae Gusta",
+  "page": "https://polishandbeautyexpo.com/vendors/botanique-by-monae/",
+  "socials": {
+   "instagram": "https://www.instagram.com/botaniquebymonae/"
+  },
+  "slug": "botanique-by-monae",
+  "bio": "Botanique by Monae is a handcrafted beauty brand experience. We formulate skincare products that are high in quality ingredients- plant based butters and oils – with a fun yet elegant presentation. All natural cold process soaps, lotions, body butter creams, body wash, body scrubs, body oils, magnesium creams, lip butter balms, herbal hair oil, and more, made in small batches to ensure freshness with your skin in mind. I hope you enjoy our fun, clean, and simple products. Pamper yourself!",
+  "img": "vendors/botanique-by-monae.jpg"
+ },
+ {
+  "name": "Broken Pixel Polish",
+  "owner": "Michelle Varsallona",
+  "page": "https://polishandbeautyexpo.com/vendors/broken-pixel-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/share/1ZNPKV4oWj/?mibextid=wwXIfr",
+   "instagram": "https://www.instagram.com/brokenpixelpolish"
+  },
+  "slug": "broken-pixel-polish",
+  "bio": "Broken Pixel Polish is a newer face in the indie nail polish scene, founded by Michelle Varsallona in Hamilton, New Jersey. Each bottle is 10-free and cruelty-free, crafted with care for a smooth application and long-lasting wear. We create nail polish as a form of artistic and personal expression, which often translates to sarcastic polish names or unconventional themes. We’re thrilled to be joining our first Polish & Beauty Expo!",
+  "img": "vendors/broken-pixel-polish.jpg"
+ },
+ {
+  "name": "Clionadh Cosmetics",
+  "owner": "Leigh Cavanaugh & Maggie Cavanaugh",
+  "page": "https://polishandbeautyexpo.com/vendors/clionadh-cosmetics/",
+  "socials": {
+   "facebook": "http://facebook.com/clionadhcosmetics",
+   "instagram": "https://www.instagram.com/clionadhcosmetics/?hl=en"
+  },
+  "slug": "clionadh-cosmetics",
+  "bio": "Clionadh Cosmetics is a vegan and cruelty-free indie brand that creates handmade, high-quality beauty products. Based out of Toronto, Canada, Clionadh is co-owned and operated by sisters Leigh & Maggie.",
+  "img": "vendors/clionadh-cosmetics.jpg"
+ },
+ {
+  "name": "Copacetic Cosmetics",
+  "owner": "Olivia Trujillo",
+  "page": "https://polishandbeautyexpo.com/vendors/copacetic-cosmetics/",
+  "socials": {
+   "facebook": "https://www.facebook.com/CopaceticCosmetics",
+   "instagram": "https://www.instagram.com/copaceticcosmetics/"
+  },
+  "slug": "copacetic-cosmetics",
+  "bio": "Copacetic Cosmetics is a small family owned cosmetics brand located in Edina Mo, that features over 1000 different shades! Founded in 2017 by Olivia, this SAHM’s fun side project has grown into a brand that has shipped to over 50 different countries! We specialize in fun and exciting makeup including eyeshadows, lip products, nail polishes and more! We truly have something for everyone and we can’t wait to see you!",
+  "img": "vendors/copacetic-cosmetics.jpg"
+ },
+ {
+  "name": "Cupcake Polish",
+  "owner": "Sara Casey",
+  "page": "https://polishandbeautyexpo.com/vendors/cupcake-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/cupcakepolish",
+   "x": "https://x.com/cupcakepolish",
+   "instagram": "https://www.instagram.com/cupcakepolish"
+  },
+  "slug": "cupcake-polish",
+  "bio": "Cupcake Polish was founded in 2013 in Dallas, TX and creates handmade special-effect nail polishes. Each small batch is crafted with love using the finest pigments and glitter to deliver long-lasting, salon-quality color that lets you express your individuality from tip to toe! We’ve been attending nail polish conventions since 2016 and are excited for our 3rd PBE event this year!",
+  "img": "vendors/cupcake-polish.jpg"
+ },
+ {
+  "name": "Dark Moon Esscentuals",
+  "owner": "Aly Vanderlinde",
+  "page": "https://polishandbeautyexpo.com/vendors/dark-moon-esscentuals/",
+  "socials": {
+   "facebook": "https://www.facebook.com/groups/darkmoonesscentuals/",
+   "instagram": "https://www.instagram.com/darkmoonesscentuals/"
+  },
+  "slug": "dark-moon-esscentuals",
+  "bio": "Dark Moon Esscentuals is a luxury, handmade skincare, bath, and body company that uses the highest quality ingredients to bring you amazing skincare. We focus on giving you products that provide an experience for your skin and helping you to establish a self-care routine you look forward to!",
+  "img": "vendors/dark-moon-esscentuals.jpg"
+ },
+ {
+  "name": "Dew Nail Polish",
+  "owner": "Ruby Kay",
+  "page": "https://polishandbeautyexpo.com/vendors/dew-nail-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/dewnailpolish/",
+   "instagram": "https://www.instagram.com/dewnailpolish/"
+  },
+  "slug": "dew-nail-polish",
+  "bio": "Dew Nail Polish was founded in 2020 by Ruby Kay, a chemical engineer who loves mixing stuff! Dew nail polish is handmade, vegan-friendly and 10-free. The brand’s name is inspired by the morning dew resembling freshness. We also make a line of natural cuticle oils, soy candles and whipped sugar body scrubs.",
+  "img": "vendors/dew-nail-polish.jpg"
+ },
+ {
+  "name": "Dreamland Lacquer",
+  "owner": "Noelie Schaefer",
+  "page": "https://polishandbeautyexpo.com/vendors/dreamland-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/DreamlandLacquer/",
+   "instagram": "https://www.instagram.com/dreamlandlacquer"
+  },
+  "slug": "dreamland-lacquer",
+  "bio": "Dreamland Lacquer offers handcrafted lacquers made with ingredients sourced from around the world, created in our home workshop in Missouri. Dreamland was founded in the summer of 2012 as Smitten Polish, and was born of a deep love of color and a (slight) obsession with nail polish. Our creator, Noelie, was a passionate nail polish collector and blogger, and a lifelong artist, so it was a natural leap into making polish. This is our first PBE and we can’t wait to see everyone in Chicago!",
+  "img": "vendors/dreamland-lacquer.jpg"
+ },
+ {
+  "name": "Envy Lacquer",
+  "owner": "Melody Mandegar",
+  "page": "https://polishandbeautyexpo.com/vendors/envy-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/EnvyLacquer/",
+   "instagram": "https://www.instagram.com/envylacquer"
+  },
+  "slug": "envy-lacquer",
+  "bio": "Envy Lacquer, founded by Melody Mandegar, has been handcrafting unique indie nail polish for over 10 years. Each polish is mixed by hand, from shimmers to glitters, every shade is made with care, passion and imagination. Rooted in the indie polish community, Envy Lacquer celebrates creativity, individuality, and the joy of wearing art on your nails.",
+  "img": "vendors/envy-lacquer.jpg"
+ },
+ {
+  "name": "Garden Path Lacquers",
+  "owner": "Karen Sloan",
+  "page": "https://polishandbeautyexpo.com/vendors/garden-path-lacquers/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=100075131905837",
+   "instagram": "https://www.instagram.com/gardenpathlacquers/"
+  },
+  "slug": "garden-path-lacquers",
+  "bio": "Garden Path Lacquers is a line of small-batch, hand-made nail polishes thoughtfully produced by Karen in Ohio. At Garden Path Lacquers we encourage you to embrace your individuality and curiosity by Straying from the Path.\n\nAll Garden Path Lacquers are vegan-friendly, big five chemical free, and cruelty free.",
+  "img": "vendors/garden-path-lacquers.jpg"
+ },
+ {
+  "name": "Glisten & Glow",
+  "owner": "Jill Rehm",
+  "page": "https://polishandbeautyexpo.com/vendors/glisten-glow/",
+  "socials": {
+   "facebook": "https://www.facebook.com/GlistenandGlow",
+   "instagram": "https://www.instagram.com/glistenandglow1/"
+  },
+  "slug": "glisten-glow",
+  "bio": "Jill Rehm, a nail technician since 1996, pioneered the indie nail world by founding Glisten & Glow in 2010. Based in Bristol, CT, Glisten & Glow has earned recognition for its award-winning nail care essentials, including top coats, base coats, cuticle oils, cuticle remover, and handmade polishes.\n\nJill is known for creating striking crème polish collections and dazzling special-effect shades featuring flakes, shimmers, holographics, and glitters. Her inspiration comes from a wide variety of sources—art, music, photography, nature, TV, movies, travel, and her decades of experience as a nail tech—resulting in truly unique and memorable products.\n\nWith a commitment to quality, creativity, and innovation, Jill and Glisten & Glow continue to elevate the nail industry one polish at a time.",
+  "img": "vendors/glisten-glow.jpg"
+ },
+ {
+  "name": "Hearts and Promises",
+  "owner": "Christine Gieringer",
+  "page": "https://polishandbeautyexpo.com/vendors/hearts-and-promises/",
+  "socials": {
+   "facebook": "https://www.facebook.com/groups/556452775236279",
+   "instagram": "https://www.instagram.com/hearts_and_promises/"
+  },
+  "slug": "hearts-and-promises",
+  "bio": "Hearts & Promises is a Pennsylvania based indie nail polish brand. The brand originally was known as Turtle Tootsie Polishes in 2015 but wanted a more sophisticated look and rebranded in 2018. It’s been a long time since we’ve done a polish convention and we are so excited to be accepted this year into PBE. Along with polish, we also create unique soaps, lip balms and scrubs which may be coming with us as well.",
+  "img": "vendors/hearts-and-promises.jpg"
+ },
+ {
+  "name": "Jen & Berries",
+  "owner": "Jenny Locicero",
+  "page": "https://polishandbeautyexpo.com/vendors/jen_berries/",
+  "socials": {
+   "facebook": "https://www.facebook.com/jandberries",
+   "instagram": "https://www.instagram.com/jandberries"
+  },
+  "slug": "jen-berries",
+  "bio": "Inspired by a desire for better beauty products, Jen & Berries was founded in 2019 when Jenny saw a lack of exciting nail polish as well as natural skin care options that were Vegan and Cruelty-Free. She set out to create a vibrant world with innovative nail care along with bold and daring nail polishes with the highest quality ingredients to bring a touch of personality to your fingertips because nail polish is more than just a cosmetic; it’s a form of self expression!",
+  "img": "vendors/jen-berries.jpg"
+ },
+ {
+  "name": "Lurid Lacquer",
+  "owner": "Karen Cralli",
+  "page": "https://polishandbeautyexpo.com/vendors/lurid-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=100094202853149",
+   "instagram": "https://www.instagram.com/luridlacquer/"
+  },
+  "slug": "lurid-lacquer",
+  "bio": "Founded in 2024 by Karen Cralli, Lurid Lacquer specializes in all things bold and bright.\n\nMy collections are visual narratives that use texture and color to tell stories and evoke emotions. I use a variety of special effects pigments, with a particular passion for reflective glitter and aurora shimmer. Each Lurid Lacquer polish is a work of art that tells a story.",
+  "img": "vendors/lurid-lacquer.jpg"
+ },
+ {
+  "name": "LynBDesigns",
+  "owner": "Jennalyn Miller",
+  "page": "https://polishandbeautyexpo.com/vendors/lynbdesigns/",
+  "socials": {
+   "facebook": "https://www.facebook.com/LynBDesigns",
+   "x": "https://twitter.com/lynbdesigns",
+   "instagram": "https://www.instagram.com/LynBDesigns/"
+  },
+  "slug": "lynbdesigns",
+  "bio": "LynBDesigns is a Michigan based brand that formed in 2011. We believe nail polish should be more than just a color it should be a conversation starter. We craft quirky, inspired, and one-of-a-kind shades that celebrate the fandoms and stories you love. We love to share our creativity through the magic of a little sparkle. We offer vegan 5-free polish that lets you wear your passions on your nails",
+  "img": "vendors/lynbdesigns.jpg"
+ },
+ {
+  "name": "Manimod",
+  "owner": "Courtney and Ryan Halverson",
+  "page": "https://polishandbeautyexpo.com/vendors/manimod/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=61556751385609",
+   "instagram": "https://www.instagram.com/themanimod"
+  },
+  "slug": "manimod",
+  "bio": "Manimod was founded in 2024 after Courtney’s nail polish collection grew from “a few too many bottles” into a full-blown obsession. What began as a search for a better way to organize her own collection quickly evolved into something much bigger.",
+  "img": "vendors/manimod.jpg"
+ },
+ {
+  "name": "Monarch Lacquer",
+  "owner": "Adrienne Baird",
+  "page": "https://polishandbeautyexpo.com/vendors/monarch-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=100092722140421",
+   "instagram": "https://www.instagram.com/monarchlacquer/"
+  },
+  "slug": "monarch-lacquer",
+  "bio": "Monarch Lacquer, based in Minnesota is owned by Adrienne Baird, who brings over a decade of experience to creating indie nail polish. Every shade is thoughtfully crafted to celebrate individuality, blending vibrant colors, unique finishes, and Adrienne’s passion for creativity into every bottle.",
+  "img": "vendors/monarch-lacquer.jpg"
+ },
+ {
+  "name": "Peculiar Polish",
+  "owner": "Jessica Cuevas",
+  "page": "https://polishandbeautyexpo.com/vendors/peculiar-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/groups/2030558460685084/?ref=share&#038;mibextid=NSMWBT",
+   "instagram": "https://www.instagram.com/peculiarpolish?igsh=MWZyejNwd3VyOGp0eA=="
+  },
+  "slug": "peculiar-polish",
+  "bio": "Peculiar Polish began in a hospital room in Aug ’23 after a life-altering event. I realized that my passion for unique and artistic nail polishes was more than just a hobby—it was a calling. It was in this period of recovery and reflection that the vision for Peculiar Polish took root. Each bottle of Peculiar Polish is a symbol of strength and individuality, empowering wearers to live boldly and celebrate their one-of-a-kind selves through vibrant colors and high-quality lacquer.",
+  "img": "vendors/peculiar-polish.jpg"
+ },
+ {
+  "name": "PI Colors",
+  "owner": "Trish Robal",
+  "page": "https://polishandbeautyexpo.com/vendors/pi-colors/",
+  "socials": {
+   "facebook": "https://www.facebook.com/picolors",
+   "youtube": "https://www.youtube.com/@picolors",
+   "instagram": "https://www.instagram.com/pinailcolors"
+  },
+  "slug": "pi-colors",
+  "bio": "PI Colors creates a wide array of luxurious nail polishes with many different colors, shimmers and other effects. We also handcraft small-batch bath and skincare products using high quality cosmetic pigments and ingredients. We’re always looking to create the next awesome array of nail colors and bath products with delicious scents for our shop. PI Colors is a black owned and woman owned business, created in 2017 and based in the Los Angeles area of sunny California.",
+  "img": "vendors/pi-colors.jpg"
+ },
+ {
+  "name": "Pinnacle Polish",
+  "owner": "Liz Lampson",
+  "page": "https://polishandbeautyexpo.com/vendors/pinnacle-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/PinnaclePolish",
+   "instagram": "https://www.instagram.com/pinnaclepolish/"
+  },
+  "slug": "pinnacle-polish",
+  "bio": "Pinnacle Polish is handmade with love in California by Liz since 2020. The Pinnacle logo is Mt Shasta, where I worked for several years as a mountain guide. I love representing natural elements in my polish with a special focus on rocks and wildflowers, plus of course my favorite color green.\n\nThis will be my 4th PBE, and I’m excited to see everyone again this year and share my creations with you!",
+  "img": "vendors/pinnacle-polish.jpg"
+ },
+ {
+  "name": "Polish Pickup",
+  "owner": "A community effort, organized by Adrienne Baird & Sarah Holmgren",
+  "page": "https://polishandbeautyexpo.com/vendors/polish-pickup/",
+  "socials": {
+   "facebook": "https://www.facebook.com/polishpickup",
+   "pinterest": "https://www.pinterest.com/polishpickup/",
+   "instagram": "https://www.instagram.com/polishpickup/"
+  },
+  "slug": "polish-pickup",
+  "bio": "Polish Pickup is thrilled to return to PBE next summer! What started as the biggest indie collab has become a community-driven tradition—fans suggest themes, makers create exclusives, and polish lovers look forward to it every month.",
+  "img": "vendors/polish-pickup.jpg"
+ },
+ {
+  "name": "Prism Parade",
+  "owner": "Jill Patton",
+  "page": "https://polishandbeautyexpo.com/vendors/prism-parade/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=61560709345786",
+   "instagram": "https://www.instagram.com/prism.parade"
+  },
+  "slug": "prism-parade",
+  "bio": "Prism Parade creates dazzling polishes with a high emphasis on shimmer and other special effects, using thematic elements of design, photography, and music to evoke immersive color stories. The brand launched in September 2024 and is a partnership between maker Jill Patton and her husband Dan. Rooted in inclusivity and celebrating your own unique sparkle, Prism Parade is thrilled to join PBE for the second year in a row in 2026!",
+  "img": "vendors/prism-parade.jpg"
+ },
+ {
+  "name": "Psyche Minerals",
+  "owner": "Molly Crane",
+  "page": "https://polishandbeautyexpo.com/vendors/psyche-minerals/",
+  "socials": {
+   "facebook": "https://www.facebook.com/PsycheMinerals/",
+   "instagram": "https://www.instagram.com/Psycheminerals/"
+  },
+  "slug": "psyche-minerals",
+  "bio": "Born in the Chicago suburbs, Psyche Minerals was founded in October of 2011. What started as an indie loose mineral cosmetics company evolved into a line of vibrant, hand-blended indie nail polishes. We officially launched them in September of 2020. Each bottle is a form of self-expression, designed to bring joy and color into your life, one manicure at a time.",
+  "img": "vendors/psyche-minerals.jpg"
+ },
+ {
+  "name": "Raven Lacquer",
+  "owner": "Raven Johns",
+  "page": "https://polishandbeautyexpo.com/vendors/raven-lacquer/",
+  "socials": {
+   "instagram": "https://www.instagram.com/raven_lacquer/"
+  },
+  "slug": "raven-lacquer",
+  "bio": "At Raven Lacquer, we don’t just make nail polish, we create wearable art. We specialize in being distinct and unique. Each collection is thoughtfully developed and handcrafted in Minnesota by Raven Johns.",
+  "img": "vendors/raven-lacquer.jpg"
+ },
+ {
+  "name": "Red Eyed Lacquer",
+  "owner": "Bianca Chapman",
+  "page": "https://polishandbeautyexpo.com/vendors/red-eyed-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/redeyedlacquer",
+   "instagram": "https://www.instagram.com/redeyedlacquer/"
+  },
+  "slug": "red-eyed-lacquer",
+  "bio": "Bianca Chapman is the creator behind Red Eyed Lacquer based out of DC and is so honored and excited to be back again at Polish and Beauty Expo.\n\nAn introvert at heart, but an extrovert in polish, there’s something for everyone at REL! From Shimmers to Flakes to Glow In The Darks and Thermals, you’re bound to find something you love in a variety of genre themes as well!\n\nWhile you’re visiting REL for the polish, don’t forget to check out the other amazing products we have to offer from Da Balm-er to Cuticle oils and so much more!",
+  "img": "vendors/red-eyed-lacquer.jpg"
+ },
+ {
+  "name": "Ribbits Stickits",
+  "owner": "Kristina Lilly",
+  "page": "https://polishandbeautyexpo.com/vendors/ribbits_stickits/",
+  "socials": {
+   "facebook": "https://www.facebook.com/groups/279255919087369",
+   "instagram": "https://www.instagram.com/ribbitsstickits/"
+  },
+  "slug": "ribbits-stickits",
+  "bio": "Ribbits Stickits, owned by Kristy Lilly, began 9 years ago with fun water slide nail decals and have expanded to scented products with unique house blended scents, stickers, pins, keychains and nail polish! Blending creativity, unique scents, and quirky polish colors, Ribbits Stickits is excited to become part of your nail and self-care routine!",
+  "img": "vendors/ribbits-stickits.jpg"
+ },
+ {
+  "name": "Rogue Lacquer",
+  "owner": "Rachel Wraith",
+  "page": "https://polishandbeautyexpo.com/vendors/rogue-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/RogueLacquer",
+   "instagram": "https://www.instagram.com/roguelacquer"
+  },
+  "slug": "rogue-lacquer",
+  "bio": "Rogue Lacquer is all about creativity, color, and a love for making beautiful things. I started the brand in 2018, but I’ve been making polish for over 10 years. Each shade is handmade in small batches, vegan, cruelty-free, and 5-free. Inspired by nature, pop culture, and everyday moments, every polish is designed to feel special, wearable, and to bring a little joy to your day.",
+  "img": "vendors/rogue-lacquer.jpg"
+ },
+ {
+  "name": "Sassy Sauce Polish",
+  "owner": "Carrie Duffy",
+  "page": "https://polishandbeautyexpo.com/vendors/sassy-sauce-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/sassysaucepolish",
+   "instagram": "https://www.instagram.com/sassysaucepolish/"
+  },
+  "slug": "sassy-sauce-polish",
+  "bio": "Sassy Sauce Polish burst onto the scene in 2017, straight outta the Chicago burbs. We mix up bold, one-of-a-kind 5-free shades made with love and only the finest ingredients we can get our hands on. Can’t wait to bring the sass to your nails in 2026—because boring polish is so last season.",
+  "img": "vendors/sassy-sauce-polish.jpg"
+ },
+ {
+  "name": "Snacker Lacquer",
+  "owner": "Leah Wylie",
+  "page": "https://polishandbeautyexpo.com/vendors/snacker-lacquer/",
+  "socials": {
+   "instagram": "https://www.instagram.com/snacker_lacquer/"
+  },
+  "slug": "snacker-lacquer",
+  "bio": "Snacker Lacquer was founded in 2025 by Leah, a long-time food and indie polish lover. She was inspired to create a nail polish line in honor of her love of snacking, hence her nickname “snacker.” Each polish & collection created at Snacker Lacquer is thoughtfully inspired by food/drinks, is 10-free, and is hand-mixed & poured in the state of Michigan. We hope you find a polish name or color that you connect with due to its possible reference to your favorite snack!",
+  "img": "vendors/snacker-lacquer.jpg"
+ },
+ {
+  "name": "STELLA CHROMA",
+  "owner": "Pam Rodgers",
+  "page": "https://polishandbeautyexpo.com/vendors/stella-chroma/",
+  "socials": {
+   "facebook": "https://www.facebook.com/STELLACHROMA/",
+   "instagram": "https://www.instagram.com/stellachroma"
+  },
+  "slug": "stella-chroma",
+  "bio": "STELLA CHROMA is your home for unique, big 5-free and cruelty-free nail polish and hand care! Founded and run by Pam Rodgers, a nurse practitioner who now works exclusively on STELLA CHROMA, inspiration for colors and scents is taken from the world around us! Giving back is important, so we donate a portion of sales to non-profits that promote STEM careers to girls! More than $26,000 has been donated since 2017!",
+  "img": "vendors/stella-chroma.jpg"
+ },
+ {
+  "name": "Swamp Gloss",
+  "owner": "Katie Yazbeck",
+  "page": "https://polishandbeautyexpo.com/vendors/swamp-gloss/",
+  "socials": {
+   "facebook": "https://www.facebook.com/swampgloss/",
+   "instagram": "https://www.instagram.com/swampglosspolish/"
+  },
+  "slug": "swamp-gloss",
+  "bio": "Swamp Gloss is nerdy by nature. We thrive on bringing you unique and funky lacquers in the name of your favorite fandoms. Handmade for the pop culture enthusiast in us all!",
+  "img": "vendors/swamp-gloss.jpg"
+ },
+ {
+  "name": "Sweet & Sour Lacquer",
+  "owner": "Darlene Cavazos",
+  "page": "https://polishandbeautyexpo.com/vendors/sweet_sour_lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/sweetandsourlacquer",
+   "instagram": "https://www.instagram.com/sweetandsourlacquer/"
+  },
+  "slug": "sweet-sour-lacquer",
+  "bio": "Sweet & Sour Lacquer has grown into a trusted nail polish brand in the indie nail polish community since being established in 2015. The brand’s style is often described unorthodox, thriving on spontaneous releases and non-mainstream inspirations — designed for nail polish lovers craving the unexpected, playful, and weird.",
+  "img": "vendors/sweet-sour-lacquer.jpg"
+ },
+ {
+  "name": "Twinkle Hex Polish",
+  "owner": "Tracey Dunn",
+  "page": "https://polishandbeautyexpo.com/vendors/twinkle-hex-polish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/p/Twinkle-Hex-Polish-61574103912074/",
+   "instagram": "https://www.instagram.com/twinkle_hex_polish/"
+  },
+  "slug": "twinkle-hex-polish",
+  "bio": "Twinkle Hex Polish is your destination for uniquely crafted polishes, all handmade in small batches in Tennessee. As a longtime polish collector, Tracey Dunn founded Twinkle Hex in 2024 to bring her vision of what indie polish could be to life and have fun in the process. This is my first Polish & Beauty Expo, and I cannot wait to meet my fellow polish fanatics.",
+  "img": "vendors/twinkle-hex-polish.jpg"
+ },
+ {
+  "name": "Tyler’s Trinkets",
+  "owner": "Tyler Seelbinder",
+  "page": "https://polishandbeautyexpo.com/vendors/tylers-trinkets/",
+  "socials": {
+   "facebook": "https://www.facebook.com/tylerstrinketsny",
+   "instagram": "https://www.instagram.com/tylerstrinketsny"
+  },
+  "slug": "tyler-s-trinkets",
+  "bio": "We are so excited to be back for our 2nd year at PBE and can’t wait to see familiar faces and meet new ones! Tyler’s Trinkets began in 2022, channeling a passion for self-expression to offer hand-mixed nail lacquers alongside a variety of unique jewelry and trinkets. As a proudly queer-owned business, and someone who didn’t have an environment to embrace my true self when I was younger, I strive to create products that can provide a way for everyone to express their unique and beautiful selves!",
+  "img": "vendors/tyler-s-trinkets.jpg"
+ },
+ {
+  "name": "Victorian Varnish",
+  "owner": "Tammy Childers",
+  "page": "https://polishandbeautyexpo.com/vendors/victorian-varnish/",
+  "socials": {
+   "facebook": "https://www.facebook.com/profile.php?id=100089056513403",
+   "instagram": "https://www.instagram.com/victorianvarnish/"
+  },
+  "slug": "victorian-varnish",
+  "bio": "Victorian Varnish is thrilled to be back in Tinley Park for our 3rd year! VV was founded on a love of Steampunk, Indie Polish, & a passion for Nail Art. Always in The Pursuit of Polish we offer creative and unique finishes in our polishes as well as our Apothecary items. We believe everyone has the ability in every mani to let your creativity soar higher than the Airships! We look forward to seeing familiar faces and meeting new ones!",
+  "img": "vendors/victorian-varnish.jpg"
+ },
+ {
+  "name": "Waabooz Cosmetics",
+  "owner": "Alicia De La Cruz",
+  "page": "https://polishandbeautyexpo.com/vendors/leeshas-lacquer/",
+  "socials": {
+   "facebook": "https://www.facebook.com/WaaboozCosmetics/",
+   "instagram": "https://www.instagram.com/waaboozcosmetics"
+  },
+  "slug": "waabooz-cosmetics",
+  "bio": "Waabooz Cosmetics (pronounced WAH-BOOZE) is proudly indigenous (Ojibwe) and two spirit owned. From N.E Minneapolis, Minnesota we make nail polishes, nail care products and other fun things including beadwork!",
+  "img": "vendors/waabooz-cosmetics.jpg"
+ },
+ {
+  "name": "Zombie Claw",
+  "owner": "Sabrina Berg",
+  "page": "https://polishandbeautyexpo.com/vendors/zombie_claw/",
+  "socials": {
+   "facebook": "https://www.facebook.com/groups/150225319005107/",
+   "instagram": "https://www.instagram.com/zombieclawpolish/",
+   "x": "https://twitter.com/polishbeautyexp"
+  },
+  "slug": "zombie-claw",
+  "bio": "Zombie Claw Polish brings the undead to your fingertips with bold, haunting shades inspired by books, romance, and TV shows. Our #1 best-seller? Deep black flakie polishes that shimmer like shadows and scream individuality. Whether you’re drawn to moody lyrics, twisted tales, or binge-worthy horror, our polishes channel the vibe—one claw at a time. Dare to be dark. Stay beautifully twisted and crawl into color!",
+  "img": "vendors/zombie-claw.jpg"
+ }
+]

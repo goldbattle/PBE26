@@ -1,34 +1,22 @@
 package com.aria.pbe26
 
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
-import android.graphics.drawable.AnimatedImageDrawable
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
-import android.widget.ImageView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -47,20 +35,14 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.compose.ui.zIndex
 import org.json.JSONArray
-import org.json.JSONObject
 
 // ---------- data ----------
 
@@ -104,16 +86,6 @@ private fun rememberAsset(path: String): ImageBitmap? {
     }
 }
 
-/** One piece of a journal entry: a paragraph, or a photo/GIF with a comment under it. */
-data class Block(
-    val id: Long = nextBlockId(),
-    val photo: String? = null,
-    val text: String = "",
-)
-
-private var blockSeq = System.currentTimeMillis()
-private fun nextBlockId(): Long = blockSeq++
-
 /** Bookmarks, vendor notes and journals. Everything autosaves to SharedPreferences. */
 class Saved(ctx: Context) {
     private val prefs = ctx.getSharedPreferences("pbe26", Context.MODE_PRIVATE)
@@ -126,9 +98,9 @@ class Saved(ctx: Context) {
             if (k.startsWith("note:") && v is String && v.isNotBlank()) put(k.removePrefix("note:"), v)
         }
     }
-    val journals = mutableStateMapOf<String, List<Block>>().apply {
+    val journals = mutableStateMapOf<String, String>().apply {
         prefs.all.forEach { (k, v) ->
-            if (k.startsWith("journal:") && v is String) put(k.removePrefix("journal:"), decode(v))
+            if (k.startsWith("journal:") && v is String) put(k.removePrefix("journal:"), plainText(v))
         }
     }
 
@@ -142,27 +114,21 @@ class Saved(ctx: Context) {
         prefs.edit().putString("note:$name", text).apply()
     }
 
-    fun setJournal(key: String, blocks: List<Block>) {
-        journals[key] = blocks
-        prefs.edit().putString("journal:$key", encode(blocks)).apply()
+    fun setJournal(key: String, text: String) {
+        journals[key] = text
+        prefs.edit().putString("journal:$key", text).apply()
     }
 
-    private fun encode(blocks: List<Block>) = JSONArray().apply {
-        blocks.forEach {
-            put(JSONObject().put("id", it.id).put("photo", it.photo ?: JSONObject.NULL).put("text", it.text))
-        }
-    }.toString()
-
-    private fun decode(s: String): List<Block> {
-        val arr = JSONArray(s)
-        return (0 until arr.length()).map { i ->
-            val o = arr.getJSONObject(i)
-            Block(
-                id = if (o.has("id")) o.getLong("id") else nextBlockId(),
-                photo = if (o.isNull("photo")) null else o.getString("photo"),
-                text = o.optString("text"),
-            )
-        }
+    /** Journals used to be a JSON list of blocks; keep the words from any entry written back then. */
+    private fun plainText(stored: String): String {
+        if (!stored.startsWith("[")) return stored
+        return runCatching {
+            val arr = JSONArray(stored)
+            (0 until arr.length())
+                .map { arr.getJSONObject(it).optString("text") }
+                .filter { it.isNotBlank() }
+                .joinToString("\n\n")
+        }.getOrDefault(stored)
     }
 }
 
@@ -339,20 +305,19 @@ private fun Section(text: String) {
 @Composable
 private fun SlotRow(s: Slot, saved: Saved, openJournal: (String) -> Unit) {
     val key = "${s.time} · ${s.what}"
-    val blocks = saved.journals[key].orEmpty()
+    val entry = saved.journals[key].orEmpty()
     Card(Modifier.fillMaxWidth().clickable { openJournal(key) }) {
         Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
                 Text(s.time, fontWeight = FontWeight.SemiBold)
                 Text(s.what)
                 Text(s.where, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
-                if (blocks.isNotEmpty()) {
-                    val photos = blocks.count { it.photo != null }
-                    val words = blocks.count { it.photo == null && it.text.isNotBlank() }
+                if (entry.isNotBlank()) {
                     Text(
-                        "✎ journal · $words note(s), $photos photo(s)",
+                        "✎ ${entry.trim()}",
                         color = Pink,
                         fontSize = 12.sp,
+                        maxLines = 1,
                         modifier = Modifier.padding(top = 4.dp),
                     )
                 }
@@ -364,202 +329,30 @@ private fun SlotRow(s: Slot, saved: Saved, openJournal: (String) -> Unit) {
 
 // ---------- journal ----------
 
-/** Media goes into Pictures/PBE26 so it shows up in Photos, whether shot or picked. */
-private fun newMediaUri(ctx: Context, mime: String = "image/jpeg"): Uri? {
-    val ext = if ("gif" in mime) "gif" else "jpg"
-    return ctx.contentResolver.insert(
-        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-        ContentValues().apply {
-            put(MediaStore.Images.Media.DISPLAY_NAME, "PBE26_${System.currentTimeMillis()}.$ext")
-            put(MediaStore.Images.Media.MIME_TYPE, mime)
-            put(MediaStore.Images.Media.RELATIVE_PATH, "${Environment.DIRECTORY_PICTURES}/PBE26")
-        },
-    )
-}
-
-/** Copy a picked image/GIF into our own media entry: the picker's grant does not survive a restart. */
-private fun importMedia(ctx: Context, src: Uri): Uri? {
-    val mime = ctx.contentResolver.getType(src) ?: "image/jpeg"
-    val dst = newMediaUri(ctx, mime) ?: return null
-    return runCatching {
-        ctx.contentResolver.openInputStream(src)!!.use { input ->
-            ctx.contentResolver.openOutputStream(dst)!!.use { input.copyTo(it) }
-        }
-        dst
-    }.getOrNull()
-}
-
 @Composable
 private fun JournalScreen(key: String, saved: Saved) {
-    val ctx = LocalContext.current
-    val haptics = LocalHapticFeedback.current
-    val blocks = saved.journals[key].orEmpty()
-    fun update(new: List<Block>) = saved.setJournal(key, new)
-
-    var shotUri by remember { mutableStateOf<Uri?>(null) }
-    val camera = rememberLauncherForActivityResult(ActivityResultContracts.TakePicture()) { ok ->
-        shotUri?.let { if (ok) update(blocks + Block(photo = it.toString())) }
-        shotUri = null
+    val text = saved.journals[key].orEmpty()
+    Column(Modifier.fillMaxSize().padding(horizontal = 16.dp)) {
+        Text(
+            "Saves as you type.",
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 12.sp,
+            modifier = Modifier.padding(vertical = 8.dp),
+        )
+        TextField(
+            value = text,
+            onValueChange = { saved.setJournal(key, it) },
+            placeholder = { Text("Write it down\u2026") },
+            modifier = Modifier.fillMaxSize().padding(bottom = 16.dp),
+            textStyle = LocalTextStyle.current.copy(fontSize = 16.sp, lineHeight = 26.sp),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                focusedIndicatorColor = Pink,
+                unfocusedIndicatorColor = Color.Transparent,
+            ),
+        )
     }
-    val picker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { picked ->
-        picked?.let { src -> importMedia(ctx, src)?.let { update(blocks + Block(photo = it.toString())) } }
-    }
-
-    // Drag-to-reorder tracks the block by id, so the card keeps following your finger while the
-    // list reshuffles underneath it.
-    var dragId by remember { mutableStateOf<Long?>(null) }
-    var dragBy by remember { mutableFloatStateOf(0f) }
-    val heights = remember { mutableStateMapOf<Long, Int>() }
-
-    LazyColumn(
-        Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-    ) {
-        item {
-            Text(
-                "Saves as you type. Long-press a card to drag it anywhere. Photos and GIFs also land in your Photos.",
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                fontSize = 12.sp,
-            )
-        }
-        items(blocks, key = { it.id }) { b ->
-            val dragging = dragId == b.id
-            val lift by animateFloatAsState(if (dragging) 1.03f else 1f, label = "lift")
-            Box(
-                Modifier
-                    .zIndex(if (dragging) 1f else 0f)
-                    .onGloballyPositioned { heights[b.id] = it.size.height }
-                    .graphicsLayer {
-                        translationY = if (dragging) dragBy else 0f
-                        scaleX = lift
-                        scaleY = lift
-                        shadowElevation = if (dragging) 24f else 0f
-                    }
-                    .then(if (dragging) Modifier else Modifier.animateItem())
-                    .pointerInput(b.id) {
-                        detectDragGesturesAfterLongPress(
-                            onDragStart = {
-                                dragId = b.id
-                                dragBy = 0f
-                                haptics.performHapticFeedback(HapticFeedbackType.LongPress)
-                            },
-                            onDragEnd = { dragId = null; dragBy = 0f },
-                            onDragCancel = { dragId = null; dragBy = 0f },
-                            onDrag = { _, amount ->
-                                dragBy += amount.y
-                                val cur = saved.journals[key].orEmpty()
-                                val i = cur.indexOfFirst { it.id == b.id }
-                                if (i >= 0) {
-                                    val step = ((heights[b.id] ?: 0) + 10).toFloat() // card + list spacing
-                                    val to = when {
-                                        dragBy > step / 2 && i < cur.lastIndex -> i + 1
-                                        dragBy < -step / 2 && i > 0 -> i - 1
-                                        else -> i
-                                    }
-                                    if (to != i) {
-                                        dragBy -= (to - i) * step
-                                        update(cur.toMutableList().also { it.add(to, it.removeAt(i)) })
-                                        haptics.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                                    }
-                                }
-                            },
-                        )
-                    },
-            ) {
-                BlockEditor(
-                    block = b,
-                    dragging = dragging,
-                    onChange = { text ->
-                        val cur = saved.journals[key].orEmpty()
-                        val i = cur.indexOfFirst { it.id == b.id }
-                        if (i >= 0) update(cur.toMutableList().also { it[i] = b.copy(text = text) })
-                    },
-                    onDelete = { update(blocks.filterNot { it.id == b.id }) },
-                )
-            }
-        }
-        item {
-            Row(Modifier.padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = { update(blocks + Block(text = "")) }) {
-                    Icon(Icons.Default.Add, null); Spacer(Modifier.width(6.dp)); Text("Text")
-                }
-                OutlinedButton(onClick = { newMediaUri(ctx)?.let { shotUri = it; camera.launch(it) } }) {
-                    Icon(Icons.Default.PhotoCamera, null); Spacer(Modifier.width(6.dp)); Text("Camera")
-                }
-                OutlinedButton(onClick = {
-                    picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
-                }) {
-                    Icon(Icons.Default.Gif, null); Spacer(Modifier.width(6.dp)); Text("GIF")
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun BlockEditor(block: Block, dragging: Boolean, onChange: (String) -> Unit, onDelete: () -> Unit) {
-    Card(
-        Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = if (dragging) MaterialTheme.colorScheme.surfaceVariant
-            else MaterialTheme.colorScheme.surface,
-        ),
-    ) {
-        Column(Modifier.padding(10.dp)) {
-            if (block.photo != null) {
-                Media(block.photo, Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp)))
-            }
-            TextField(
-                value = block.text,
-                onValueChange = onChange,
-                placeholder = {
-                    Text(if (block.photo != null) "Say something about this\u2026" else "Write it down\u2026")
-                },
-                modifier = Modifier.fillMaxWidth().padding(top = if (block.photo != null) 8.dp else 0.dp),
-                minLines = if (block.photo != null) 1 else 3,
-                textStyle = LocalTextStyle.current.copy(fontSize = 16.sp, lineHeight = 24.sp),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.Transparent,
-                    unfocusedContainerColor = Color.Transparent,
-                    focusedIndicatorColor = Pink,
-                    unfocusedIndicatorColor = Color.Transparent,
-                ),
-            )
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    Icons.Default.DragIndicator,
-                    "Long-press and drag to move",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.weight(1f))
-                IconButton(onClick = onDelete) { Icon(Icons.Default.Delete, "Delete", tint = Pink) }
-            }
-        }
-    }
-}
-
-/** Renders stills and animated GIFs: ImageDecoder handles both, ImageView plays the animation. */
-@Composable
-private fun Media(uri: String, modifier: Modifier = Modifier) {
-    val ctx = LocalContext.current
-    val drawable = remember(uri) {
-        runCatching {
-            ImageDecoder.decodeDrawable(ImageDecoder.createSource(ctx.contentResolver, Uri.parse(uri)))
-        }.getOrNull()
-    }
-    if (drawable == null) {
-        Text("Photo unavailable", color = MaterialTheme.colorScheme.onSurfaceVariant)
-        return
-    }
-    AndroidView(
-        modifier = modifier,
-        factory = { ImageView(it).apply { adjustViewBounds = true } },
-        update = {
-            it.setImageDrawable(drawable)
-            (drawable as? AnimatedImageDrawable)?.start()
-        },
-    )
 }
 
 // ---------- vendors ----------
@@ -709,7 +502,7 @@ private fun SavedScreen(vendors: List<Vendor>, saved: Saved, openJournal: (Strin
     val prefs = remember { ctx.getSharedPreferences("pbe26", Context.MODE_PRIVATE) }
     var scratch by remember { mutableStateOf(prefs.getString("scratch", "") ?: "") }
     val mine = vendors.filter { it.name in saved.bookmarks || !saved.notes[it.name].isNullOrBlank() }
-    val entries = saved.journals.filterValues { it.isNotEmpty() }.keys.sorted()
+    val entries = saved.journals.filterValues { it.isNotBlank() }.keys.sorted()
 
     LazyColumn(
         Modifier.fillMaxSize(),

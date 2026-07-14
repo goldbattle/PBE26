@@ -46,6 +46,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -475,6 +476,31 @@ private fun Avatar(v: Vendor, size: Dp) {
     }
 }
 
+/** Brand blurbs run long, so show five lines and let the page stay scannable. */
+@Composable
+private fun Blurb(text: String) {
+    if (text.isBlank()) return
+    var expanded by rememberSaveable(text) { mutableStateOf(false) }
+    var overflows by remember(text) { mutableStateOf(false) }
+
+    Text(
+        text,
+        fontSize = 14.sp,
+        maxLines = if (expanded) Int.MAX_VALUE else 5,
+        overflow = TextOverflow.Ellipsis,
+        onTextLayout = { if (!expanded) overflows = it.hasVisualOverflow },
+    )
+    if (overflows || expanded) {
+        Text(
+            if (expanded) "Less" else "More description",
+            Modifier.clickable { expanded = !expanded }.padding(top = 2.dp),
+            color = Pink,
+            fontSize = 13.sp,
+            fontWeight = FontWeight.SemiBold,
+        )
+    }
+}
+
 /** A vendor's own page: who they are, what they wrote, and every polish they are bringing. */
 @Composable
 private fun VendorScreen(v: Vendor, saved: Saved) {
@@ -507,11 +533,7 @@ private fun VendorScreen(v: Vendor, saved: Saved) {
                         )
                     }
                 }
-                if (v.blurb.isNotBlank()) {
-                    Text(v.blurb, fontSize = 14.sp)
-                } else if (v.bio.isNotBlank()) {
-                    Text(v.bio, fontSize = 14.sp)
-                }
+                Blurb(v.blurb.ifBlank { v.bio })
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     v.socials.forEach { (platform, url) ->
                         AssistChip(

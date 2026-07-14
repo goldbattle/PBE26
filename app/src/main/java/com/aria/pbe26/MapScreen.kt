@@ -47,11 +47,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
-import kotlin.math.PI
-import kotlin.math.atan
 import kotlin.math.ceil
 import kotlin.math.cos
 import kotlin.math.hypot
@@ -59,36 +60,10 @@ import kotlin.math.ln
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sin
-import kotlin.math.sinh
-import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.drawscope.Stroke
 
-// ---------- georeferencing ----------
+// The map itself: dark OSM tiles, the two aligned overlays on top, booth pins on top of those.
+// The georeferencing maths behind it all lives in Geo.kt.
 
-/**
- * How an image sits on the earth: [lat]/[lon] is the image centre, [rotDeg] is the compass bearing
- * the image's "up" edge points at, [mPerPx] is its ground scale.
- *
- * The overlays live in assets/maps so they can be edited freely (feather the edges, punch holes in
- * them) without touching resource ids. These numbers come from tools/map_align.json — re-run
- * `python tools/align_maps.py`, drag the layers over the tiles again, and paste the new values here.
- * Keep the pixel size of an image the same when you edit it, or the alignment shifts.
- */
-private data class Geo(
-    val asset: String,
-    val lat: Double,
-    val lon: Double,
-    val rotDeg: Double,
-    val mPerPx: Double,
-    val w: Int,
-    val h: Int,
-)
-
-private val FLOORPLAN = Geo("maps/floorplan.png", 41.5551074, -87.7898503, 89.5, 0.196097, 1800, 1390)
-private val BOOTHS = Geo("maps/booth_map.png", 41.5554521, -87.7892602, 119.5, 0.045935, 2048, 1387)
-
-private const val TILE = 256
 private const val TILE_URL = "https://basemaps.cartocdn.com/dark_all"
 private const val MAX_TILE_Z = 20 // CARTO's deepest tile; past this the map keeps zooming, upscaled
 private const val MIN_Z = 16f
@@ -114,37 +89,6 @@ private object Cam {
     var floor by mutableStateOf(false) // the floorplan is context, not the thing you came here for
     var booths by mutableStateOf(true)
     var pins by mutableStateOf(true)
-}
-
-// Web Mercator, in world pixels at a (fractional) zoom.
-private fun worldX(lon: Double, z: Float) = (lon + 180.0) / 360.0 * TILE * 2.0.pow(z.toDouble())
-
-private fun worldY(lat: Double, z: Float): Double {
-    val s = sin(Math.toRadians(lat))
-    return (0.5 - ln((1 + s) / (1 - s)) / (4 * PI)) * TILE * 2.0.pow(z.toDouble())
-}
-
-private fun lonAt(x: Double, z: Float) = x / (TILE * 2.0.pow(z.toDouble())) * 360.0 - 180.0
-
-private fun latAt(y: Double, z: Float): Double {
-    val n = TILE * 2.0.pow(z.toDouble())
-    return Math.toDegrees(atan(sinh(PI * (1 - 2 * y / n))))
-}
-
-private fun mPerWorldPx(lat: Double, z: Float) =
-    156543.03392804097 * cos(Math.toRadians(lat)) / 2.0.pow(z.toDouble())
-
-/** World pixels per image pixel at this zoom. */
-private fun Geo.pxScale(z: Float) = mPerPx / mPerWorldPx(lat, z)
-
-/** Where a point given as fractions of the image lands, in world pixels. */
-private fun Geo.world(fx: Float, fy: Float, z: Float): Pair<Double, Double> {
-    val s = pxScale(z)
-    val dx = (fx - 0.5) * w
-    val dy = (fy - 0.5) * h
-    val th = Math.toRadians(rotDeg)
-    return worldX(lon, z) + s * (dx * cos(th) - dy * sin(th)) to
-        worldY(lat, z) + s * (dy * cos(th) + dx * sin(th))
 }
 
 // ---------- tiles ----------

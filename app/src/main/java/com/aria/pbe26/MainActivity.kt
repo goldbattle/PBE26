@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.LruCache
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +16,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -40,8 +45,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import org.json.JSONArray
 
 // ---------- data ----------
@@ -51,38 +58,57 @@ data class Vendor(
     val owner: String,
     val page: String,
     val bio: String,
+    val blurb: String, // what the brand wrote in the community swatch Airtable
+    val website: String,
     val img: String, // asset path, e.g. "vendors/pinnacle-polish.jpg"
     val socials: List<Pair<String, String>>, // platform -> url
+    val swatches: List<Swatch>,
 )
+
+data class Swatch(val name: String, val file: String)
 
 private fun loadVendors(ctx: Context): List<Vendor> {
     val arr = JSONArray(ctx.assets.open("vendors.json").bufferedReader().use { it.readText() })
     return (0 until arr.length()).map { i ->
         val o = arr.getJSONObject(i)
         val s = o.getJSONObject("socials")
+        val sw = o.optJSONArray("swatches")
         Vendor(
             name = o.getString("name"),
             owner = o.optString("owner"),
             page = o.optString("page"),
             bio = o.optString("bio"),
+            blurb = o.optString("airtableInfo"),
+            website = o.optString("website"),
             img = o.optString("img"),
             socials = s.keys().asSequence().map { it to s.getString(it) }.toList(),
+            swatches = (0 until (sw?.length() ?: 0)).map { i ->
+                val e = sw!!.getJSONObject(i)
+                Swatch(e.optString("name"), e.getString("file"))
+            },
         )
     }.sortedBy { it.name.lowercase() }
 }
 
-/** Vendor headshots ship in assets; decoded once and kept for the session. */
-private val assetCache = mutableMapOf<String, ImageBitmap?>()
+/**
+ * Images ship in assets. 400+ swatches will not all fit in memory, so decode them downsampled and
+ * keep them in a size-bounded cache.
+ */
+private val bitmapCache = object : LruCache<String, ImageBitmap>(48 * 1024 * 1024) {
+    override fun sizeOf(key: String, value: ImageBitmap) = value.width * value.height * 4
+}
 
 @Composable
-private fun rememberAsset(path: String): ImageBitmap? {
+private fun rememberAsset(path: String, sample: Int = 1): ImageBitmap? {
     val ctx = LocalContext.current
-    return remember(path) {
-        assetCache.getOrPut(path) {
-            runCatching {
-                ctx.assets.open(path).use { BitmapFactory.decodeStream(it) }.asImageBitmap()
-            }.getOrNull()
-        }
+    return remember(path, sample) {
+        val key = "$path@$sample"
+        bitmapCache[key] ?: runCatching {
+            val opts = BitmapFactory.Options().apply { inSampleSize = sample }
+            ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, opts) }!!
+                .asImageBitmap()
+                .also { bitmapCache.put(key, it) }
+        }.getOrNull()
     }
 }
 
@@ -201,14 +227,24 @@ private enum class Tab(val label: String, val icon: ImageVector) {
 fun App(vendors: List<Vendor>, saved: Saved) {
     var tab by rememberSaveable { mutableStateOf(Tab.Info) }
     var journal by rememberSaveable { mutableStateOf<String?>(null) } // open journal entry, null = none
+    var openVendor by rememberSaveable { mutableStateOf<String?>(null) } // vendor page, null = none
+    val vendor = vendors.firstOrNull { it.name == openVendor }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(journal ?: "Polish & Beauty Expo 2026", fontWeight = FontWeight.SemiBold, maxLines = 1) },
+                title = {
+                    Text(
+                        journal ?: vendor?.name ?: "Polish & Beauty Expo 2026",
+                        fontWeight = FontWeight.SemiBold,
+                        maxLines = 1,
+                    )
+                },
                 navigationIcon = {
-                    if (journal != null) {
-                        IconButton(onClick = { journal = null }) { Icon(Icons.Default.ArrowBack, "Back") }
+                    if (journal != null || vendor != null) {
+                        IconButton(onClick = { journal = null; openVendor = null }) {
+                            Icon(Icons.Default.ArrowBack, "Back")
+                        }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Black),
@@ -218,8 +254,8 @@ fun App(vendors: List<Vendor>, saved: Saved) {
             NavigationBar(containerColor = Color(0xFF101010)) {
                 Tab.entries.forEach { t ->
                     NavigationBarItem(
-                        selected = tab == t && journal == null,
-                        onClick = { tab = t; journal = null },
+                        selected = tab == t && journal == null && openVendor == null,
+                        onClick = { tab = t; journal = null; openVendor = null },
                         icon = { Icon(t.icon, null) },
                         label = { Text(t.label) },
                     )
@@ -229,13 +265,15 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     ) { pad ->
         Box(Modifier.padding(pad)) {
             val open = journal
-            if (open != null) {
-                JournalScreen(open, saved)
-            } else when (tab) {
-                Tab.Info -> InfoScreen(saved) { journal = it }
-                Tab.Vendors -> VendorsScreen(vendors, saved)
-                Tab.Map -> MapScreen()
-                Tab.Saved -> SavedScreen(vendors, saved) { journal = it }
+            when {
+                open != null -> JournalScreen(open, saved)
+                vendor != null -> VendorScreen(vendor, saved)
+                else -> when (tab) {
+                    Tab.Info -> InfoScreen(saved) { journal = it }
+                    Tab.Vendors -> VendorsScreen(vendors, saved) { openVendor = it.name }
+                    Tab.Map -> MapScreen()
+                    Tab.Saved -> SavedScreen(vendors, saved, { journal = it }, { openVendor = it.name })
+                }
             }
         }
     }
@@ -358,7 +396,7 @@ private fun JournalScreen(key: String, saved: Saved) {
 // ---------- vendors ----------
 
 @Composable
-private fun VendorsScreen(vendors: List<Vendor>, saved: Saved) {
+private fun VendorsScreen(vendors: List<Vendor>, saved: Saved, onOpen: (Vendor) -> Unit) {
     var query by rememberSaveable { mutableStateOf("") }
     val shown = vendors.filter {
         query.isBlank() || it.name.contains(query, true) || it.owner.contains(query, true)
@@ -376,75 +414,161 @@ private fun VendorsScreen(vendors: List<Vendor>, saved: Saved) {
             contentPadding = PaddingValues(16.dp, 0.dp, 16.dp, 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(shown, key = { it.name }) { VendorCard(it, saved) }
+            items(shown, key = { it.name }) { VendorRow(it, saved, onOpen) }
         }
     }
 }
 
 @Composable
-private fun VendorCard(v: Vendor, saved: Saved) {
-    val ctx = LocalContext.current
-    var expanded by rememberSaveable(v.name) { mutableStateOf(false) }
+private fun VendorRow(v: Vendor, saved: Saved, onOpen: (Vendor) -> Unit) {
     val note = saved.notes[v.name] ?: ""
     val marked = v.name in saved.bookmarks
-
-    Card(Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(12.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                val photo = if (v.img.isNotBlank()) rememberAsset(v.img) else null
-                Box(
-                    Modifier.size(48.dp).clip(CircleShape).background(MaterialTheme.colorScheme.surfaceVariant),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    if (photo != null) {
-                        Image(photo, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
-                    } else {
-                        Text(v.name.take(1).uppercase(), color = Pink, fontWeight = FontWeight.Bold)
-                    }
+    Card(Modifier.fillMaxWidth().clickable { onOpen(v) }) {
+        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            Avatar(v, 48.dp)
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text(v.name, fontWeight = FontWeight.SemiBold)
+                if (v.owner.isNotBlank()) {
+                    Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                 }
-                Spacer(Modifier.width(12.dp))
-                Column(Modifier.weight(1f).clickable { expanded = !expanded }) {
-                    Text(v.name, fontWeight = FontWeight.SemiBold)
-                    if (v.owner.isNotBlank()) {
-                        Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
-                    }
-                    if (note.isNotBlank() && !expanded) {
-                        Text("✎ $note", color = Pink, fontSize = 12.sp, maxLines = 1)
-                    }
+                if (v.swatches.isNotEmpty()) {
+                    Text("${v.swatches.size} polishes", color = Pink, fontSize = 12.sp)
                 }
-                IconButton(onClick = { saved.toggleBookmark(v.name) }) {
-                    Icon(
-                        if (marked) Icons.Default.Star else Icons.Outlined.StarBorder,
-                        contentDescription = if (marked) "Remove bookmark" else "Bookmark",
-                        tint = if (marked) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                if (note.isNotBlank()) {
+                    Text("✎ $note", color = Pink, fontSize = 12.sp, maxLines = 1)
                 }
             }
-            AnimatedVisibility(expanded) {
-                Column(Modifier.padding(top = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    if (v.bio.isNotBlank()) {
-                        Text(v.bio, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        v.socials.forEach { (platform, url) ->
-                            AssistChip(
-                                onClick = { open(ctx, url) },
-                                label = { Text(platform.replaceFirstChar { it.uppercase() }) },
-                            )
+            IconButton(onClick = { saved.toggleBookmark(v.name) }) {
+                Icon(
+                    if (marked) Icons.Default.Star else Icons.Outlined.StarBorder,
+                    contentDescription = if (marked) "Remove bookmark" else "Bookmark",
+                    tint = if (marked) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun Avatar(v: Vendor, size: Dp) {
+    val photo = if (v.img.isNotBlank()) rememberAsset(v.img, sample = 2) else null
+    Box(
+        Modifier.size(size).clip(CircleShape).background(MaterialTheme.colorScheme.surfaceVariant),
+        contentAlignment = Alignment.Center,
+    ) {
+        if (photo != null) {
+            Image(photo, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+        } else {
+            Text(v.name.take(1).uppercase(), color = Pink, fontWeight = FontWeight.Bold)
+        }
+    }
+}
+
+/** A vendor's own page: who they are, what they wrote, and every polish they are bringing. */
+@Composable
+private fun VendorScreen(v: Vendor, saved: Saved) {
+    val ctx = LocalContext.current
+    val marked = v.name in saved.bookmarks
+    var zoomed by remember { mutableStateOf<Swatch?>(null) }
+
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        contentPadding = PaddingValues(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        item(span = { GridItemSpan(2) }) {
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Avatar(v, 72.dp)
+                    Spacer(Modifier.width(14.dp))
+                    Column(Modifier.weight(1f)) {
+                        Text(v.name, fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                        if (v.owner.isNotBlank()) {
+                            Text(v.owner, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
+                    }
+                    IconButton(onClick = { saved.toggleBookmark(v.name) }) {
+                        Icon(
+                            if (marked) Icons.Default.Star else Icons.Outlined.StarBorder,
+                            contentDescription = if (marked) "Remove bookmark" else "Bookmark",
+                            tint = if (marked) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
+                if (v.blurb.isNotBlank()) {
+                    Text(v.blurb, fontSize = 14.sp)
+                } else if (v.bio.isNotBlank()) {
+                    Text(v.bio, fontSize = 14.sp)
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    v.socials.forEach { (platform, url) ->
+                        AssistChip(
+                            onClick = { open(ctx, url) },
+                            label = { Text(platform.replaceFirstChar { it.uppercase() }) },
+                        )
+                    }
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (v.website.isNotBlank()) {
+                        AssistChip(onClick = { open(ctx, v.website) }, label = { Text("Shop ↗") })
                     }
                     if (v.page.isNotBlank()) {
-                        TextButton(onClick = { open(ctx, v.page) }, contentPadding = PaddingValues(0.dp)) {
-                            Text("Vendor page ↗")
-                        }
+                        AssistChip(onClick = { open(ctx, v.page) }, label = { Text("Vendor page ↗") })
                     }
-                    OutlinedTextField(
-                        value = note,
-                        onValueChange = { saved.setNote(v.name, it) },
-                        label = { Text("Note (what to buy, colors, etc.)") },
-                        modifier = Modifier.fillMaxWidth(),
+                }
+                OutlinedTextField(
+                    value = saved.notes[v.name] ?: "",
+                    onValueChange = { saved.setNote(v.name, it) },
+                    label = { Text("Note (what to buy, colors, etc.)") },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    if (v.swatches.isEmpty()) "No swatches posted for this vendor"
+                    else "${v.swatches.size} polishes",
+                    color = Pink,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
+            }
+        }
+        items(v.swatches, key = { it.file }) { sw ->
+            Column(Modifier.clickable { zoomed = sw }) {
+                val bmp = rememberAsset(sw.file, sample = 2)
+                Box(
+                    Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(10.dp))
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                ) {
+                    if (bmp != null) {
+                        Image(bmp, sw.name, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+                    }
+                }
+                if (sw.name.isNotBlank()) {
+                    Text(sw.name, fontSize = 12.sp, maxLines = 2, modifier = Modifier.padding(top = 4.dp))
+                }
+            }
+        }
+    }
+
+    zoomed?.let { sw ->
+        Dialog(onDismissRequest = { zoomed = null }) {
+            Column(
+                Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp))
+                    .background(MaterialTheme.colorScheme.surface).padding(12.dp),
+            ) {
+                rememberAsset(sw.file)?.let {
+                    Image(
+                        it,
+                        sw.name,
+                        Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp)),
+                        contentScale = ContentScale.FillWidth,
                     )
                 }
+                if (sw.name.isNotBlank()) {
+                    Text(sw.name, Modifier.padding(top = 10.dp), fontWeight = FontWeight.SemiBold)
+                }
+                Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
             }
         }
     }
@@ -452,40 +576,53 @@ private fun VendorCard(v: Vendor, saved: Saved) {
 
 // ---------- map ----------
 
+private enum class Layer(val label: String, val res: Int) {
+    Booths("Booths", R.drawable.booth_map),
+    Venue("Venue", R.drawable.floorplan),
+}
+
 @Composable
 private fun MapScreen() {
+    var layer by rememberSaveable { mutableStateOf(Layer.Booths) }
     var scale by remember { mutableStateOf(1f) }
     var offsetX by remember { mutableStateOf(0f) }
     var offsetY by remember { mutableStateOf(0f) }
+    fun reset() { scale = 1f; offsetX = 0f; offsetY = 0f }
+
     Column(Modifier.fillMaxSize()) {
-        Card(Modifier.fillMaxWidth().padding(12.dp)) {
-            Column(Modifier.padding(12.dp)) {
-                Text("Show floor: South Exhibit (11)", fontWeight = FontWeight.SemiBold, color = Pink)
-                Text("Cocktail reception: South Pavilion (12) & Terrace/Promenade (32)", fontSize = 13.sp)
-                Text(
-                    "Pinch to zoom, drag to pan. Double-tap to reset.",
-                    fontSize = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth().padding(12.dp)) {
+            Layer.entries.forEachIndexed { i, l ->
+                SegmentedButton(
+                    selected = layer == l,
+                    onClick = { layer = l; reset() },
+                    shape = SegmentedButtonDefaults.itemShape(i, Layer.entries.size),
+                ) { Text(l.label) }
             }
         }
+        Text(
+            when (layer) {
+                Layer.Booths -> "Show floor tables. Pinch to zoom, drag to pan, double-tap to reset."
+                Layer.Venue -> "Whole building: show floor is South Exhibit (11), reception is South Pavilion (12) & Promenade (32)."
+            },
+            Modifier.padding(horizontal = 16.dp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 12.sp,
+        )
         Box(
-            Modifier.weight(1f).fillMaxWidth().background(Color(0xFF1A1A1A))
+            Modifier.weight(1f).fillMaxWidth().padding(top = 8.dp).background(Color(0xFF1A1A1A))
                 .pointerInput(Unit) {
                     detectTransformGestures { _, pan, zoom, _ ->
-                        scale = (scale * zoom).coerceIn(1f, 6f)
+                        scale = (scale * zoom).coerceIn(1f, 8f)
                         offsetX += pan.x
                         offsetY += pan.y
                     }
                 }
-                .pointerInput(Unit) {
-                    detectTapGestures(onDoubleTap = { scale = 1f; offsetX = 0f; offsetY = 0f })
-                },
+                .pointerInput(Unit) { detectTapGestures(onDoubleTap = { reset() }) },
             contentAlignment = Alignment.Center,
         ) {
             Image(
-                painter = painterResource(R.drawable.floorplan),
-                contentDescription = "Tinley Park Convention Center floor plan",
+                painter = painterResource(layer.res),
+                contentDescription = layer.label,
                 modifier = Modifier.fillMaxSize().graphicsLayer(
                     scaleX = scale, scaleY = scale, translationX = offsetX, translationY = offsetY,
                 ),
@@ -497,7 +634,12 @@ private fun MapScreen() {
 // ---------- saved ----------
 
 @Composable
-private fun SavedScreen(vendors: List<Vendor>, saved: Saved, openJournal: (String) -> Unit) {
+private fun SavedScreen(
+    vendors: List<Vendor>,
+    saved: Saved,
+    openJournal: (String) -> Unit,
+    openVendor: (Vendor) -> Unit,
+) {
     val ctx = LocalContext.current
     val prefs = remember { ctx.getSharedPreferences("pbe26", Context.MODE_PRIVATE) }
     var scratch by remember { mutableStateOf(prefs.getString("scratch", "") ?: "") }
@@ -539,7 +681,7 @@ private fun SavedScreen(vendors: List<Vendor>, saved: Saved, openJournal: (Strin
                 )
             }
         }
-        items(mine, key = { it.name }) { VendorCard(it, saved) }
+        items(mine, key = { it.name }) { VendorRow(it, saved, openVendor) }
     }
 }
 

@@ -11,7 +11,55 @@
   },
   "slug": "kbshimmer",
   "bio": "Founded in 2008 by Christy Rose, KBShimmer proudly offers a distinctive collection of vibrant shades that can spark confidence and invoke joy in people everywhere. Now run by both Christy and her husband Jason, KBShimmer offers a dizzying array of beautiful nail polishes along with colorful sugar scrubs and luxurious hand care products! KBShimmer is proud to host Polish & Beauty Expo for the 6th year, and Christy and Jason look forward to also returning as a vendor and again offering PBE swag.",
-  "img": "vendors/kbshimmer.jpg"
+  "img": "vendors/kbshimmer.jpg",
+  "airtableInfo": "Out Of This World and Don't Sweat The Fall Stuff collections\nWe have a doorbuster for the first 75 during the VIP/Early Admission hour and the first 200 during general admission, a bottle of an exclusive polish called Witch & Famous plus a mint colored 4-In-One magnet with fun star, flower, pinwheel and dot designs.  Forgive the random videos of the polish, Jason is taking them while I am out of state at a funeral.\nWhile supplies last, shoppers will get our holographic draw string bag.\nSpend $75 or more and get a free Green Apple Candy scrub.\n$5 mystery polishes are always a fun buy.  They could have past PPU shades, off spec batches, thermals that have died, or other polish that is perfectly lovely but not part of our core line.\nWe have 4 exclusives base on Illinois based TV Shows too!  Make sure you stop by!\n\nOut of This World Collection\nTravel beyond the stars with this 10-piece collection inspired by the wonders of the cosmos. Eight new multichrome magnetic polishes take center stage, each specially designed to shine with velvet magnets. In other magnetic styles, like the cat eye, their deep bases reveal small color-shifting flakes and hints of sparkle, creating the look of miniature celestial creations dancing across your fingertips. Want even more cosmic sparkle? Complete the look with two star-and-moon-filled glitter toppers in gold and silver. The Out of This World Collection will be available at Polish & Beauty Expo. Prices range from $12–13 for a 15 mL bottle.\n\n“Did I do that?” – Family Matters – Not even intended to be a main character in Family Matters, the Winslows' neighbor, Urkel, quickly stole the show with his quirky outfits, suspenders, and catchphrase, \"Did I do that?\" Set in Chicago, the show became part of our TGIF viewing. We laughed, wondered if Steve would ever win over Laura, and gasped when Stefan came to be. It's no wonder that Urkel quickly became a main character.\n\"Did I do that?\" is a flake-filled jelly nail polish inspired by those fashion faux pas outfits. A deep, indigo-leaning purple base sets off bold flakes that shift from red to nearly orange, with a hint of fuchsia. Indigo flakes pop through, along with hints of royal blue and purple. This jelly shade covers well in two coats, making it a fashion do, not a fashion don't.\n\n\"You set the tone\" – ER – Each week, we stepped into the ER at County General Hospital in Chicago. There, we became part of the lives of the doctors, nurses, and staff as they worked to treat the patients who came through those ER doors. Those doctors in mint scrubs kept us intrigued for 15 seasons. We watched Carter grow up, Doug and Carol navigate their relationship, and I don't know many people who can listen to \"Over the Rainbow\" by Israel Kamakawiwoʻole without thinking of Mark Greene.\n\"You Set the Tone\" nail polish is a nod to those scrubs. A minty green shade with slight blue undertones, this polish features a shifty shimmer. In bright light, a strong gold shimmer shines throughout the polish. In indirect light, it shows off yellow and green, and at extreme angles, even aqua hues. Loaded with shimmer, this polish covers most nail lengths well in two coats, though longer nails may prefer three. Allow ample time for each coat to dry for the best results.\n\n\"Hi honey, did you miss me?\" – Married with Children offers us a glimpse of life in the Bundys' suburban home just outside Chicago. There, we meet Al, a misogynistic shoe salesman; his wife, Peggy, a housewife with a unique sense of style; and their two children. Through banter and quick wit, this comedy kept us laughing week after week.\n\"Hi Honey, Did You Miss Me?\" is a lavender magnetic nail polish inspired by Peggy's fashion choices. This purple magnetic polish glistens with hints of silver for a metallic feel. When worn in a cat-eye style, a vibrant blue shimmer pops against the dark background, revealing indigo tones at various angles. Worn in a velvet style, the lavender takes center stage with flashes of the blue shimmer. Two to three coats alone, or one to two coats over a black base, are recommended.\n\n\"D'oh!\" – The Simpsons – Homer, Bart, Maggie, and Lisa make up one of the most memorable TV families. From the show's opening, where we see how the Simpsons end up on the couch, to Marge's blue hair, the characters' yellow skin, and even the pink walls of the family room; the traits of The Simpsons have become as familiar to us as Homer's catchphrase, \"D'oh!\"\n\"D'oh!\" is a blue reflective nail polish with a strong flash-reactive blue hue. This vibrant shade is accented by a pink color-shifting shimmer that shows off fuchsia, peach, and gold tones. This flash-reactive shade covers well in two coats. For a glass-like finish after polishing, use KBShimmer’s Smooth Moves followed by Clearly On Top.",
+  "website": "https://www.kbshimmer.com/",
+  "swatches": [
+   {
+    "name": "Did I Do That",
+    "file": "swatches/kbshimmer/00.jpg"
+   },
+   {
+    "name": "Did I Do That",
+    "file": "swatches/kbshimmer/01.jpg"
+   },
+   {
+    "name": "You Set The Tone",
+    "file": "swatches/kbshimmer/02.jpg"
+   },
+   {
+    "name": "You Set The Tone",
+    "file": "swatches/kbshimmer/03.jpg"
+   },
+   {
+    "name": "Hi Honey, Did You Miss Me",
+    "file": "swatches/kbshimmer/04.jpg"
+   },
+   {
+    "name": "Hi Honey, Did You Miss Me",
+    "file": "swatches/kbshimmer/05.jpg"
+   },
+   {
+    "name": "'Doh",
+    "file": "swatches/kbshimmer/06.jpg"
+   },
+   {
+    "name": "'Doh",
+    "file": "swatches/kbshimmer/07.jpg"
+   },
+   {
+    "name": "'Doh",
+    "file": "swatches/kbshimmer/08.jpg"
+   },
+   {
+    "name": "Out of This World Collection",
+    "file": "swatches/kbshimmer/09.jpg"
+   },
+   {
+    "name": "Don't Sweat the Fall Stuff Collection",
+    "file": "swatches/kbshimmer/10.jpg"
+   }
+  ]
  },
  {
   "name": "Polish & Beauty Expo",
@@ -23,7 +71,10 @@
   },
   "slug": "polish-beauty-expo",
   "bio": "https://polishandbeautyexpo2025.eventbrite.com",
-  "img": "vendors/polish-beauty-expo.jpg"
+  "img": "vendors/polish-beauty-expo.jpg",
+  "swatches": [],
+  "airtableInfo": "",
+  "website": ""
  },
  {
   "name": "Glitter Unique",
@@ -35,7 +86,27 @@
   },
   "slug": "glitter-unique",
   "bio": "Glitter Unique has supported the indie nail community since 2012, offering glitter, pigments, and supplies for every creator. From bulk products for established brands to smaller quantities for new makers and hobbyists, Glitter Unique helps bring visions to life. Sponsorships at Polish & Beauty Expo, Indie Expo Canada, and Polish & Dreams reflect a commitment to quality and community.",
-  "img": "vendors/glitter-unique.jpg"
+  "img": "vendors/glitter-unique.jpg",
+  "airtableInfo": "As a sponsor of the Polish & Beauty Expo - Glitter Unique offers a unique experience for you all! Polish making supplies and ingredients! many of you will have the chance to experience this in the Polish Making Workshops on Saturday but did you know they offer polish making kits and sampler packs too and supplies during the shopping day!\nThis year I have collab'd with them to create:\nSecret Garden Polish Making Kit - 3 new verdant polishes bringing the garden to your nails! Kit provides you 6 bottles to create 6 polishes (3 recipes provided) but pigment for more! Available for purchase after the workshops & on shopping day ($59)\nPlantNerd Sampler Pack - a sample of ingredients I have carefully selected to cultivate your garden of polish while a secret code gives you MORE recipes to utilize with the kit AND the pack! Available for purchase after the workshop & on shopping day ($30)",
+  "website": "https://www.glitterunique.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/glitter-unique/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glitter-unique/01.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glitter-unique/02.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glitter-unique/03.jpg"
+   }
+  ]
  },
  {
   "name": "1422 Designs",
@@ -47,7 +118,35 @@
   },
   "slug": "1422-designs",
   "bio": "1422 Designs is celebrating its third year at PBE, and we couldn’t be more excited! Our journey began when founder Bonnie looked for a creative outlet to spend time with her two sons, making melt-and-pour soap. When she learned she could also create her own nail polishes, she was hooked. Bonnie fell in love with a process that lets her create a product that brings joy to so many.\n\nWe are excited to see all our friends and make new ones in Chicago in 2026!",
-  "img": "vendors/1422-designs.jpg"
+  "img": "vendors/1422-designs.jpg",
+  "airtableInfo": "1422 Designs is bringing some “you name it” polishes this year. These are “rejects”, meaning they didn’t make the final cut for one reason or another. These will be deeply discounted and available while supplies last in 15 ml bottles and 8 ml bottles\n\nPolish Flights will feature 8 ml bottles and a little something extra, depending on what the theme is! Releasing at Polish and Beauty Expo on July 19 for a reduced price of $28 and later on 1422designs.com for $32.\nRainbow Flight *note - only available as a set* $28 at PBE\nAmigo - stunning, cherry red creme polish. (\"Friend\" in Spanish)\nVriend- a bright orange polish with gold-green-blue shifting shimmer (\"Friend\" in Dutch)\nPhilos - originally released in collaboration with @plantnerdbroom, Philos is a bright green creme and joins his friends in an 8 ml bottle! (\"Friend\" in Latin)\nAmi - a bright blue jelly polish loaded with iridescent flakes and holographic flakes (\"Friend\" in French)\nFriend - a bright, violet polish with pink-gold-green-teal shifting shimmer\n\nBlooming Reef collection $12.50 each or $55 for the full collection\nAzure Alliance\nCarnivorous Stinger (in collab with everyone’s favorite Plant Nerd, Chris Broom)\nRock Flower\nVenomous Tentacle (glows in the dark)\nSpineless\n \nTentacled Terrace collection. IT WILL NOT RESTOCK.\nThis 8-piece collection includes cremes, flake/glitter polishes, and one topper. It was inspired by the song “Octopuses Garden” by the Beatles. If you’ve been around for a minute, you know how much I LOVE the Beatles!!\nThis collection is a one-batch release. If it doesn’t sell out at the show, it will be available on my website on July 20, however,",
+  "website": "https://www.1422designs.com/",
+  "swatches": [
+   {
+    "name": "Mr 1422 Trio",
+    "file": "swatches/1422-designs/00.jpg"
+   },
+   {
+    "name": "Mr 1422 Trio",
+    "file": "swatches/1422-designs/01.jpg"
+   },
+   {
+    "name": "Rainbow Flight",
+    "file": "swatches/1422-designs/02.jpg"
+   },
+   {
+    "name": "Rainbow Flight",
+    "file": "swatches/1422-designs/03.jpg"
+   },
+   {
+    "name": "Blooming Reef Collection: starting at top left: Azure Alliance, Carnivorous Stinger, Rock Flower, Venomous Tentacle (glows in the dark), and Spineless",
+    "file": "swatches/1422-designs/04.jpg"
+   },
+   {
+    "name": "Tentacled Terrace",
+    "file": "swatches/1422-designs/05.jpg"
+   }
+  ]
  },
  {
   "name": "Alchemy Lacquers",
@@ -60,7 +159,31 @@
   },
   "slug": "alchemy-lacquers",
   "bio": "Made with love from Philadelphia, Alchemy Lacquers focuses on transforming ordinary glitter and pigments into extraordinary nail lacquers. In addition to our alchemy and nature themed 5-free nail lacquers, we also offer a variety of hand & nail care items, facial products, and bath & body products.",
-  "img": "vendors/alchemy-lacquers.jpg"
+  "img": "vendors/alchemy-lacquers.jpg",
+  "airtableInfo": "Last year I did a collection based on my garden including the glorious flower wall and I thought this was a nice segue from flowers to Halloween!\nThe Poisoned Garden features 4 amazing jelly nail lacquers with the shiftiest of shifty contrasting shimmers! Bloom if you dare with \n\"The Poisoned Garden\"\nHemlock Haze\nOleander Blush\nBelladonna Noir \nNightshade Elixir\nFor this year we are doing a few quads all under the banner of Haunted Halloween. In addition, La Tannya's corner will be making her third appearance and get your coins ready because Emotional Support Paper Star will be making its debut!",
+  "website": "http://www.alchemylacquers.com/",
+  "swatches": [
+   {
+    "name": "The Poisoned Garden",
+    "file": "swatches/alchemy-lacquers/00.jpg"
+   },
+   {
+    "name": "Belladonna Noir",
+    "file": "swatches/alchemy-lacquers/01.jpg"
+   },
+   {
+    "name": "Hemlock Haze",
+    "file": "swatches/alchemy-lacquers/02.jpg"
+   },
+   {
+    "name": "Nightshade Elixir",
+    "file": "swatches/alchemy-lacquers/03.jpg"
+   },
+   {
+    "name": "Oleander Blush",
+    "file": "swatches/alchemy-lacquers/04.jpg"
+   }
+  ]
  },
  {
   "name": "Arcana Lacquer",
@@ -72,7 +195,19 @@
   },
   "slug": "arcana-lacquer",
   "bio": "Arcana Lacquer is a Baltimore-born indie nail polish brand, handcrafted by two friends fueled by witchy inspiration, video game lore, and the worlds all around us both real and fantastical. We create cruelty free, vegan, 10 free polishes in magical shades, mixed in small batches with love and designed to let everyone express their own unique magic.",
-  "img": "vendors/arcana-lacquer.jpg"
+  "img": "vendors/arcana-lacquer.jpg",
+  "airtableInfo": "",
+  "website": "https://arcanalacquer.com/",
+  "swatches": [
+   {
+    "name": "Serenade Me, Young Man | Tummy Ache Survivor | Ride or Die",
+    "file": "swatches/arcana-lacquer/00.jpg"
+   },
+   {
+    "name": "Ride or Die",
+    "file": "swatches/arcana-lacquer/01.jpg"
+   }
+  ]
  },
  {
   "name": "Atomic Polish",
@@ -84,7 +219,35 @@
   },
   "slug": "atomic-polish",
   "bio": "Based in Minneapolis, Minnesota, Atomic Polish brings the science to beauty. Specializing in vivid neons and vibrant, long-wear colors, each shade is designed to spark creativity and confidence.",
-  "img": "vendors/atomic-polish.jpg"
+  "img": "vendors/atomic-polish.jpg",
+  "airtableInfo": "The Rainbow Cone Collection: Each polish is $13, or grab the full 5-piece collection for $60.\n Orange Sherbet – neon orange base with a fine gold-to-orange shimmer\n Pistachio – yellow-leaning neon green base with a fine green-to-blue shimmer\n Palmer House – peach base with a red-to-orange shimmer\n Strawberry – neon melon pink base with a fine purple/red-to-orange shimmer\n Chocolate – brown base with a red-to-orange shimmer, bronze reflective glitter, and holographic pigment\n\nAll overpour will be posted on our website at the end of July. Shopping list, more swatches, and doorbuster will be out soon.",
+  "website": "https://www.atomicpolish.com/",
+  "swatches": [
+   {
+    "name": "The Rainbow Cone Collection:   Orange Sherbet – neon orange base with a fine gold-to-orange shimmer   Pistachio – yellow-leaning neon green base with a fine green-to-blue shimmer   Palmer House – peach base with a red-to-orange shimmer   Strawberry – neon",
+    "file": "swatches/atomic-polish/00.jpg"
+   },
+   {
+    "name": "Orange Sherbet",
+    "file": "swatches/atomic-polish/01.jpg"
+   },
+   {
+    "name": "Pistachio",
+    "file": "swatches/atomic-polish/02.jpg"
+   },
+   {
+    "name": "Palmer House",
+    "file": "swatches/atomic-polish/03.jpg"
+   },
+   {
+    "name": "Strawberry",
+    "file": "swatches/atomic-polish/04.jpg"
+   },
+   {
+    "name": "Chocolate",
+    "file": "swatches/atomic-polish/05.jpg"
+   }
+  ]
  },
  {
   "name": "Aura Bloom Polish",
@@ -96,7 +259,39 @@
   },
   "slug": "aura-bloom-polish",
   "bio": "Aura Bloom Polish is based around aura colors and their meanings. Auras are dynamic and ever-changing, they shift between a rainbow of bright, light, and dark colors. I created ABP out of my long term love of polish, my strong passion for creative expression, and my belief in auras, karma, and destiny.\n\nABP was founded in late 2024 and based in Kansas City. All polishes are 10-free, vegan, & cruelty free. We strongly believe and support equality, diversity, inclusiveness, and are a LGBTQIA+ ally.",
-  "img": "vendors/aura-bloom-polish.jpg"
+  "img": "vendors/aura-bloom-polish.jpg",
+  "airtableInfo": "High Tides, Good Vibes $65\nAura Bloom Polish is bringing the beach vibes to PBE this year with the The High Tides, Good Vibes exclusive collection. It's inspired by all those relaxing days at the beach, where you take in every drop of warm sun and salty sea until you catch the gorgeous sunset to end the day. The collection consists of 6 sparkly, shimmery, glow in the dark polishes.\nNo One Likes A Shady Beach\nA light violet polish packed with yellow/green/blue shifting large particle shimmer and mint green glow in the dark.\nResting Beach Face\nA cotton candy pink polish packed with gold large particle shimmer that has a slight teal/magenta shift at extreme angles or lighting, gold small particle shimmer, and yellow-orange glow in the dark\nTropic Like It's Hot\nA light coral orange colored polish packed with gold large particle shimmer that has a slight teal/magenta shift at extreme angles or lighting, gold small particle shimmer, and yellow-orange glow in the dark.\nParty Like A Lob-star\nA bright scarlet red colored polish with red/orange shifting large particle shimmer, gold small particle shimmer, and orange glow in the dark.\nDaily Dose of Vitamin Sea\nA light sea green aqua polish with teal/magenta shifting large particle shimmer, teal small particle shimmer, and aqua blue glow in the dark.\nShell Yeah!\nA pale beige colored polish with magenta/gold shifting large and small particle shimmer, and white glow in the dark\n\nOur doorbuster polish, Hibiscus Haze, will be $8. \nLots of polishes, essentials, and cuticle oil pens with bundle sales. \nI'll also be debuting the upcoming Stellar FX topper collection as an early release at PBE\nGWP! I'll have these iridescent beach bag/tote bag for $75+ purchases, or if you purchase the full High Tides, Good Vibes PBE Exclusive Set. I also have some new ABP stickers (my art ), and some little waterslide nail decal sheets I made special just for PBE that will be free with any purchase, until supplies run out.",
+  "website": "https://www.aurabloompolish.com/",
+  "swatches": [
+   {
+    "name": "The High Tides, Good Vibes",
+    "file": "swatches/aura-bloom-polish/00.jpg"
+   },
+   {
+    "name": "Resting Beach Face",
+    "file": "swatches/aura-bloom-polish/01.jpg"
+   },
+   {
+    "name": "No One Likes A Shady Beach",
+    "file": "swatches/aura-bloom-polish/02.jpg"
+   },
+   {
+    "name": "Tropic Like It's Hot",
+    "file": "swatches/aura-bloom-polish/03.jpg"
+   },
+   {
+    "name": "Daily Dose of Vitamin Sea",
+    "file": "swatches/aura-bloom-polish/04.jpg"
+   },
+   {
+    "name": "Party Like A Lob-star",
+    "file": "swatches/aura-bloom-polish/05.jpg"
+   },
+   {
+    "name": "Shell Yeah!",
+    "file": "swatches/aura-bloom-polish/06.jpg"
+   }
+  ]
  },
  {
   "name": "BCB Lacquers",
@@ -108,7 +303,43 @@
   },
   "slug": "bcb-lacquers",
   "bio": "Founded in 2020 and based in Southern Florida, BCB Lacquers is a labor of love inspired by the spirit of my grandmother. We’re all about bold offerings and a diverse mix of colors and finishes that let your personality shine through. We also pride ourselves on top-of-the-line cuticle oils and whipped sugar scrubs!",
-  "img": "vendors/bcb-lacquers.jpg"
+  "img": "vendors/bcb-lacquers.jpg",
+  "airtableInfo": "We have a few new collections this round!\n\n Night At The Arcade Pt.2 - a sibling flakie collection to our 6 Year Indieversary Collection\n\nCursed Character Pops Collection - an all neon cream collection!\n\n Halloween Collection - a grundgy neon cream with black flakie topper collection!\n\n And our two doorbusters!\n\nBoo-Tylicious is described as a pumpkin orange neon cream.\nHex Appeal is described as a grape purple neon cream. (For the neon purple I created my own purple neon mix to help with the fading properties that neon purples usually have.)\nNetflix And Chills is described as a A dijon yellow neon cream.\nBone Zone is described as a dark jade neon green cream.\nCookies N’ Scream is described as a black flakie topper \nI’m wearing these in 2 coats over clear gelx extensions with no blurring base coat with my glossy top coat from @bcblacquers and accent ring matte nail also BCB \nThe topper is shown over each shade! Nail art used chrome powder and gel topper \nSPECIAL PBE PRICING: $12.00 individually or $54 for the entire collection\nAfter PBE pricing: $13.75 individually or $62 for the entire collection.",
+  "website": "https://bcblacquers.com/",
+  "swatches": [
+   {
+    "name": "Night At The Arcade Pt",
+    "file": "swatches/bcb-lacquers/00.jpg"
+   },
+   {
+    "name": "Cursed Character Pops",
+    "file": "swatches/bcb-lacquers/01.jpg"
+   },
+   {
+    "name": "doorbusters",
+    "file": "swatches/bcb-lacquers/02.jpg"
+   },
+   {
+    "name": "Halloween Collection",
+    "file": "swatches/bcb-lacquers/03.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/bcb-lacquers/04.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/bcb-lacquers/05.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/bcb-lacquers/06.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/bcb-lacquers/07.jpg"
+   }
+  ]
  },
  {
   "name": "Beaux Rêves Lacquer",
@@ -120,7 +351,63 @@
   },
   "slug": "beaux-r-ves-lacquer",
   "bio": "Beaux Rêves Lacquer is made with love in Minnesota, created in 2023 in honor of my late French grandmother. She was the spark that ignited my passion for creativity. Specializing in eye-catching shimmers, our polishes feature a range of finishes. Whether you’re drawn to subtle pastels or bold, vibrant hues, each bottle is infused with a story of love, creativity, and a touch of magic.",
-  "img": "vendors/beaux-r-ves-lacquer.jpg"
+  "img": "vendors/beaux-r-ves-lacquer.jpg",
+  "swatches": [
+   {
+    "name": "PPU Rewind Octi-Evil",
+    "file": "swatches/beaux-r-ves-lacquer/00.jpg"
+   },
+   {
+    "name": "Moonveil Fairy Garden",
+    "file": "swatches/beaux-r-ves-lacquer/01.jpg"
+   },
+   {
+    "name": "Cosmic Crush",
+    "file": "swatches/beaux-r-ves-lacquer/02.jpg"
+   },
+   {
+    "name": "FantaSea and Desert Blooms",
+    "file": "swatches/beaux-r-ves-lacquer/03.jpg"
+   },
+   {
+    "name": "Whispering Pearl",
+    "file": "swatches/beaux-r-ves-lacquer/04.jpg"
+   },
+   {
+    "name": "Tidal Reverie",
+    "file": "swatches/beaux-r-ves-lacquer/05.jpg"
+   },
+   {
+    "name": "Sunken Splendor",
+    "file": "swatches/beaux-r-ves-lacquer/06.jpg"
+   },
+   {
+    "name": "Siren's Song",
+    "file": "swatches/beaux-r-ves-lacquer/07.jpg"
+   },
+   {
+    "name": "Prickly Pear",
+    "file": "swatches/beaux-r-ves-lacquer/08.jpg"
+   },
+   {
+    "name": "Desert Lupine",
+    "file": "swatches/beaux-r-ves-lacquer/09.jpg"
+   },
+   {
+    "name": "California Poppy",
+    "file": "swatches/beaux-r-ves-lacquer/10.jpg"
+   },
+   {
+    "name": "Sand Verbena",
+    "file": "swatches/beaux-r-ves-lacquer/11.jpg"
+   },
+   {
+    "name": "The Purr-fect Duo",
+    "file": "swatches/beaux-r-ves-lacquer/12.jpg"
+   }
+  ],
+  "airtableInfo": "The Purr-Fect Duo w/Monarch Lacquer -includes FREE light up cat ears \nIridescent Beaux Rêves logo reusable tote & glitter sticker- while supplies last!!\nPPU Rewind Octi-Evil\nPBE Exclusives 'Fantasea' \nfeaturing Whispering Pearl our $5 doorbuster!!\nInspired by the mystical and magical underworld hidden beneath the waters.\nAll 4 polishes are flake heavy with a dreamy color shifting shimmer and holo sparkle\nDesert Blooms collection of 4 polishes inspired by wildflowers.\nSofter hues with a shimmer that mirrors a sunset, shifting from golden/amber/magenta.",
+  "website": "https://www.beauxreveslacquer.com/"
  },
  {
   "name": "Bluebird Lacquer",
@@ -132,7 +419,47 @@
   },
   "slug": "bluebird-lacquer",
   "bio": "Bluebird is beauty for everybirdy. Inspired by my love of birds and all things sparkly, I create nail polish that’s bold, whimsical, and inclusive. From shimmering multichromes to dazzling neons, each shade is made to bring joy and a little magic to everybirdy who wears it.",
-  "img": "vendors/bluebird-lacquer.jpg"
+  "img": "vendors/bluebird-lacquer.jpg",
+  "airtableInfo": "2026 Fall Collection features 6 salty reflective multichromes inspired by gardening $12.00 each\nYou Look Radishing - a soft pink-copper-yellow shifting multichrome with silver and pink reflective glitter\nI Can Dig It - an orange-copper-green shifting multichrome with silver and orange reflective glitter\nRomaine Calm - a green-purple-blue shifting multichrome with silver and green reflective glitter\nI Wet My Plants - a cyan-purple-gold shifting multichrome with silver and cyan reflective glitter\nThat’s A Bit Mulch - a deep blue-purple-copper-gold shifting multichrome with silver and blue reflective glitter\nGive Me A Beet - a violet-green-red-yellow shifting multichrome with silver and violet reflective glitter\n\n3rd Edition Midsommer Multichromes $12.00 each\nPetrel Station - a rust jelly with an ethereal electric violet shimmer and a sprinkle of blue  sparkles\nAvocet the Tone - sparkly salmon with a subtle pink-gold shimmer\nStorked to be Here - a sheer chocolate jelly with a blue-purple-magenta shimmer\nPheasantly Surprised - a fiery magenta-orange-yellow-green shimmer\nF’Holo Up - a large holo magnetic topper - wear it over anything or by itself\n\n3rd Edition Neon Shimmer-chromes $12.00 each\nTern Down For What - soft pink with a peach- yellow shift\nBig Bill Energy - soft neon orange-yellow with a gold-yellow shimmer\nAuk-ward Silence - soft neon lime with a gold-green shimmer\nQuail Yeah! - soft neon yellow with a green-blue shimmer\nMynah Setback - soft neon sky blue with a turquoise-lavender shimmer\nLyre, Lyre, Pants on Fire - soft election violet with a pink-copper shimmer\n\nLimited edition limited quantity $12.00 each\nNight Cap at Tiffany’s Dome This is a navy blue jelly holo with a sparkly gold-copper. shimmer. \nBreakfast at Tiffany’s Dome as a tribute to my time in Chicago. \nIt’s Bean Real is a blue-silver chrome with holo flakies. \nMidway Delay is a seafoam green jelly with a red-gold-green-yellow shifting large shimmer \nNavy Pier Vertigo is a hot pink jelly with large particle pink and purple shifting shimmer with a smidge of silver - pink reflective glitter \n\nMy niece Hailee made these wonderful knitted versions of Birt (my logo/mascot)! They can be used as a bag charm or key chain or whatever. I’ll have a very very limited quantity of them available for $20 each. \n\nJen and Birdies the Jen and Berries and Bluebird Good Neighbors collab is back!\nThis year’s theme is inspired by our beloved home state of Colorado’s very own South Park!\n\nJen and Berries brings you a Butters inspired light green based silver magnetic: Chaos is its Own Reward\n\nBluebird brings you a Kenny inspired orange-red-yellow shimmer with light purple metallic flakies and a dash of holo: THAT LITTLE KENNY BASTARD\n\nThe duo is $30 and comes with a Jen & Berries cuticle oil in almond macaron and a Bluebird No More Uglicles Cuticle Balm in CHEESY POOFS\n\nWe will have 30 total available. 15 at each booth.",
+  "website": "https://www.bluebirdlacquer.com/",
+  "swatches": [
+   {
+    "name": "Fall 2026",
+    "file": "swatches/bluebird-lacquer/00.jpg"
+   },
+   {
+    "name": "Midsommer Multichromes",
+    "file": "swatches/bluebird-lacquer/01.jpg"
+   },
+   {
+    "name": "Neon Shimmer-chromes",
+    "file": "swatches/bluebird-lacquer/02.jpg"
+   },
+   {
+    "name": "Night Cap at Tiffany’s Dome",
+    "file": "swatches/bluebird-lacquer/03.jpg"
+   },
+   {
+    "name": "Breakfast at Tiffany’s Dome",
+    "file": "swatches/bluebird-lacquer/04.jpg"
+   },
+   {
+    "name": "It’s Bean Real",
+    "file": "swatches/bluebird-lacquer/05.jpg"
+   },
+   {
+    "name": "Navy Pier Vertigo",
+    "file": "swatches/bluebird-lacquer/06.jpg"
+   },
+   {
+    "name": "Midway Delay",
+    "file": "swatches/bluebird-lacquer/07.jpg"
+   },
+   {
+    "name": "THAT LITTLE KENNY BASTARD",
+    "file": "swatches/bluebird-lacquer/08.jpg"
+   }
+  ]
  },
  {
   "name": "Botanique by Monae",
@@ -143,7 +470,10 @@
   },
   "slug": "botanique-by-monae",
   "bio": "Botanique by Monae is a handcrafted beauty brand experience. We formulate skincare products that are high in quality ingredients- plant based butters and oils – with a fun yet elegant presentation. All natural cold process soaps, lotions, body butter creams, body wash, body scrubs, body oils, magnesium creams, lip butter balms, herbal hair oil, and more, made in small batches to ensure freshness with your skin in mind. I hope you enjoy our fun, clean, and simple products. Pamper yourself!",
-  "img": "vendors/botanique-by-monae.jpg"
+  "img": "vendors/botanique-by-monae.jpg",
+  "airtableInfo": "",
+  "website": "https://botaniquebymonae.etsy.com/",
+  "swatches": []
  },
  {
   "name": "Broken Pixel Polish",
@@ -155,7 +485,51 @@
   },
   "slug": "broken-pixel-polish",
   "bio": "Broken Pixel Polish is a newer face in the indie nail polish scene, founded by Michelle Varsallona in Hamilton, New Jersey. Each bottle is 10-free and cruelty-free, crafted with care for a smooth application and long-lasting wear. We create nail polish as a form of artistic and personal expression, which often translates to sarcastic polish names or unconventional themes. We’re thrilled to be joining our first Polish & Beauty Expo!",
-  "img": "vendors/broken-pixel-polish.jpg"
+  "img": "vendors/broken-pixel-polish.jpg",
+  "airtableInfo": "Crowd Control\n\nBlue base with a slight turquoise shift, packed with holographic micro flakes and purple-gold-green multichrome flakes.\n\nPrice: $8.00\n\nAct Natural - Chocolate brown base with a black-red-green multichrome shift, scattered holographic flakes, and ultra fine pink reflective glitter.\n\nGood Enough - Bright magenta base with an even louder pink-orange-gold shifting shimmer.\n\nGuesswork - Copper-orange base with a deep red-orange-yellow multichrome shift packed with scatter holo.\n\nLiterally No Clue - A mix of pewter holographic glitter, taupe micro flakes, and iridescent silver-green-purple shifting shimmer in a blackened base.\n\nThis is Fine - Gray base with purple-red chameleon flakes and red-orange reflective glitter.\n\nTrying My Best - A sheer apple green jelly base with a fine purple-red shifting shimmer. (Use a blurring base at your discretion. Nail line may still be visible after three coats, possibly even with a blurring base.)\n\nWinging It - A silvery blue bell blue base packed with scattered holo and a pink-orange-gold shifting shimmer.\n\nWorking as Intended - A cool purple base filled with blue iridescent flakes and fine holo, a touch of pink reflective glitter, and a sparkling pink-red shimmer.",
+  "website": "https://brokenpixelpolish.com/",
+  "swatches": [
+   {
+    "name": "Clueless in Chicago",
+    "file": "swatches/broken-pixel-polish/00.jpg"
+   },
+   {
+    "name": "Crowd Control",
+    "file": "swatches/broken-pixel-polish/01.jpg"
+   },
+   {
+    "name": "Act Natural",
+    "file": "swatches/broken-pixel-polish/02.jpg"
+   },
+   {
+    "name": "Good Enough",
+    "file": "swatches/broken-pixel-polish/03.jpg"
+   },
+   {
+    "name": "Literally No Clue",
+    "file": "swatches/broken-pixel-polish/04.jpg"
+   },
+   {
+    "name": "Guesswork",
+    "file": "swatches/broken-pixel-polish/05.jpg"
+   },
+   {
+    "name": "Trying My Best",
+    "file": "swatches/broken-pixel-polish/06.jpg"
+   },
+   {
+    "name": "This is Fine",
+    "file": "swatches/broken-pixel-polish/07.jpg"
+   },
+   {
+    "name": "Winging It",
+    "file": "swatches/broken-pixel-polish/08.jpg"
+   },
+   {
+    "name": "Working as Intended",
+    "file": "swatches/broken-pixel-polish/09.jpg"
+   }
+  ]
  },
  {
   "name": "Clionadh Cosmetics",
@@ -167,7 +541,47 @@
   },
   "slug": "clionadh-cosmetics",
   "bio": "Clionadh Cosmetics is a vegan and cruelty-free indie brand that creates handmade, high-quality beauty products. Based out of Toronto, Canada, Clionadh is co-owned and operated by sisters Leigh & Maggie.",
-  "img": "vendors/clionadh-cosmetics.jpg"
+  "img": "vendors/clionadh-cosmetics.jpg",
+  "airtableInfo": "Each year, we look at ways we can improve upon the last with customer experience being the forefront of our thoughts. This year, we have split our booth into two side-by-side. One will be for our eyeshadows only, and the other for polishes. This will allow for more shadow swatch stations while simultaneously not “clogging up the line” for those who only wish to see polishes. Our order form will have ALL of our offered products on it. When you enter a line, we can hand you a form. You are free to fill it out (with your name as well) and hand it to anyone behind our booth. Sometimes we have individuals wait in line until they reach checkout to hand in the form. We ask that you give it as soon as you are finished so we can usher you to the cash and make room for other customers at the table. From our experience, this is the best way for us to prepare your purchase as fast as possible and maintain a streamlined order. If you are at one table, and wish to purchase items from the other, you are free to do so. No need to wait in two lines unless you physically want to see each side (we know many of you come prepared with lists ahead of time!). I hope this all makes sense, but please let me know if you have any further questions.\nLastly, we are finalizing the inventory to bring. Please drop your requests below if you would like to see certain items available for purchase. With such a large catalog, it is difficult for us to narrow it down, so your feedback is very valuable! And yes, our new Halation Holos will be available. \n\nClionadh Cosmetics is excited to bring you our new lineup of  Halation Holos  to Polish and Beauty Expo! We will have the entire collection with us, however we recommend coming early if you're wanting to get all eight.\nSwatches below, you can also check out the YouTube video on our channel: https://youtu.be/P0-a3Bcftr8?si=CGCrKyaen2nxC8Ik \n $11-12 USD each. Payment options: cash, credit card, PayPal. Booth 23.\nAll Clionadh Cosmetics products are vegan and cruelty-free, talc-free, paraben-free. All lacquers are 10-free.",
+  "website": "https://clionadhcosmetics.com/",
+  "swatches": [
+   {
+    "name": "Halation Holos",
+    "file": "swatches/clionadh-cosmetics/00.jpg"
+   },
+   {
+    "name": "Flamin' Hot Holo",
+    "file": "swatches/clionadh-cosmetics/01.jpg"
+   },
+   {
+    "name": "Holoritos",
+    "file": "swatches/clionadh-cosmetics/02.jpg"
+   },
+   {
+    "name": "Holondaise",
+    "file": "swatches/clionadh-cosmetics/03.jpg"
+   },
+   {
+    "name": "Holopeno",
+    "file": "swatches/clionadh-cosmetics/04.jpg"
+   },
+   {
+    "name": "Holoberry Pie",
+    "file": "swatches/clionadh-cosmetics/05.jpg"
+   },
+   {
+    "name": "P.B",
+    "file": "swatches/clionadh-cosmetics/06.jpg"
+   },
+   {
+    "name": "H2 Olo",
+    "file": "swatches/clionadh-cosmetics/07.jpg"
+   },
+   {
+    "name": "Chocholo Chips",
+    "file": "swatches/clionadh-cosmetics/08.jpg"
+   }
+  ]
  },
  {
   "name": "Copacetic Cosmetics",
@@ -179,7 +593,63 @@
   },
   "slug": "copacetic-cosmetics",
   "bio": "Copacetic Cosmetics is a small family owned cosmetics brand located in Edina Mo, that features over 1000 different shades! Founded in 2017 by Olivia, this SAHM’s fun side project has grown into a brand that has shipped to over 50 different countries! We specialize in fun and exciting makeup including eyeshadows, lip products, nail polishes and more! We truly have something for everyone and we can’t wait to see you!",
-  "img": "vendors/copacetic-cosmetics.jpg"
+  "img": "vendors/copacetic-cosmetics.jpg",
+  "airtableInfo": "we WILL have our newest Starlight Holochromes with us in Chicago! (as well as over 200 Other shades)\nSpring Flakies - $5ea\nRealm of Magic Shifting Shimmers - $7ea\nOG Shifting Shimmers - $7ea\nFormula Bundle - $40 (Includes a holochrome, shifting shimmer, pressed flakie, duochrome, standard shade, and a hybrid shade)\nSummer Highlighters (as well as our other hylighters) - $15 full size / $10 minis\nCascade Polishes - $10ea",
+  "website": "https://www.copaceticcosmetics.com/",
+  "swatches": [
+   {
+    "name": "Starlight Collection",
+    "file": "swatches/copacetic-cosmetics/00.jpg"
+   },
+   {
+    "name": "Canopus",
+    "file": "swatches/copacetic-cosmetics/01.jpg"
+   },
+   {
+    "name": "Vega",
+    "file": "swatches/copacetic-cosmetics/02.jpg"
+   },
+   {
+    "name": "Capella",
+    "file": "swatches/copacetic-cosmetics/03.jpg"
+   },
+   {
+    "name": "Sirius",
+    "file": "swatches/copacetic-cosmetics/04.jpg"
+   },
+   {
+    "name": "Arcturus",
+    "file": "swatches/copacetic-cosmetics/05.jpg"
+   },
+   {
+    "name": "Regil",
+    "file": "swatches/copacetic-cosmetics/06.jpg"
+   },
+   {
+    "name": "Spring Flakies - $5ea",
+    "file": "swatches/copacetic-cosmetics/07.jpg"
+   },
+   {
+    "name": "Realm of Magic Shifting Shimmers - $7ea",
+    "file": "swatches/copacetic-cosmetics/08.jpg"
+   },
+   {
+    "name": "OG Shifting Shimmers - $7ea",
+    "file": "swatches/copacetic-cosmetics/09.jpg"
+   },
+   {
+    "name": "Formula Bundle - $40",
+    "file": "swatches/copacetic-cosmetics/10.jpg"
+   },
+   {
+    "name": "Summer Highlighters",
+    "file": "swatches/copacetic-cosmetics/11.jpg"
+   },
+   {
+    "name": "Cascade Polishes - $10ea",
+    "file": "swatches/copacetic-cosmetics/12.jpg"
+   }
+  ]
  },
  {
   "name": "Cupcake Polish",
@@ -192,7 +662,87 @@
   },
   "slug": "cupcake-polish",
   "bio": "Cupcake Polish was founded in 2013 in Dallas, TX and creates handmade special-effect nail polishes. Each small batch is crafted with love using the finest pigments and glitter to deliver long-lasting, salon-quality color that lets you express your individuality from tip to toe! We’ve been attending nail polish conventions since 2016 and are excited for our 3rd PBE event this year!",
-  "img": "vendors/cupcake-polish.jpg"
+  "img": "vendors/cupcake-polish.jpg",
+  "airtableInfo": "80's Baby Collection $14.00 or 3 for $35\nFreeze Frame – Purple neon with iridescent flakes, iridescent glitter, and black flakies\nSynthwave – Electric blue neon with iridescent flakes, iridescent glitter, and black flakies\nElectric Avenue – Neon yellow with iridescent flakes, iridescent glitter, and black flakies\nMaterial Girl – Neon pink with iridescent flakes, iridescent glitter, and black flakies\nBrat Pack – Neon green with iridescent flakes, iridescent glitter, and black flakies\nMiami Vice – Neon orange with iridescent flakes, iridescent glitter, and black flakies\n\nCHRISTMAS IN JULY TRIO $14.00 each Quantities are VERY limited, not restocking\nHoliday Heatwave - Bright red nail polish with glowing green aurora shimmer.\nSeason's Sprinkles - White nail polish filled with gold aurora shimmer and festive red and green glitter.\nCool Christmas - Purple to periwinkle thermal nail polish with luminous blue shimmer.\n\nCHICAGO CHARITY POLISH $14.00 Quantities are VERY limited, not restocking\nHouse Party - A vibrant magenta jelly nail polish packed with red aurora shimmer and holographic glitter.\n$5 from every bottle sold will be donated to Chicago House, helping support individuals and families impacted by HIV/AIDS, housing instability, and health inequities throughout the Chicago area.\n VIP BAG EXCLUSIVE\nMystical Magical - An indigo purple nail polish filled with a rainbow of iridescent flakies and sparkling iridescent glitter.",
+  "website": "https://www.cupcakepolish.com/",
+  "swatches": [
+   {
+    "name": "80s Baby Collection",
+    "file": "swatches/cupcake-polish/00.jpg"
+   },
+   {
+    "name": "CHRISTMAS IN JULY TRIO (top) CHICAGO CHARITY POLISH and PBE Bag (bottom)",
+    "file": "swatches/cupcake-polish/01.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/cupcake-polish/02.jpg"
+   },
+   {
+    "name": "Holiday Heatwave",
+    "file": "swatches/cupcake-polish/03.jpg"
+   },
+   {
+    "name": "Season's Sprinkles",
+    "file": "swatches/cupcake-polish/04.jpg"
+   },
+   {
+    "name": "Cool Christmas",
+    "file": "swatches/cupcake-polish/05.jpg"
+   },
+   {
+    "name": "Mystical Magical",
+    "file": "swatches/cupcake-polish/06.jpg"
+   },
+   {
+    "name": "House Party",
+    "file": "swatches/cupcake-polish/07.jpg"
+   },
+   {
+    "name": "Pieces of You",
+    "file": "swatches/cupcake-polish/08.jpg"
+   },
+   {
+    "name": "Booked & Busy",
+    "file": "swatches/cupcake-polish/09.jpg"
+   },
+   {
+    "name": "Apres Ski",
+    "file": "swatches/cupcake-polish/10.jpg"
+   },
+   {
+    "name": "Disco Cowgirl",
+    "file": "swatches/cupcake-polish/11.jpg"
+   },
+   {
+    "name": "Be a Doll",
+    "file": "swatches/cupcake-polish/12.jpg"
+   },
+   {
+    "name": "Fruit Festival",
+    "file": "swatches/cupcake-polish/13.jpg"
+   },
+   {
+    "name": "Enchanted Forest",
+    "file": "swatches/cupcake-polish/14.jpg"
+   },
+   {
+    "name": "Popsicle",
+    "file": "swatches/cupcake-polish/15.jpg"
+   },
+   {
+    "name": "Cloud",
+    "file": "swatches/cupcake-polish/16.jpg"
+   },
+   {
+    "name": "Mermaid",
+    "file": "swatches/cupcake-polish/17.jpg"
+   },
+   {
+    "name": "Sunbleached",
+    "file": "swatches/cupcake-polish/18.jpg"
+   }
+  ]
  },
  {
   "name": "Dark Moon Esscentuals",
@@ -204,7 +754,10 @@
   },
   "slug": "dark-moon-esscentuals",
   "bio": "Dark Moon Esscentuals is a luxury, handmade skincare, bath, and body company that uses the highest quality ingredients to bring you amazing skincare. We focus on giving you products that provide an experience for your skin and helping you to establish a self-care routine you look forward to!",
-  "img": "vendors/dark-moon-esscentuals.jpg"
+  "img": "vendors/dark-moon-esscentuals.jpg",
+  "airtableInfo": "",
+  "website": "https://darkmoonesscentuals.com/",
+  "swatches": []
  },
  {
   "name": "Dew Nail Polish",
@@ -216,7 +769,10 @@
   },
   "slug": "dew-nail-polish",
   "bio": "Dew Nail Polish was founded in 2020 by Ruby Kay, a chemical engineer who loves mixing stuff! Dew nail polish is handmade, vegan-friendly and 10-free. The brand’s name is inspired by the morning dew resembling freshness. We also make a line of natural cuticle oils, soy candles and whipped sugar body scrubs.",
-  "img": "vendors/dew-nail-polish.jpg"
+  "img": "vendors/dew-nail-polish.jpg",
+  "airtableInfo": "",
+  "website": "https://www.dewnailpolish.com/",
+  "swatches": []
  },
  {
   "name": "Dreamland Lacquer",
@@ -228,7 +784,107 @@
   },
   "slug": "dreamland-lacquer",
   "bio": "Dreamland Lacquer offers handcrafted lacquers made with ingredients sourced from around the world, created in our home workshop in Missouri. Dreamland was founded in the summer of 2012 as Smitten Polish, and was born of a deep love of color and a (slight) obsession with nail polish. Our creator, Noelie, was a passionate nail polish collector and blogger, and a lifelong artist, so it was a natural leap into making polish. This is our first PBE and we can’t wait to see everyone in Chicago!",
-  "img": "vendors/dreamland-lacquer.jpg"
+  "img": "vendors/dreamland-lacquer.jpg",
+  "airtableInfo": "Art Institute of Chicago Collection $12\nA Single Canvas of London - Inspired by Waterloo Bridge, Sunlight Effect (1903) by Claude Monet. A Single Canvas of London is a mix of blue and silver holographic microglitters with a shimmer that shifts from orange to gold to green (at extreme angles). It can be used as a topper, but is designed to be opaque on most nail lengths at three coats.\nFlashed Glass - Inspired by America Windows (1977) by Marc Chagall. Flashed Glass is a cobalt jelly base filled with green-blue-violet shimmer that results in a smooth, nearly metallic multichrome finish.\nChromesthesia - Inspired by Blue and Green Music (1921) by Georgia O’Keeffe. Chromesthesia is a tri-thermal that is purple when cold, transitions through navy blue, and ends in a bright, mint green when warm, and it’s filled with pinky-purple shifty iridescent flakes.\nNo Visible Exits - Inspired by Nighthawks (1942) by Edward Hopper. No Visible Exits is a light, minty-sagey green filled with orange-gold-green shifting flakes and holographic microflakes.\nMoonbeam Mani Club trio $12\nAll swatches are three coats with shiny topcoat. \nGnome is Where the Heart Is crelly base with iridescent flakes\nMoonbeam Mani Club crelly base with iridescent flakes\nTiny Hat Energy crelly base with iridescent flakes\nThe gnome stickers will be available individually and as a set at PBE as well. \nA Shimmering Odyssey\nAegean Drift - a medium cobalt-violet base filled with blurple shimmer.\nLand of the Lotus-Eaters - a vivid warm pink featuring an aqua-blue-violet shimmer.\nCirce’s Grove - an intense phthalo green base filled with green-violet shimmer.\nPenelope’s Gift - a bright purple base brought to life by a purple-pink-gold shimmer.\nGardening Magic $12.00\nAlkaline Blush - a mix of silver holo and reflective glitters in a pale pink base, accented with pink-gold-green shimmer.\nAcidic Azure - a mix of silver holo and reflective glitters in a light blue base, accented with blue-violet shimmer.\nPurple is the New Neutral - a mix of silver holo and reflective glitters in a light purple base, accented with green-blue shimmer.\nPolar Opposites $12.00\nDaybreak - an aqua-cobalt-violet blue base with a purple-gold-green magnetic pull.\nEvenfall - a purple-pink-red multichrome base with a blue-violet magnetic pull.\nThat’s Chicago $12.00\nCellophane - a mix of silver and reflective glitters in a pink-red-orange-gold shimmery base.\nRazzle Dazzle - a teal holographic microglitter mixed with pink-red-orange-gold iridescent microflakes, in a lightly tinted purple base.\n \nWe're also including the first look at our gift with purchase for the first 50 folks to spend $50 - it's a small re-useable holo tote, a holo sticker, one of our badge ribbons, and a thermal color changing stadium cup in our signature aqua color. We will also have the stadium cups available for purchase at our booth. \nOur doorbuster is called Welcome to Dreamland, and it's a dark teal to clear thermal with pink, orange and blue iridescent flakes and purple metallic flakes. It's $8, and (like everything) we will have a limited number available. \nFor clarity's sake: Welcome to the Art Institute of Chicago is our PBE exclusive collection. Any overstock will be sold on our site after PBE. The rest of the shades we're debuting at PBE will be added to our catalog after the show.",
+  "website": "https://dreamlandlacquer.com/",
+  "swatches": [
+   {
+    "name": "Art Institute of Chicago",
+    "file": "swatches/dreamland-lacquer/00.jpg"
+   },
+   {
+    "name": "A Single Canvas of London",
+    "file": "swatches/dreamland-lacquer/01.jpg"
+   },
+   {
+    "name": "Chromesthesia",
+    "file": "swatches/dreamland-lacquer/02.jpg"
+   },
+   {
+    "name": "Flashed Glass",
+    "file": "swatches/dreamland-lacquer/03.jpg"
+   },
+   {
+    "name": "No Visible Exits",
+    "file": "swatches/dreamland-lacquer/04.jpg"
+   },
+   {
+    "name": "Moonbeam Mani Club",
+    "file": "swatches/dreamland-lacquer/05.jpg"
+   },
+   {
+    "name": "Tiny Hat Energy",
+    "file": "swatches/dreamland-lacquer/06.jpg"
+   },
+   {
+    "name": "Moonbeam Mani Club",
+    "file": "swatches/dreamland-lacquer/07.jpg"
+   },
+   {
+    "name": "Gnome is Where the Heart Is",
+    "file": "swatches/dreamland-lacquer/08.jpg"
+   },
+   {
+    "name": "A Shimmering Odyssey",
+    "file": "swatches/dreamland-lacquer/09.jpg"
+   },
+   {
+    "name": "Penelope’s Gift",
+    "file": "swatches/dreamland-lacquer/10.jpg"
+   },
+   {
+    "name": "Circe's Grove",
+    "file": "swatches/dreamland-lacquer/11.jpg"
+   },
+   {
+    "name": "Aegean Drift",
+    "file": "swatches/dreamland-lacquer/12.jpg"
+   },
+   {
+    "name": "Land of the Lotus Eaters",
+    "file": "swatches/dreamland-lacquer/13.jpg"
+   },
+   {
+    "name": "Gardening Magic",
+    "file": "swatches/dreamland-lacquer/14.jpg"
+   },
+   {
+    "name": "Acidic Azure",
+    "file": "swatches/dreamland-lacquer/15.jpg"
+   },
+   {
+    "name": "Purple is the New Neutral",
+    "file": "swatches/dreamland-lacquer/16.jpg"
+   },
+   {
+    "name": "Alkaline Blush",
+    "file": "swatches/dreamland-lacquer/17.jpg"
+   },
+   {
+    "name": "That's Chicago and Polar Opposites",
+    "file": "swatches/dreamland-lacquer/18.jpg"
+   },
+   {
+    "name": "Daybreak",
+    "file": "swatches/dreamland-lacquer/19.jpg"
+   },
+   {
+    "name": "Evenfall",
+    "file": "swatches/dreamland-lacquer/20.jpg"
+   },
+   {
+    "name": "Cellophane",
+    "file": "swatches/dreamland-lacquer/21.jpg"
+   },
+   {
+    "name": "Razzle Dazzle",
+    "file": "swatches/dreamland-lacquer/22.jpg"
+   },
+   {
+    "name": "Welcome to Dreamland",
+    "file": "swatches/dreamland-lacquer/23.jpg"
+   }
+  ]
  },
  {
   "name": "Envy Lacquer",
@@ -240,7 +896,10 @@
   },
   "slug": "envy-lacquer",
   "bio": "Envy Lacquer, founded by Melody Mandegar, has been handcrafting unique indie nail polish for over 10 years. Each polish is mixed by hand, from shimmers to glitters, every shade is made with care, passion and imagination. Rooted in the indie polish community, Envy Lacquer celebrates creativity, individuality, and the joy of wearing art on your nails.",
-  "img": "vendors/envy-lacquer.jpg"
+  "img": "vendors/envy-lacquer.jpg",
+  "airtableInfo": "",
+  "website": "https://envylacquer.com/",
+  "swatches": []
  },
  {
   "name": "Garden Path Lacquers",
@@ -252,7 +911,51 @@
   },
   "slug": "garden-path-lacquers",
   "bio": "Garden Path Lacquers is a line of small-batch, hand-made nail polishes thoughtfully produced by Karen in Ohio. At Garden Path Lacquers we encourage you to embrace your individuality and curiosity by Straying from the Path.\n\nAll Garden Path Lacquers are vegan-friendly, big five chemical free, and cruelty free.",
-  "img": "vendors/garden-path-lacquers.jpg"
+  "img": "vendors/garden-path-lacquers.jpg",
+  "airtableInfo": "Lastly from Garden Path Lacquers is Player Select: PBE 2026 Exclusive Shades.\nThis year’s exclusive Polish & Beauty Expo shades, suggested and inspired by Mr. GPL, feature three video game mascots of the 90’s: Yoshi, Sonic, and Crash Bandicoot. These are such gorgeous nostalgic shades!\nDino Dash\nThis color is happy and has a pep in its step, just like our adorable dino Yoshi.\nAn almost neon green base is filled with red/orange shifting Aurora shimmer and green holographic microglitter.\nSpeed Run\nSonic will get your blood pumping on those speed runs with this bold, bright blue filled with aqua shifting Aurora shimmer and blue holographic microglitter. Zoom zoom!\nSpin Cycle\nCrash Bandicoot doesn’t need to watch where he’s going, and neither will you when your fingers lead with this pinky-red crelly filled with aqua shifting Aurora shimmer and red holographic microglitter.\n\nBelow you can also find collages of the regular stock/not-brand-new-to-PBE-but-still-really-amazing offerings we'll have! I'm including the link to each of these on our website so you can see full swatches and descriptions. \nEverything in this post (except for the mystery duo packs, 2/$20) will be available for the show special price of $13 each or 5+ polishes for $11 each, combinable with our brand new Buffy, After Midnight, and Exclusive offerings!\n PPU Rewind: Omelette du Fromage (https://gardenpathlacquers.com/.../ppu-rewind-omelette-du...)  @doseoflolade\n Pride duo with @playful polish pal (offered as individual shades w/10% going to the Okra project at the end of August; https://gardenpathlacquers.com/.../all-products/pride-2026)  @playfulpolishpal\n Moon Joy Quad (https://gardenpathlacquers.com/coll.../all-products/moon-joy)  @dangerouslypolished\n Spring Small batches (https://gardenpathlacquers.com/.../all.../small-batches)  Cosmetic Sanctuary\n Midwinter Midnights Vol. 3 (https://gardenpathlacquers.com/.../midwinter-midnights-3)  @heeymercedes \n\nAfter Midnight: 1990’s Trip Hop PBE 2026 Limited Editions\n*LE shades will be available for one round of pre-orders after the show.\n\nBlack Flowers Blossom\nA black base is grayed-out with a heavy dose of scattered holographic pigment and silver holographic microflakes\n\nOceans Won't Soothe Me\nA complex multichrome base shifts through arcs of purple, silver, green, and teal\n\nGonna Give My Heart Away\nA medium blue base is packed with bright blue shifting Aurora shimmer, blue holographic microglitter, and silver holographic microflakes\n\nPeace of this Mind\nA seemingly simple combination packs a bold punch: bright blue shifting Aurora shimmer is mixed with gold holographic microglitter\n\nToo Strung Up to Sleep\nA clover green base is accented with pink shifting Aurora shimmer\n\n $13 each or $11 each for 5+ polishes\nThese beauties will debut at the Expo and be $13! They’ll be available gardenpathlacquers.com on the 24th.\n\nThe Hellmouth Heroines: Late Summer 2026 Collection will debut at the Expo, and will be $13 each. They also be available in the GPL shop on 7/24 at gardenpathlacquers.com\nShe Saved the World. A Lot.\nInspired by Buffy Summers.\nA plum crelly base is accented with scattered holographic pigment and aqua shifting Aurora shimmer.\nNot the Real Me\nInspired by Dawn Summers.\nAn ocean blue multichrome is filled with jade holographic microglitter.\nBored Now\nInspired by Vampire Willow and Dark Willow.\nA deep emerald green base is packed with silver holographic microglitter and larger particle silver holographic microglitter flake.\nI Got So Lost\nInspired by Tara Maclay.\nA springy forest green crelly is filled with jade holographic microglitter and red/orange shifting Aurora shimmer.\nIt Must Be Bunnies\nInspired by Anya Jenkins.\nA classy, classic red base is accented with pink shifting Aurora shimmer, red holographic microglitter, and larger particle silver holographic microglitter flake.\nSerious Thoughts All Day\nInspired by Cordelia Chase.\nA blackened cranberry base is packed with gold holographic microglitter.",
+  "website": "https://gardenpathlacquers.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/garden-path-lacquers/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/garden-path-lacquers/01.jpg"
+   },
+   {
+    "name": "Moon Joy",
+    "file": "swatches/garden-path-lacquers/02.jpg"
+   },
+   {
+    "name": "Pride Duo",
+    "file": "swatches/garden-path-lacquers/03.jpg"
+   },
+   {
+    "name": "Spring Small Batches",
+    "file": "swatches/garden-path-lacquers/04.jpg"
+   },
+   {
+    "name": "Midwinter Midnights Vol",
+    "file": "swatches/garden-path-lacquers/05.jpg"
+   },
+   {
+    "name": "After Midnight",
+    "file": "swatches/garden-path-lacquers/06.jpg"
+   },
+   {
+    "name": "The Hellmouth Heroines",
+    "file": "swatches/garden-path-lacquers/07.jpg"
+   },
+   {
+    "name": "The Hellmouth Heroines",
+    "file": "swatches/garden-path-lacquers/08.jpg"
+   },
+   {
+    "name": "After Midnight",
+    "file": "swatches/garden-path-lacquers/09.jpg"
+   }
+  ]
  },
  {
   "name": "Glisten & Glow",
@@ -264,7 +967,55 @@
   },
   "slug": "glisten-glow",
   "bio": "Jill Rehm, a nail technician since 1996, pioneered the indie nail world by founding Glisten & Glow in 2010. Based in Bristol, CT, Glisten & Glow has earned recognition for its award-winning nail care essentials, including top coats, base coats, cuticle oils, cuticle remover, and handmade polishes.\n\nJill is known for creating striking crème polish collections and dazzling special-effect shades featuring flakes, shimmers, holographics, and glitters. Her inspiration comes from a wide variety of sources—art, music, photography, nature, TV, movies, travel, and her decades of experience as a nail tech—resulting in truly unique and memorable products.\n\nWith a commitment to quality, creativity, and innovation, Jill and Glisten & Glow continue to elevate the nail industry one polish at a time.",
-  "img": "vendors/glisten-glow.jpg"
+  "img": "vendors/glisten-glow.jpg",
+  "airtableInfo": "The Cowgirl Cutie Collection!\nSwatch cr: Denise @polishedbooklover\nCowgirl Chaos – light neon pink crellie polish loaded with color shifting shimmer that shifts blue/green\nHay Girl Hay – vibrant royal blue jellie polish loaded with color shifting ghost flakes that shift blue/green/purple/pink th\nBoot Scootin’ Babe – deep purple polish loaded with color shifting ghost flakes that shift a rainbow of colors and a rainbow of metallic flakes \nWild West Wanderer – vibrant purple jellie polish loaded with color shifting shimmer that shifts blue/green/bronze/gold \nLonghorn Love Story – sage green based jellie polish loaded with color shifting shimmer that shifts purple/blue/yellow/green and silver reflective glitters \nPink Pony Saloon – bright neon pink jellie polish loaded with color shifting ghost flakes that shift green/purple/blue/pink \nCowboys Cupid – deep teal jellie polish loaded with color shifting ghost flakes that shift the whole rainbow \nSaddle Up, Sugar – medium tan crème polish \nChaps & Charms – medium purple crème polish \nRanch Hand Romance – medium raspberry crème polish\n\nExclusive polishes for the show.\n\nOnly $5 each!!\n\n•Loop Life - purple based polish loaded with color shifting shimmer that shifts\npink/orange/bronze/yellow and lavender\nreflective glitter\n\n•Windy City Whirl - deep slate blue crellie polish loaded with green and rose gold metallic flakes and colors shifting shimmer that shifts green/yellow\n\nOverpours, if any, will be listed on their site July 23rd 6pm ET.",
+  "website": "https://www.glistenandglow.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/01.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/02.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/03.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/04.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/05.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/06.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/07.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/08.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/09.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/glisten-glow/10.jpg"
+   }
+  ]
  },
  {
   "name": "Hearts and Promises",
@@ -276,7 +1027,27 @@
   },
   "slug": "hearts-and-promises",
   "bio": "Hearts & Promises is a Pennsylvania based indie nail polish brand. The brand originally was known as Turtle Tootsie Polishes in 2015 but wanted a more sophisticated look and rebranded in 2018. It’s been a long time since we’ve done a polish convention and we are so excited to be accepted this year into PBE. Along with polish, we also create unique soaps, lip balms and scrubs which may be coming with us as well.",
-  "img": "vendors/hearts-and-promises.jpg"
+  "img": "vendors/hearts-and-promises.jpg",
+  "airtableInfo": "Set of 3 Chicago limited edition-\n1.  Mystery Moon (Blue) - This is a deep dark sapphire blue polish with blue and purple aurora shimmer.\n2. Polished Princess (Purple)- This is a Purple/blue multi chrome polish with blue, purple and pink aurora shimmer.\n3. Shine On, Friends! (Pink) - This is pink/copper/green chameleon base with red/orange aurora shimmer.\n\nI decided to create a Christmas in July collection, including four traditional linear hollows with flakes and four more bold colors for an eight piece holiday collection. For my door buster you can get all eight polishes for just $75 while supplies last I’ll have them already wrapped in bubble wrap in the box and ready to go that you can just grab the box and throw it in your suitcase or pack it in your shipping box! There will only be 30 of these available and since it’s my first year, I don’t know if that’s a lot or if that’s not many. And don’t forget if you’re one of the first 100 customers you get a free bag of Hershey kisses as well.  so don’t forget to stop by the Hearts & Promises booth!\n***These will also be available individually for $12 each or 3 or more for $10 each***\n\nAnyway, I have a few chocolate oriented deals for you as well as free chocolate with purchase to share with you.\nFirst, just to clarify, we are driving in from Pennsylvania. We actually live about an hour from Hershey PA. The chocolate was picked up from the factory special order and let me tell you it tastes so good! They will be in a special cooler to help with melting hopefully. That being said these are the deals I’m offering:\n1. First is a three piece chocolate trio consisting of white chocolate, dark chocolate and milk chocolate colored nail polish. These are priced at $12 each or you can buy the set for $30.\n2. I also have a chocolate scented oatmeal, Shea butter soap that smells so good as some swatchers will be able to describe to you in their videos. Most of us agree that it smells kind of like hot chocolate. These soaps are going to be priced at eight dollars or three for 20 and you also can purchase it for five dollars with the full trio for a total of $35.\n3. Along with buying the full trio, you will have your choice of a free candy bar either Hershey’s special dark, Hershey’s milk chocolate, or cookies and cream.\n4. Also, the first 100 customers to make a purchase will receive a small bag of Hershey kisses.\n5. We also have a new item that just arrived, our chocolate scented brand name, heart, air fresheners. These will be priced at $3 each or 2 for $5.",
+  "website": "https://www.heartsandpromises.com/",
+  "swatches": [
+   {
+    "name": "Chicago exclusives",
+    "file": "swatches/hearts-and-promises/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/hearts-and-promises/01.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/hearts-and-promises/02.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/hearts-and-promises/03.jpg"
+   }
+  ]
  },
  {
   "name": "Jen & Berries",
@@ -288,7 +1059,99 @@
   },
   "slug": "jen-berries",
   "bio": "Inspired by a desire for better beauty products, Jen & Berries was founded in 2019 when Jenny saw a lack of exciting nail polish as well as natural skin care options that were Vegan and Cruelty-Free. She set out to create a vibrant world with innovative nail care along with bold and daring nail polishes with the highest quality ingredients to bring a touch of personality to your fingertips because nail polish is more than just a cosmetic; it’s a form of self expression!",
-  "img": "vendors/jen-berries.jpg"
+  "img": "vendors/jen-berries.jpg",
+  "airtableInfo": "These polishes were inspired by Donut, Mongo, the system AI, Prepotente (right in your gd ear), and of course, Carl's boxers!\nThis is my 7th anniversary collection and will be available on my website in August but you can get this NEW ACHIEVEMENT early at PBE!\nReally, Carl. Inspired by Carl's iconic heart boxers, this polish has a white crelly base with red heart glitter along with black and red holographic microglitter.\n\nAHHHHHHH! Inspired by everyone's favorite 'Pony', Prepotente, this polish has a rich red base with a fine copper shimmer.\n\nMongo is Appalled! Inspired by the adorable Velociraptor mongoliensis, this polish has a green holographic base with copper/gold/green shifting shimmer.\n\nNEW ACHIEVEMENT. Inspired by the Dungeon's AI, this polish has a magenta purple base with aqua/blue/purple shifting shimmer and holographic flakes.\n\nB-B-B-Boss Battle. Inspired by the most dangerous enemies in the Dungeon, the neighborhood, city and country bosses. This polish has a deep blue base with bold blue scattered shimmer and holographic flakes.\n\nI AM YELLING! Inspired by GC BWR NW Princess Donut the Queen Anne Chonk and her choice of using capitals when texting, this polish has her favorite purple base with purple/black multichrome flakes and pink/orange small iridescent flakes.\n\nJen and Birdies the Jen and Berries and Bluebird Good Neighbors collab is back!\nThis year’s theme is inspired by our beloved home state of Colorado’s very own South Park!\n\nJen and Berries brings you a Butters inspired light green based silver magnetic: Chaos is its Own Reward\n\nBluebird brings you a Kenny inspired orange-red-yellow shimmer with light purple metallic flakies and a dash of holo: THAT LITTLE KENNY BASTARD\n\nThe duo is $30 and comes with a Jen & Berries cuticle oil in almond macaron and a Bluebird No More Uglicles Cuticle Balm in CHEESY POOFS\n\nWe will have 30 total available. 15 at each booth.\n\nCone as you are is a topper with a mix of matte neon dot glitter and a touch of scattered white sparkle.",
+  "website": "https://jenandberries.com/",
+  "swatches": [
+   {
+    "name": "Gilmore Girls Collection, Dungeon Crawler Carl Collection, the Doorbuster, some LE PBE shades and GWP!",
+    "file": "swatches/jen-berries/00.jpg"
+   },
+   {
+    "name": "Gilmore Girls inspired collection",
+    "file": "swatches/jen-berries/01.jpg"
+   },
+   {
+    "name": "Gilmore Girls inspired collection",
+    "file": "swatches/jen-berries/02.jpg"
+   },
+   {
+    "name": "Dungeon Crawler Carl",
+    "file": "swatches/jen-berries/03.jpg"
+   },
+   {
+    "name": "Dungeon Crawler Carl",
+    "file": "swatches/jen-berries/04.jpg"
+   },
+   {
+    "name": "mad dash pbe gwp",
+    "file": "swatches/jen-berries/05.jpg"
+   },
+   {
+    "name": "Zombie Berries - Violence",
+    "file": "swatches/jen-berries/06.jpg"
+   },
+   {
+    "name": "i'll go. i'll go. i'll go. what - i'll go",
+    "file": "swatches/jen-berries/07.jpg"
+   },
+   {
+    "name": "the audacity!",
+    "file": "swatches/jen-berries/08.jpg"
+   },
+   {
+    "name": "80s duo - punky power",
+    "file": "swatches/jen-berries/09.jpg"
+   },
+   {
+    "name": "80s duo - it is so choice",
+    "file": "swatches/jen-berries/10.jpg"
+   },
+   {
+    "name": "an ordinary topper",
+    "file": "swatches/jen-berries/11.jpg"
+   },
+   {
+    "name": "we've bean here before",
+    "file": "swatches/jen-berries/12.jpg"
+   },
+   {
+    "name": "night life is the right life",
+    "file": "swatches/jen-berries/13.jpg"
+   },
+   {
+    "name": "The Prime Neglected",
+    "file": "swatches/jen-berries/14.jpg"
+   },
+   {
+    "name": "why did you drop out of yale?!",
+    "file": "swatches/jen-berries/15.jpg"
+   },
+   {
+    "name": "tie your tubes, idiot",
+    "file": "swatches/jen-berries/16.jpg"
+   },
+   {
+    "name": "you jump i jump jack",
+    "file": "swatches/jen-berries/17.jpg"
+   },
+   {
+    "name": "i'm all in",
+    "file": "swatches/jen-berries/18.jpg"
+   },
+   {
+    "name": "vicious trollop",
+    "file": "swatches/jen-berries/19.jpg"
+   },
+   {
+    "name": "life's short. talk fast",
+    "file": "swatches/jen-berries/20.jpg"
+   },
+   {
+    "name": "Chaos is its Own Reward",
+    "file": "swatches/jen-berries/21.jpg"
+   }
+  ]
  },
  {
   "name": "Lurid Lacquer",
@@ -300,7 +1163,83 @@
   },
   "slug": "lurid-lacquer",
   "bio": "Founded in 2024 by Karen Cralli, Lurid Lacquer specializes in all things bold and bright.\n\nMy collections are visual narratives that use texture and color to tell stories and evoke emotions. I use a variety of special effects pigments, with a particular passion for reflective glitter and aurora shimmer. Each Lurid Lacquer polish is a work of art that tells a story.",
-  "img": "vendors/lurid-lacquer.jpg"
+  "img": "vendors/lurid-lacquer.jpg",
+  "airtableInfo": "Illinois Flora and Fauna 17 polish collection (PBE-exclusive)\nTwo of the polishes from the collection will be doorbusters, available for $12/ea, tax included:\n Nodding Onion\n Blue Wild Indigo \nAll other polishes will be $15/ea tax included.",
+  "website": "https://luridlacquer.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/lurid-lacquer/00.jpg"
+   },
+   {
+    "name": "Monarch Butterfly",
+    "file": "swatches/lurid-lacquer/01.jpg"
+   },
+   {
+    "name": "Northern Cardinal",
+    "file": "swatches/lurid-lacquer/02.jpg"
+   },
+   {
+    "name": "Purple Coneflower",
+    "file": "swatches/lurid-lacquer/03.jpg"
+   },
+   {
+    "name": "Melanistic Eastern Gray Squirrel",
+    "file": "swatches/lurid-lacquer/04.jpg"
+   },
+   {
+    "name": "Prairie Smoke",
+    "file": "swatches/lurid-lacquer/05.jpg"
+   },
+   {
+    "name": "Wild Garlic",
+    "file": "swatches/lurid-lacquer/06.jpg"
+   },
+   {
+    "name": "Queen of the Prairie",
+    "file": "swatches/lurid-lacquer/07.jpg"
+   },
+   {
+    "name": "Sugar Maple",
+    "file": "swatches/lurid-lacquer/08.jpg"
+   },
+   {
+    "name": "Switch Grass",
+    "file": "swatches/lurid-lacquer/09.jpg"
+   },
+   {
+    "name": "Common Violet",
+    "file": "swatches/lurid-lacquer/10.jpg"
+   },
+   {
+    "name": "Smooth Greensnake",
+    "file": "swatches/lurid-lacquer/11.jpg"
+   },
+   {
+    "name": "Coyote",
+    "file": "swatches/lurid-lacquer/12.jpg"
+   },
+   {
+    "name": "Blue Wild Indigo",
+    "file": "swatches/lurid-lacquer/13.jpg"
+   },
+   {
+    "name": "Nodding Onion",
+    "file": "swatches/lurid-lacquer/14.jpg"
+   },
+   {
+    "name": "White Oak",
+    "file": "swatches/lurid-lacquer/15.jpg"
+   },
+   {
+    "name": "Red Fox",
+    "file": "swatches/lurid-lacquer/16.jpg"
+   },
+   {
+    "name": "Yellow Coneflower",
+    "file": "swatches/lurid-lacquer/17.jpg"
+   }
+  ]
  },
  {
   "name": "LynBDesigns",
@@ -313,7 +1252,10 @@
   },
   "slug": "lynbdesigns",
   "bio": "LynBDesigns is a Michigan based brand that formed in 2011. We believe nail polish should be more than just a color it should be a conversation starter. We craft quirky, inspired, and one-of-a-kind shades that celebrate the fandoms and stories you love. We love to share our creativity through the magic of a little sparkle. We offer vegan 5-free polish that lets you wear your passions on your nails",
-  "img": "vendors/lynbdesigns.jpg"
+  "img": "vendors/lynbdesigns.jpg",
+  "swatches": [],
+  "airtableInfo": "",
+  "website": ""
  },
  {
   "name": "Manimod",
@@ -325,7 +1267,10 @@
   },
   "slug": "manimod",
   "bio": "Manimod was founded in 2024 after Courtney’s nail polish collection grew from “a few too many bottles” into a full-blown obsession. What began as a search for a better way to organize her own collection quickly evolved into something much bigger.",
-  "img": "vendors/manimod.jpg"
+  "img": "vendors/manimod.jpg",
+  "airtableInfo": "",
+  "website": "https://themanimod.com/",
+  "swatches": []
  },
  {
   "name": "Monarch Lacquer",
@@ -337,7 +1282,43 @@
   },
   "slug": "monarch-lacquer",
   "bio": "Monarch Lacquer, based in Minnesota is owned by Adrienne Baird, who brings over a decade of experience to creating indie nail polish. Every shade is thoughtfully crafted to celebrate individuality, blending vibrant colors, unique finishes, and Adrienne’s passion for creativity into every bottle.",
-  "img": "vendors/monarch-lacquer.jpg"
+  "img": "vendors/monarch-lacquer.jpg",
+  "airtableInfo": "Adrienne of Monarch Lacquer is bringing a very limited Color Chaos collection (which are all Panda-monium Siblings--Inspired by Pandas! This polish is a unique mix of tiny matte white glitter and black flake. Over all effect is a concentrated black and white look. ⁠--) as well as 3 PBE Exclusives and a Doorbuster! \nPBE Pricing is $12/bottle, 5 or more $10 each. The Doorbuster (Wish You Were Here) will be $6",
+  "website": "https://monarchlacquer.com/",
+  "swatches": [
+   {
+    "name": "Hidden Gem",
+    "file": "swatches/monarch-lacquer/00.jpg"
+   },
+   {
+    "name": "Local Legend",
+    "file": "swatches/monarch-lacquer/01.jpg"
+   },
+   {
+    "name": "Wish You Were Here",
+    "file": "swatches/monarch-lacquer/02.jpg"
+   },
+   {
+    "name": "Worth the Detour",
+    "file": "swatches/monarch-lacquer/03.jpg"
+   },
+   {
+    "name": "Chaos Theory",
+    "file": "swatches/monarch-lacquer/04.jpg"
+   },
+   {
+    "name": "High Voltage",
+    "file": "swatches/monarch-lacquer/05.jpg"
+   },
+   {
+    "name": "Questionable Decisions",
+    "file": "swatches/monarch-lacquer/06.jpg"
+   },
+   {
+    "name": "Spiral Mode",
+    "file": "swatches/monarch-lacquer/07.jpg"
+   }
+  ]
  },
  {
   "name": "Peculiar Polish",
@@ -349,7 +1330,15 @@
   },
   "slug": "peculiar-polish",
   "bio": "Peculiar Polish began in a hospital room in Aug ’23 after a life-altering event. I realized that my passion for unique and artistic nail polishes was more than just a hobby—it was a calling. It was in this period of recovery and reflection that the vision for Peculiar Polish took root. Each bottle of Peculiar Polish is a symbol of strength and individuality, empowering wearers to live boldly and celebrate their one-of-a-kind selves through vibrant colors and high-quality lacquer.",
-  "img": "vendors/peculiar-polish.jpg"
+  "img": "vendors/peculiar-polish.jpg",
+  "airtableInfo": "I have this beautiful collection from Peculiar Polish to feature for PBE. Mother of Dragons 3 will be exclusively available at PBE and will release at a later date on peculiarpolish.com. Here’s a quick look! PR Gifted\n\nMoondancer is a pale green base that changes to a blue base in the sun. It has a shifting blue to pinkish purple shimmer and a sprinkle of reflective glitter. Keep in mind this polish has a lot of components and only the base changes color. It will not be a drastic change with the intense shimmer.\n\nBronze Fury is a beautiful bronze polish when unmagnetized, but when you apply a magnet in the design desired it will reveal a beautiful blue grey base with a shimmer of reddish orange sprinkled in and a dramatic golden bronze magnetic design.\n\nRealm’s Delight is a fire red base when warm and a deep red when cold, and had a beautiful red shimmer running throughout.\n\nQueen in Chains is a kelly green base when warm and a deep Emerald when cold. It has a strong green/blue/purple shimmer throughout.\n\nBlue Queen is a super sparkle blue reflective and blue to purple shimmer in a clear base. Wear alone or as a topper.\n\nDreamfyre is a pale blue base with a beautiful light blue shimmer. This formula has been reformulated to be opaque.\n\nSilverwing is a deep grey linear holograpic.",
+  "website": "https://www.peculiarpolish.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/peculiar-polish/00.jpg"
+   }
+  ]
  },
  {
   "name": "PI Colors",
@@ -362,7 +1351,63 @@
   },
   "slug": "pi-colors",
   "bio": "PI Colors creates a wide array of luxurious nail polishes with many different colors, shimmers and other effects. We also handcraft small-batch bath and skincare products using high quality cosmetic pigments and ingredients. We’re always looking to create the next awesome array of nail colors and bath products with delicious scents for our shop. PI Colors is a black owned and woman owned business, created in 2017 and based in the Los Angeles area of sunny California.",
-  "img": "vendors/pi-colors.jpg"
+  "img": "vendors/pi-colors.jpg",
+  "airtableInfo": "PI Colors is excited to be coming back for a third year to PBE!! As always, things are super busy but I wanted to drop a quick sneak peek at the doorbusters coming to the show! These are Ametrine.200 and Pellucid Copper.300, named for types of crystals and is a continuation of our Crystalline Entities series.\nThe Fathoms quad is inspired by ocean depths, featuring blues, greens, purples and a wildly bright neon yellow! \nYellow Tang.151- A bright neon chartreuse yellow green base with a purple to red shimmer and iridescent purple to blue glitter. \nBetta Splendens.252 - A glowing blue shimmer incased in a pastel purple base. Shimmer color shifts between a cyan blue to darker blue at the right angles.\nSea Sparkle.340 - A turquoise base with green gold blue colorshfiting shimmer. The blue really pops at more extreme angles.\nNoctiluca Depths.525 - A solid deep dark green with hints of blue and a satin finish.\nThese will be $12/each for the show! \n\nIt's Monday evening and I wanted to showcase the third of the quads PI Colors is bringing. This is the Lamina Astrum quad collection, which is full of holo and colorshifting flakie toppers! Wear over other colors or as it's own fun polish. Inspired by mineral crystals, the name Lamina Astrum means \"layer or thin sheet of stars\". I hope you guys enjoy this fun set!\nWulfenite.400 - Flakie jelly polish topper with orange gold colorshfiting flakies and holographic shimmer. \nPink Apatite.400 - Flakie jelly polish topper with pink gold green colorshfiting flakies and holographic shimmer.\nBlue Halite.400 - Flakie jelly polish topper with cyan blue colorshfiting flakies and holographic shimmer.\nWatermelon Tourmaline.400 - Flakie jelly polish topper with green pink colorshfiting flakies and holographic shimmer.\nThese are $12/each! \n\nHeliotropes quad is inspired by the color purple and the family of flowers that bear this name. \nDeep Eminence.121 - A deep blue-purple base filled with pink purple green gold colors shifting flakies. \nElectric Opera.269 - A milky gray pale purple base filled with blue shimmer.\nMetal Haze.300 - A violet base filled with orange gold green and blue color shifting shimmer.\nUbe Rain.125 - a pale violet purple base filled with color shifting pink red orange green gold shimmer.\nThese will be $12/each for the show! \n\nI have three exclusive colors this year! \nHalo.000 - A super shimmery gray purple jelly base with silvery blue to pink shimmer.\nParhelion.000 - A super shimmery pink with hint of peach jelly base with pink orange gold green shimmer.\nIce Crown.000 - A deep purple blue black base with strong blue shimmer with slight color shift.\nThese are some fun colors and really pop in person, so come by and see our booth!\nI also have Black Manzanita.000, which is our yearly addition to our Metallicum Flores series. If you enjoy linear holos, this is one not to miss! I'll also have all the other polishes from this series available at the show",
+  "website": "https://picolors.com/",
+  "swatches": [
+   {
+    "name": "Ametrine",
+    "file": "swatches/pi-colors/00.jpg"
+   },
+   {
+    "name": "Pellucid Copper",
+    "file": "swatches/pi-colors/01.jpg"
+   },
+   {
+    "name": "Fathoms Collection",
+    "file": "swatches/pi-colors/02.jpg"
+   },
+   {
+    "name": "PI Colors Betta Splendens",
+    "file": "swatches/pi-colors/03.jpg"
+   },
+   {
+    "name": "PI Colors Yellow Tang",
+    "file": "swatches/pi-colors/04.jpg"
+   },
+   {
+    "name": "PI Colors Sea Sparkle",
+    "file": "swatches/pi-colors/05.jpg"
+   },
+   {
+    "name": "PI Colors Noctiluca Depths",
+    "file": "swatches/pi-colors/06.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/pi-colors/07.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/pi-colors/08.jpg"
+   },
+   {
+    "name": "Halo",
+    "file": "swatches/pi-colors/09.jpg"
+   },
+   {
+    "name": "Parhelion",
+    "file": "swatches/pi-colors/10.jpg"
+   },
+   {
+    "name": "Ice Crown",
+    "file": "swatches/pi-colors/11.jpg"
+   },
+   {
+    "name": "Black Manzanita",
+    "file": "swatches/pi-colors/12.jpg"
+   }
+  ]
  },
  {
   "name": "Pinnacle Polish",
@@ -374,7 +1419,19 @@
   },
   "slug": "pinnacle-polish",
   "bio": "Pinnacle Polish is handmade with love in California by Liz since 2020. The Pinnacle logo is Mt Shasta, where I worked for several years as a mountain guide. I love representing natural elements in my polish with a special focus on rocks and wildflowers, plus of course my favorite color green.\n\nThis will be my 4th PBE, and I’m excited to see everyone again this year and share my creations with you!",
-  "img": "vendors/pinnacle-polish.jpg"
+  "img": "vendors/pinnacle-polish.jpg",
+  "airtableInfo": "Presenting…the Po-Tay-Toes collection! These polishes have the same finish as the Berries and Citrus collections from the past couple years.\nPo-Tay-Toes - Magenta base with pink shimmer.\nBoil ‘Em - Warm purple base with pink shimmer.\nMash ‘Em - Blurple base with blue shimmer.\nStick ‘Em in a Stew - Cool blue base with blue shimmer.\n\nThe other PBE Exclusives this year are the Midwest Salads collection. These glitter crellies were inspired by a post-PBE group dinner, where someone’s salad was served with large cheese cubes as a topping, and rounded out with several other “Potluck Specials” I remember from my childhood. This was a perfect inspo to use some funky larger glitters I’ve had on hand for a while.\nGarden Salad - A white crelly base with orange-yellow squares, and green, red, and purple hex glitters plus scattered holographic microflakes.\nWaldorf Salad - A white crelly base with green, purple, red, and bronze small glitters.\nJello Salad - A light coral pink crelly base with pink and orange glitter plus scattered holographic microflakes.\nSnickers Salad - A white crelly base with green, copper, and brown mixed size glitters plus scattered holographic microflakes.",
+  "website": "https://www.pinnaclepolish.com/",
+  "swatches": [
+   {
+    "name": "Po-Tay-Toes collection",
+    "file": "swatches/pinnacle-polish/00.jpg"
+   },
+   {
+    "name": "Midwest Salads collection",
+    "file": "swatches/pinnacle-polish/01.jpg"
+   }
+  ]
  },
  {
   "name": "Polish Pickup",
@@ -387,7 +1444,10 @@
   },
   "slug": "polish-pickup",
   "bio": "Polish Pickup is thrilled to return to PBE next summer! What started as the biggest indie collab has become a community-driven tradition—fans suggest themes, makers create exclusives, and polish lovers look forward to it every month.",
-  "img": "vendors/polish-pickup.jpg"
+  "img": "vendors/polish-pickup.jpg",
+  "airtableInfo": "",
+  "website": "https://polishpickup.com/",
+  "swatches": []
  },
  {
   "name": "Prism Parade",
@@ -399,7 +1459,47 @@
   },
   "slug": "prism-parade",
   "bio": "Prism Parade creates dazzling polishes with a high emphasis on shimmer and other special effects, using thematic elements of design, photography, and music to evoke immersive color stories. The brand launched in September 2024 and is a partnership between maker Jill Patton and her husband Dan. Rooted in inclusivity and celebrating your own unique sparkle, Prism Parade is thrilled to join PBE for the second year in a row in 2026!",
-  "img": "vendors/prism-parade.jpg"
+  "img": "vendors/prism-parade.jpg",
+  "airtableInfo": "Introducing Windy City Punk , Prism Parade’s Polish and Beauty Expo exclusives. Four metallic shard and holo glitter bomb polishes inspired by Chicago’s finest punk venues, active and not. $13 each or all four for $46. Any overpours will hit prismparade.com after the show. \n\nDebuting early is our magnetic collection Bad Reputation with special full collection show pricing",
+  "website": "https://prismparade.com/",
+  "swatches": [
+   {
+    "name": "Aragon Ballroom",
+    "file": "swatches/prism-parade/00.jpg"
+   },
+   {
+    "name": "Double Door",
+    "file": "swatches/prism-parade/01.jpg"
+   },
+   {
+    "name": "Fireside Bowl",
+    "file": "swatches/prism-parade/02.jpg"
+   },
+   {
+    "name": "The Metro",
+    "file": "swatches/prism-parade/03.jpg"
+   },
+   {
+    "name": "Chiaroscuro",
+    "file": "swatches/prism-parade/04.jpg"
+   },
+   {
+    "name": "A Thousand Ships",
+    "file": "swatches/prism-parade/05.jpg"
+   },
+   {
+    "name": "Off With Her Head",
+    "file": "swatches/prism-parade/06.jpg"
+   },
+   {
+    "name": "La Sirène",
+    "file": "swatches/prism-parade/07.jpg"
+   },
+   {
+    "name": "The Last Pharaoh",
+    "file": "swatches/prism-parade/08.jpg"
+   }
+  ]
  },
  {
   "name": "Psyche Minerals",
@@ -411,7 +1511,19 @@
   },
   "slug": "psyche-minerals",
   "bio": "Born in the Chicago suburbs, Psyche Minerals was founded in October of 2011. What started as an indie loose mineral cosmetics company evolved into a line of vibrant, hand-blended indie nail polishes. We officially launched them in September of 2020. Each bottle is a form of self-expression, designed to bring joy and color into your life, one manicure at a time.",
-  "img": "vendors/psyche-minerals.jpg"
+  "img": "vendors/psyche-minerals.jpg",
+  "airtableInfo": "psycheminerals July collection was inspired by various underwater creatures such as octopuses and nudibranchs especially since there have been new species discovered this year! Molly will some limited edition to @polishandbeautyexpo\nEmperor's Cloak (thermal) - medium sky blue to white thermal with green/blue/violet flakes and a fine blue/violet aurora shimmer\nHopkin’s Flash (thermal) - a medium pink to light pink thermal with blue/violet aurora shimmer. \nGlass Octopus - a silver reflective glitter based polish loaded with green/blue/violet iridescent flakes and corresponding green/blue/violet large particle aurora shimmer.\nCasper’s Ghost - a ghostly white jelly loaded with green/blue/violet large particle aurora shimmer",
+  "website": "https://www.psycheminerals.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/psyche-minerals/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/psyche-minerals/01.jpg"
+   }
+  ]
  },
  {
   "name": "Raven Lacquer",
@@ -422,7 +1534,47 @@
   },
   "slug": "raven-lacquer",
   "bio": "At Raven Lacquer, we don’t just make nail polish, we create wearable art. We specialize in being distinct and unique. Each collection is thoughtfully developed and handcrafted in Minnesota by Raven Johns.",
-  "img": "vendors/raven-lacquer.jpg"
+  "img": "vendors/raven-lacquer.jpg",
+  "airtableInfo": "Everything at our table is BUY 5 GET 1 FREE! (Equal or lesser value)\nSpin to Win with every purchase for a chance to win a Raven Lacquer gift card worth up to $50 to use on ravenlacquer.com!\nEvery purchase also includes: \n•A FREE Raven Lacquer shopping bag \n•A FREE Raven Lacquer badge ribbon\nBe the first to shop our brand new colors in the Neon Collection and the Coffee Flight Collection available as an early release exclusively at the Polish & Beauty Expo! \nChicago mix PBE doorbuster $8\nClear base loaded with purple/blue aurora shimmer and multicolored & holo flake\n\nTea party for 5 exclusive collection\n\nIn Full Bloom- blue jelly base with purple shimmer and blue and purple flake\n\nPetal to the kettle-turquoise base with blue shimmer and green flake\n\nMason jar magic- orange jelly base with purple shimmer and pink/blue flake\n\nPinkies up- purple jelly base with purple/blue shimmer and pink flake\n\nSpill the tea- brown jelly base with pink shimmer,gold glitter and pink/purple flake\n\n$12 each\n$50 for the collection",
+  "website": "https://ravenlacquer.com/",
+  "swatches": [
+   {
+    "name": "Tea Party",
+    "file": "swatches/raven-lacquer/00.jpg"
+   },
+   {
+    "name": "Chicago Mix",
+    "file": "swatches/raven-lacquer/01.jpg"
+   },
+   {
+    "name": "In Full Bloom",
+    "file": "swatches/raven-lacquer/02.jpg"
+   },
+   {
+    "name": "Mason Jar Magic",
+    "file": "swatches/raven-lacquer/03.jpg"
+   },
+   {
+    "name": "Petal to the Kettle",
+    "file": "swatches/raven-lacquer/04.jpg"
+   },
+   {
+    "name": "Pinkies Up",
+    "file": "swatches/raven-lacquer/05.jpg"
+   },
+   {
+    "name": "Spill the Tea",
+    "file": "swatches/raven-lacquer/06.jpg"
+   },
+   {
+    "name": "Neons",
+    "file": "swatches/raven-lacquer/07.jpg"
+   },
+   {
+    "name": "Coffee Flight",
+    "file": "swatches/raven-lacquer/08.jpg"
+   }
+  ]
  },
  {
   "name": "Red Eyed Lacquer",
@@ -434,7 +1586,107 @@
   },
   "slug": "red-eyed-lacquer",
   "bio": "Bianca Chapman is the creator behind Red Eyed Lacquer based out of DC and is so honored and excited to be back again at Polish and Beauty Expo.\n\nAn introvert at heart, but an extrovert in polish, there’s something for everyone at REL! From Shimmers to Flakes to Glow In The Darks and Thermals, you’re bound to find something you love in a variety of genre themes as well!\n\nWhile you’re visiting REL for the polish, don’t forget to check out the other amazing products we have to offer from Da Balm-er to Cuticle oils and so much more!",
-  "img": "vendors/red-eyed-lacquer.jpg"
+  "img": "vendors/red-eyed-lacquer.jpg",
+  "airtableInfo": "I'm Still Cracking - REL birthday polish\n\nJungle Collection (3 Quads of Different Greens, with 4 different finishes)!\n\n$13 each, $9 creme or $44 for each quad\n\nJungle Animals \n\n1. Ghost Glass Frog (Shimmer)- A jungle green crelly with green/gold shifting shimmer!\n\n2. Green Forest Lizard (Flake)- A jungle green crelly with green/gold shifting flakes!\n\n3. Eclectus Parrot (Creme)- A jungle green creme!\n\n4. Emerald Boa (Holo)- A jungle green holo!\n\nJungle Trees \n\n1. Cocoa Tree (Shimmer)- A pear green crelly with red/gold shifting shimmer!\n\n2. Rubber Tree (Flake)-A pear green crelly with red/gold shifting flakes!\n\n3. Royal Fern (Creme)- A pear green creme!\n\n4. Strangler Fig (Holo)- A pear green holo!\n\nJungle Plants \n\n1. Dorothy Benedict Hosta (Shimmer)- A pine green crelly with blue/aqua/teal shifting shimmer!\n\n2. Caladium (Flake)- A pine green crelly with blue/teal/aqua shifting flakes!\n\n3. Philondendron (Creme)- A pine green creme!\n\n4. Monstera (Holo)- A pine green holo!\n\nDoorbuster\n\nPhone, Wallet, Polish- A light pinky peach crelly with red/orange shifting shimmer and holo flakes!\n$6 while supplies last\n\n\nBirthday Polish\nI'm Still Cracking- A berry magenta crelly with pink/orange shifting shimmer!\n$13\n\n\nExclusive Trio (Makers Struggles At PBE)\n\nNot Me Labeling Last Minute- A blackened jelly with pink/gold shifting magnetic and gold reflective glitter!\nDoes Anyone Have Any...?- A blackened jelly with purple/gold shifting magnetic and holo flakes!\n0 Sleep- A light blue crelly with various sizes and color hex glitter with a green glow in the dark!\n$13 each or $36 for the trio, while supplies last\n\n\nLT Quad\n\nI Wish You Would- A bright bold blue crelly with a blue shifting shimmer!\nNah Uh Baby- A purple mega holo! (Purple sibling to Holo Dust Converter)\nCritter Lover- A green to yellow thermal with various sizes and colors of hex glitters and crystal flakes!\nFruity Buttcrack- A red to pink thermal with a pinky/gold shifting shimmer!\n$13 each or $48 for the quad\n\n\nJungle Collection (3 Quads of Different Greens, with 4 different finishes)\n\nJungle Animals\n1. Ghost Glass Frog (Shimmer)- A jungle green crelly with green/gold shifting shimmer!\n2. Green Forest Lizard (Flake)- A jungle green crelly with green/gold shifting flakes!\n3. Eclectus Parrot (Creme)- A jungle green creme!\n4. Emerald Boa (Holo)- A jungle green holo!\n\nJungle Trees\n1. Cocoa Tree (Shimmer)- A pear green crelly with red/gold shifting shimmer!\n2. Rubber Tree (Flake)-A pear green crelly with red/gold shifting flakes!\n3. Royal Fern (Creme)- A pear green creme!\n4. Strangler Fig (Holo)- A pear green holo!\n\nJungle Plants\n1. Dorothy Benedict Hosta (Shimmer)- A pine green crelly with blue/aqua/teal shifting shimmer!\n2. Caladium (Flake)- A pine green crelly with blue/teal/aqua shifting flakes!\n3. Philondendron (Creme)- A pine green creme!\n4. Monstera (Holo)- A pine green holo!\n$13 each, $9 creme or $44 for each quad\n\nBleached Neon Cremes (Early Release at PBE, shop release later in July)\n\nLife Raft (Red)- A bleached neon red creme!\nSea Stars (Pink)- A bleached neon pink creme!\nSand Bucket (Magenta)- A bleached neon magenta creme!\nBeach Ball (Orange)- A bleached neon orange creme!\nYellow Polka Dot Bikini (Yellow)- A bleached neon yellow creme!\nPool Hair (Green)- A bleached neon green creme!\nBeach Waves (Blue)- A bleached neon blue creme!\n$9 each or $54 for the set\n\n\nOf course there will be a duo between me and Rebecca of Alchemy Lacquers!\n\n\nWe will also be having our $5 bin (such a great deal on protos and overpours!), $10 PPU/HHC Mysteries!, Mr. REL's Favorites and Best Sellers, Da Balm-er, Acetone Additives and so much more!",
+  "website": "https://redeyedlacquer.com/",
+  "swatches": [
+   {
+    "name": "I'm Still Cracking",
+    "file": "swatches/red-eyed-lacquer/00.jpg"
+   },
+   {
+    "name": "I'm Still Cracking",
+    "file": "swatches/red-eyed-lacquer/01.jpg"
+   },
+   {
+    "name": "Bleached Neon Cremes",
+    "file": "swatches/red-eyed-lacquer/02.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/03.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/04.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/05.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/06.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/07.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/08.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/09.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/10.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/11.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/12.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/13.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/14.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/15.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/16.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/17.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/18.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/19.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/20.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/21.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/22.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/red-eyed-lacquer/23.jpg"
+   }
+  ]
  },
  {
   "name": "Ribbits Stickits",
@@ -446,7 +1698,19 @@
   },
   "slug": "ribbits-stickits",
   "bio": "Ribbits Stickits, owned by Kristy Lilly, began 9 years ago with fun water slide nail decals and have expanded to scented products with unique house blended scents, stickers, pins, keychains and nail polish! Blending creativity, unique scents, and quirky polish colors, Ribbits Stickits is excited to become part of your nail and self-care routine!",
-  "img": "vendors/ribbits-stickits.jpg"
+  "img": "vendors/ribbits-stickits.jpg",
+  "airtableInfo": "All Toads are Frogs Collection \n$1 from every bottle sold will be donated to Save the Frogs!\nGolden Poison Dart Frog - bright yellow base with orange to yellow to green crystal flakes and gold shimmer.\nSlope Snouted Glass Frog - Deep blackened teal jelly base with green shimmer and yellow aurora shimmer.\nRed Backed Poison Dart Frog - Warm red jelly base full of red metallic micro flakes and red to black multichrome flakes.\nPurple Harlequin Toad - Blackened violet jelly base with pink to purple magnetic pull.\nPumpkin Toadlet - Bright orange jelly base with silver reflective glitter, green reflective glitter, copper holo glitter blend, and a touch of orange shimmer\nUluguru Forest Tree Frog - Bright blue base with periwinkle glitter and blue aurora shimmer.\nBlue Morph Bullfrog - Blue turquoise jelly base with blue to green magnetic pull.",
+  "website": "https://www.ribbitsstickits.com/",
+  "swatches": [
+   {
+    "name": "All the Toads are Frogs",
+    "file": "swatches/ribbits-stickits/00.jpg"
+   },
+   {
+    "name": "All the Toads are Frogs",
+    "file": "swatches/ribbits-stickits/01.jpg"
+   }
+  ]
  },
  {
   "name": "Rogue Lacquer",
@@ -458,7 +1722,55 @@
   },
   "slug": "rogue-lacquer",
   "bio": "Rogue Lacquer is all about creativity, color, and a love for making beautiful things. I started the brand in 2018, but I’ve been making polish for over 10 years. Each shade is handmade in small batches, vegan, cruelty-free, and 5-free. Inspired by nature, pop culture, and everyday moments, every polish is designed to feel special, wearable, and to bring a little joy to your day.",
-  "img": "vendors/rogue-lacquer.jpg"
+  "img": "vendors/rogue-lacquer.jpg",
+  "airtableInfo": "For our door busters this year there will be 2 polishes that are event exclusives with special pricing while supplies last! \n$5 for our “it’s fine” polish this year is \nOnce upon a fine - this is a purple base jelly with glowy blurple super fine micro flakes and large particle peek a boo coppery shimmer \n$7 for a special polish “chaos and castles” because PBE is always a little chaotic and never quite the same unless you share some White Castle with friends \nThis is a white based crelly with golden shifty flakes, blue to purple ucc flakes and blue metallic flakes\n\nSo Rogues theme this year is “curated chaos” for our event polishes! A little sparkle, a touch of chaos leading up to and a whole lot of fun! \nHyper focus is my super power\nVibe Check \n trust the process \n Artfully disordered \n\nOfficial swatches are starting to roll in for Rogue! Here’s a look At our door buster polishes and brand new cloud chrome trio!\nWe will have our official shopping list ready in the next couple of days and will do a live PBE showcase on our Instagram on Wednesday \n chaos and castles: a nod to white castle and friends! This is a white crelly with blue purple ucc flakes and a mix of blue and gold metallic flakes\n$7 while supplies last \nOnce upon a fine: because we’re still fine over here: A classic blurple jelly with large particle sunrise pink shimmer and micro glowy blue flakes\n$5 while supplies last\nCloud Chromes: A soft take on shifty chromes with a twist. They are multichrome polishes with soft holo $13 each\nAtmospheric – a greigh base with orange to green gold chrome shift and holo\nCloud 9 – purple to magenta soft multichrome with holo\nNimbus – black to red to need magenta soft multichrome with holo \n\nGift with purchase fun!\nWhile supplies last “blue jean vibes” will be free with any $50 purchase at the Rogue table! Come see us at the meet and greet to learn about other show specials",
+  "website": "https://roguelacquer.com/",
+  "swatches": [
+   {
+    "name": "chaos and castles/ Once upon a fine",
+    "file": "swatches/rogue-lacquer/00.jpg"
+   },
+   {
+    "name": "Curated Choas collection",
+    "file": "swatches/rogue-lacquer/01.jpg"
+   },
+   {
+    "name": "Hyper focus is my super power",
+    "file": "swatches/rogue-lacquer/02.jpg"
+   },
+   {
+    "name": "Vibe Check",
+    "file": "swatches/rogue-lacquer/03.jpg"
+   },
+   {
+    "name": "trust the process",
+    "file": "swatches/rogue-lacquer/04.jpg"
+   },
+   {
+    "name": "Artfully disordered",
+    "file": "swatches/rogue-lacquer/05.jpg"
+   },
+   {
+    "name": "Nimbus",
+    "file": "swatches/rogue-lacquer/06.jpg"
+   },
+   {
+    "name": "Atmospheric",
+    "file": "swatches/rogue-lacquer/07.jpg"
+   },
+   {
+    "name": "Cloud 9",
+    "file": "swatches/rogue-lacquer/08.jpg"
+   },
+   {
+    "name": "blue jean vibes",
+    "file": "swatches/rogue-lacquer/09.jpg"
+   },
+   {
+    "name": "Dirty Dancing Collection",
+    "file": "swatches/rogue-lacquer/10.jpg"
+   }
+  ]
  },
  {
   "name": "Sassy Sauce Polish",
@@ -470,7 +1782,23 @@
   },
   "slug": "sassy-sauce-polish",
   "bio": "Sassy Sauce Polish burst onto the scene in 2017, straight outta the Chicago burbs. We mix up bold, one-of-a-kind 5-free shades made with love and only the finest ingredients we can get our hands on. Can’t wait to bring the sass to your nails in 2026—because boring polish is so last season.",
-  "img": "vendors/sassy-sauce-polish.jpg"
+  "img": "vendors/sassy-sauce-polish.jpg",
+  "airtableInfo": "Hey y’all! Sassy Sauce Polish is also brining four limited edition polishes to the show next week!\n\n$13 each\n\n•Cyanara- A glowing tropical teal thermal (cold) that will disappear to colorless (warm) leaving with luminous blue-violet shimmer and scattered aqua iridescent ghost flakes.\n\n•Lipstick & Arson- A sultry thermal that shifts from rich espresso plum (cold) to soft cotton-candy pink (warm), drenched in fiery copper-rose shimmer and scattered rainbow and black flakes..\n\n•Celestial Hardware- A soft, ethereal white kissed with delicate silver micro shimmer that twinkles like diamonds under the lights. This shade is so pretty on its own or over your favorite creams. I show it in three thin coats on its own and two coats over Sassy’s City Road Rage.\n\n•Pearls before prosecco- This topper was made to transform your favorite shades into a party. With copper-gold shimmer and flakes that shift through the rainbow. I show it in three thin coats on own, and one coat over Sassy’s Carbon Stamping, City Road Rage, & Barb.\n\nOverpours will be available on Sassys site July 21st 11am CT. *With the exception of thermals not releasing until fall with cooler weather.",
+  "website": "https://sassysaucepolish.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/sassy-sauce-polish/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/sassy-sauce-polish/01.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/sassy-sauce-polish/02.jpg"
+   }
+  ]
  },
  {
   "name": "Snacker Lacquer",
@@ -481,7 +1809,39 @@
   },
   "slug": "snacker-lacquer",
   "bio": "Snacker Lacquer was founded in 2025 by Leah, a long-time food and indie polish lover. She was inspired to create a nail polish line in honor of her love of snacking, hence her nickname “snacker.” Each polish & collection created at Snacker Lacquer is thoughtfully inspired by food/drinks, is 10-free, and is hand-mixed & poured in the state of Michigan. We hope you find a polish name or color that you connect with due to its possible reference to your favorite snack!",
-  "img": "vendors/snacker-lacquer.jpg"
+  "img": "vendors/snacker-lacquer.jpg",
+  "airtableInfo": "Hello all! Snacker Lacquer will be at PBE for the first time this year. We can't wait for you all to see our beautiful food-themed polishes in person! Please check out the photos of the exclusive polishes for the event. I will post the shopping list in another post very shortly.\nWe'll be having some special deals going on, as well as a wheel to spin with every purchase over $50.00 for some fun prizes or $ off your order.\nOur PBE 5-piece collection, Chicago Food Tour, is perfectly on brand and is inspired by Chicago's famous foods/places to eat.\nHoly Mackerel! - $8 Doorbuster (magnetic)\nParty Duo ($24 sold together) - solar and thermal polishes packed with flakes/shimmer/and glitter.\n\nI can't wait to meet you in less than a week.",
+  "website": "https://www.shopsnackerlacquer.com/",
+  "swatches": [
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/00.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/01.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/02.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/03.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/04.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/05.jpg"
+   },
+   {
+    "name": "",
+    "file": "swatches/snacker-lacquer/06.jpg"
+   }
+  ]
  },
  {
   "name": "STELLA CHROMA",
@@ -493,7 +1853,19 @@
   },
   "slug": "stella-chroma",
   "bio": "STELLA CHROMA is your home for unique, big 5-free and cruelty-free nail polish and hand care! Founded and run by Pam Rodgers, a nurse practitioner who now works exclusively on STELLA CHROMA, inspiration for colors and scents is taken from the world around us! Giving back is important, so we donate a portion of sales to non-profits that promote STEM careers to girls! More than $26,000 has been donated since 2017!",
-  "img": "vendors/stella-chroma.jpg"
+  "img": "vendors/stella-chroma.jpg",
+  "airtableInfo": "",
+  "website": "https://www.stellachroma.com/",
+  "swatches": [
+   {
+    "name": "Starring Chicago",
+    "file": "swatches/stella-chroma/00.jpg"
+   },
+   {
+    "name": "Romeo and Juliet",
+    "file": "swatches/stella-chroma/01.jpg"
+   }
+  ]
  },
  {
   "name": "Swamp Gloss",
@@ -505,7 +1877,27 @@
   },
   "slug": "swamp-gloss",
   "bio": "Swamp Gloss is nerdy by nature. We thrive on bringing you unique and funky lacquers in the name of your favorite fandoms. Handmade for the pop culture enthusiast in us all!",
-  "img": "vendors/swamp-gloss.jpg"
+  "img": "vendors/swamp-gloss.jpg",
+  "airtableInfo": "Project Hail Mary quad",
+  "website": "https://swampgloss.com/",
+  "swatches": [
+   {
+    "name": "A Scientific Poke With A Scientific Stick",
+    "file": "swatches/swamp-gloss/00.jpg"
+   },
+   {
+    "name": "Your Face Opening is in Sad Mode",
+    "file": "swatches/swamp-gloss/01.jpg"
+   },
+   {
+    "name": "Fist my Bump",
+    "file": "swatches/swamp-gloss/02.jpg"
+   },
+   {
+    "name": "Leaky Space Blob",
+    "file": "swatches/swamp-gloss/03.jpg"
+   }
+  ]
  },
  {
   "name": "Sweet & Sour Lacquer",
@@ -517,7 +1909,135 @@
   },
   "slug": "sweet-sour-lacquer",
   "bio": "Sweet & Sour Lacquer has grown into a trusted nail polish brand in the indie nail polish community since being established in 2015. The brand’s style is often described unorthodox, thriving on spontaneous releases and non-mainstream inspirations — designed for nail polish lovers craving the unexpected, playful, and weird.",
-  "img": "vendors/sweet-sour-lacquer.jpg"
+  "img": "vendors/sweet-sour-lacquer.jpg",
+  "airtableInfo": "Taste of Chicago\nDeep Dish Drama - red jelly with a mix of red holo and red metallic glitters in various shapes and sizes, as well as red reflective glitter for extra sparkle! \n\nDipped And Messy - dark brown base with colorful flakes. You’ll see pops of green, gold, blue, teal, bronze and maybe a few more 😆 please don’t dip your sandwich in this! \n\nTin Mix Magic - cobalt blue jelly with stunning blue shimmer that glows from within. \n\nLayered Chaos - cream colored crelly with a glitter mix of bubblegum pink, apple green, and dandelion yellow/orange glitters, as well as beautiful yellow/green iridescent flakes. \n\nNo Ketchup - clear base with red, white, green, and yellow glitters to represent all the toppings of this “dragged through the garden” hot dog. Can’t wait to try it! \n\nEach will be available exclusively at PBE, for $13 each. \noverpours will be listed at sweetandsourlacquer.com after the event\n\nAll koozies will be available for $30 each. I plan to give a couple away toward the end of the shopping time! I will have raffle tickets for 1 entry per person. \n\nHypercharged Rock Candy Collection:\nStrawberry Surge - neon magenta pink crelly with pink iridescent flakes that shift green gold\n\nWired Watermelon - neon red/coral crelly with coral iridescent flakes that shift orange/gold\n\nOrange Overdrive - blinding neon orange-yellow crelly with orange iridescent flakes that shift green/blue\n\nBanana Blackout - even more blinding (LOL) neon yellow crelly with yellow iridescent flakes that shift orange/green\n\nAmped Apple - neon green crelly with green iridescent flakes that shift lime green/blue\n\nBlue Raspberry Burnout - neon blue crelly with sky blue iridescent flakes that shift blue/violet\n\nGrape Glitch - neon purple crelly base with purple iridescent flakes that shift pink/orange/green/blue << these are the shiftiest of all!!!\n\n\nHeat Wave Shimmer Neons\nExcessive Heat Warning - neon red/coral crelly with stunning blue/violet shimmer\n\nTriple Digits - neon orange-yellow crelly with a white gold/green shimmer\n\nUV Index 11 - neon yellow with a purple/pink/blue shimmer\n\nFace-Melting Highs - neon chartreuse green with pink/orange shimmer\n\nEach polish will be $13 and will be available on sweetandsourlacquer.com after the event.\n\nExclusive Doorbusters! Many of you know, I’m a prugly polish lover through and through. I wanted to do something to reflect my true self vs my alter ego. I went with a jelly base for both, sharing an ingredient I’m obsessed with, this green/blue shimmer! \n\nAllegedly Edible\n\nFlavor of Disappointment - golden orange (looks orange brownish in the bottle) jelly base with green/purple/pink iridescent metallic flakes\n\nLooks Better Than It Tastes - pinkish brown jelly base with pink/gold/green iridescent metallic flakes\n\nThis Shouldn't Be a Flavor - dark taupe jelly base with orange/gold/green/blue iridescent metallic flakes\n\nIs This Supposed To Taste Like That? - greenish brown jelly base with blue/purple iridescent metallic flakes. The flakes lean more green in this base instead of blue \n\nThe One Nobody Wants - swamp green jelly base with gold green iridescent metallic flakes\n\n$13 each. Will be available at www.sweetandsourlacquer.com after the event.\n\nPicked With Love collection was inspired by a combination of Chris' and my flower picks, to help brighten your day and put a smile on your face! $13 each\n\nFloral Hug - blurple jelly base with a lime green magnetic shift and blue iridescent flakes. Magnetic effect pulls a lime green line.\n\nGot You On My Mind! - gold/green/blue shifting shimmer base with UCC flakes.\n\nJust Because Flowers - berry jelly base with gold holo glitters and fuchsia glitters.\n\nBrighten Your Day - dijon yellow jelly with green and purple metallic flakes. Bottle appears greenish due to the metallic flakes. Polish will apply the described shade of yellow.\n\nBloom Where You Are - hunter green jelly base with a red magnetic shift and gold metallic flakes. Magnetic effect pulls a red line.\n\nEach polish will be $13. Will be available for a limited run (a few months, don't worry) at www.sweetandsourlacquer.com starting August 1st.",
+  "website": "https://sweetandsourlacquer.com/",
+  "swatches": [
+   {
+    "name": "Taste of Chicago",
+    "file": "swatches/sweet-sour-lacquer/00.jpg"
+   },
+   {
+    "name": "Heat Wave Shimmer Neons",
+    "file": "swatches/sweet-sour-lacquer/01.jpg"
+   },
+   {
+    "name": "True Self",
+    "file": "swatches/sweet-sour-lacquer/02.jpg"
+   },
+   {
+    "name": "True Self",
+    "file": "swatches/sweet-sour-lacquer/03.jpg"
+   },
+   {
+    "name": "Alter Ego",
+    "file": "swatches/sweet-sour-lacquer/04.jpg"
+   },
+   {
+    "name": "Alter Ego",
+    "file": "swatches/sweet-sour-lacquer/05.jpg"
+   },
+   {
+    "name": "Allegedly Edible",
+    "file": "swatches/sweet-sour-lacquer/06.jpg"
+   },
+   {
+    "name": "Is This Supposed To Taste Like That?",
+    "file": "swatches/sweet-sour-lacquer/07.jpg"
+   },
+   {
+    "name": "This Shouldn't Be a Flavor",
+    "file": "swatches/sweet-sour-lacquer/08.jpg"
+   },
+   {
+    "name": "Looks Better Than It Tastes",
+    "file": "swatches/sweet-sour-lacquer/09.jpg"
+   },
+   {
+    "name": "The One Nobody Wants",
+    "file": "swatches/sweet-sour-lacquer/10.jpg"
+   },
+   {
+    "name": "Flavor of Disappointment",
+    "file": "swatches/sweet-sour-lacquer/11.jpg"
+   },
+   {
+    "name": "Hypercharged Rock Candy Collection",
+    "file": "swatches/sweet-sour-lacquer/12.jpg"
+   },
+   {
+    "name": "Strawberry Surge",
+    "file": "swatches/sweet-sour-lacquer/13.jpg"
+   },
+   {
+    "name": "Grape Glitch",
+    "file": "swatches/sweet-sour-lacquer/14.jpg"
+   },
+   {
+    "name": "Orange Overdrive",
+    "file": "swatches/sweet-sour-lacquer/15.jpg"
+   },
+   {
+    "name": "Wired Watermelon",
+    "file": "swatches/sweet-sour-lacquer/16.jpg"
+   },
+   {
+    "name": "Banana Blackout",
+    "file": "swatches/sweet-sour-lacquer/17.jpg"
+   },
+   {
+    "name": "Amped Apple",
+    "file": "swatches/sweet-sour-lacquer/18.jpg"
+   },
+   {
+    "name": "Blue Raspberry Burnout",
+    "file": "swatches/sweet-sour-lacquer/19.jpg"
+   },
+   {
+    "name": "Heat Wave Quad",
+    "file": "swatches/sweet-sour-lacquer/20.jpg"
+   },
+   {
+    "name": "Triple Digits",
+    "file": "swatches/sweet-sour-lacquer/21.jpg"
+   },
+   {
+    "name": "Excessive Heat Warning",
+    "file": "swatches/sweet-sour-lacquer/22.jpg"
+   },
+   {
+    "name": "UV Index 11",
+    "file": "swatches/sweet-sour-lacquer/23.jpg"
+   },
+   {
+    "name": "Face-Melting Highs",
+    "file": "swatches/sweet-sour-lacquer/24.jpg"
+   },
+   {
+    "name": "Picked with Love Collection",
+    "file": "swatches/sweet-sour-lacquer/25.jpg"
+   },
+   {
+    "name": "Got You On My Mind!",
+    "file": "swatches/sweet-sour-lacquer/26.jpg"
+   },
+   {
+    "name": "Bright Your Day",
+    "file": "swatches/sweet-sour-lacquer/27.jpg"
+   },
+   {
+    "name": "Bloom Where You Are",
+    "file": "swatches/sweet-sour-lacquer/28.jpg"
+   },
+   {
+    "name": "Floral Hug",
+    "file": "swatches/sweet-sour-lacquer/29.jpg"
+   },
+   {
+    "name": "Just Because Flowers",
+    "file": "swatches/sweet-sour-lacquer/30.jpg"
+   }
+  ]
  },
  {
   "name": "Twinkle Hex Polish",
@@ -529,7 +2049,55 @@
   },
   "slug": "twinkle-hex-polish",
   "bio": "Twinkle Hex Polish is your destination for uniquely crafted polishes, all handmade in small batches in Tennessee. As a longtime polish collector, Tracey Dunn founded Twinkle Hex in 2024 to bring her vision of what indie polish could be to life and have fun in the process. This is my first Polish & Beauty Expo, and I cannot wait to meet my fellow polish fanatics.",
-  "img": "vendors/twinkle-hex-polish.jpg"
+  "img": "vendors/twinkle-hex-polish.jpg",
+  "airtableInfo": "Field Guide to Lesser-Known Cryptids - Exclusive to PBE\nThese are all 15ml polishes and they will each be $10 with the exception of Loveland Frog which will be $13. Each polish also includes a card depicting the inspirational cryptid!\n\n\nFresno Nightcrawler - Light grey crelly with ghostly silver flakes and navy micro holo glitter. Both solar and glow-in-the-dark; this polish gets a faint blue tint in the sun and glows bright blue in the dark. Perhaps one of the strangest cryptids ever captured on video, the Fresno Nightcrawler appears as a pair of walking legs wandering through the night. Its simple appearance has made it one of the internet's most enduring mysteries.\n\nEnfield Horror - Aquamarine jelly base with green to gold flakes and pink shifting flakes. The Enfield Horror terrorized a small Illinois town in 1973. Witnesses described a bizarre creature with three legs, glowing eyes, and an otherworldly scream unlike anything they'd ever heard.\n\nHopkinsville Goblin - Lime green jelly with green shifting flakes. First reported in Kentucky in 1955, the Hopkinsville Goblin is described as a small, glowing creature with oversized eyes and long arms. Whether alien visitor or local legend, its mysterious appearance continues to fascinate cryptid enthusiasts.\n\nBeast of Busco - Shimmering metallic multichrome that shifts from a warm copper to a reddish bronze/ The Beast of Busco is a legendary giant snapping turtle said to inhabit a lake in Indiana. Despite numerous searches, the enormous turtle has never been found, earning its place in crypid lore.\n\nHodag - Periwinkle to purple crelly duochrome with pink shimmer. Born from Wisconsin folklore, the Hodag is a fearsome beast said to have horns, spikes, and a reptilian tail. Through likely a tall tale, it remains an enduring symbol of Northwoods legend.\n\nLoveland Frog - Multichrome magnetic polish in a teal base that shifts from bronze to purple and pink using the velvet magnetic technique; when magnetized using cateye, a teal, purple, and pink line forms over a deep teal to purple base. Sightings of the Loveland Frog date back to the 1950s in Ohio. Witnesses claimed to encounter a humanoid frog standing upright, sparking decades of speculation about what might be lurking along the riverbanks.\n\n\"Scenes from PBE\" is a collection of 5ml polishes that will be $6 each, or $20 for all 4!\n\nChecked out the Swatches- A rich purple crelly packed with vibrant pink shimmer. Some events require a budget. PBE is not one of them. You can't put a price on happiness, or on that one polish you absolutely had to have.\n\nBought All the Polishes-A soft pink crelly kissed with an ethereal blue shimmer. One of the best parts of PBE is making new polish friends who understand the excitement of discovering, collecting, and sharing beautiful nail polish.\n\nStood In Line- A light forest green jelly illuminated by glowing gold shimmer and pink highlights. You told yourself you were just looking, but then the shimmer caught your eye.\n\nMade New Friends- A blue-leaning periwinkle crelly with a soft pink shimmer. Waiting in line to enter PBE is the perfect time to admire swatches, compare wish lists, and make a game plan for visiting all your favorite makers.",
+  "website": "https://twinklehexpolish.com/",
+  "swatches": [
+   {
+    "name": "Field Guide to Lesser-Known Cryptids",
+    "file": "swatches/twinkle-hex-polish/00.jpg"
+   },
+   {
+    "name": "Hodag",
+    "file": "swatches/twinkle-hex-polish/01.jpg"
+   },
+   {
+    "name": "Beast of Busco",
+    "file": "swatches/twinkle-hex-polish/02.jpg"
+   },
+   {
+    "name": "Hopkinsville Goblin",
+    "file": "swatches/twinkle-hex-polish/03.jpg"
+   },
+   {
+    "name": "Fresno Nightcrawler",
+    "file": "swatches/twinkle-hex-polish/04.jpg"
+   },
+   {
+    "name": "Fresno Nightcrawler",
+    "file": "swatches/twinkle-hex-polish/05.jpg"
+   },
+   {
+    "name": "Enfield Horror",
+    "file": "swatches/twinkle-hex-polish/06.jpg"
+   },
+   {
+    "name": "Loveland Frog",
+    "file": "swatches/twinkle-hex-polish/07.jpg"
+   },
+   {
+    "name": "Loveland Frog",
+    "file": "swatches/twinkle-hex-polish/08.jpg"
+   },
+   {
+    "name": "Scenes from PBE",
+    "file": "swatches/twinkle-hex-polish/09.jpg"
+   },
+   {
+    "name": "Scenes from PBE",
+    "file": "swatches/twinkle-hex-polish/10.jpg"
+   }
+  ]
  },
  {
   "name": "Tyler’s Trinkets",
@@ -541,7 +2109,79 @@
   },
   "slug": "tyler-s-trinkets",
   "bio": "We are so excited to be back for our 2nd year at PBE and can’t wait to see familiar faces and meet new ones! Tyler’s Trinkets began in 2022, channeling a passion for self-expression to offer hand-mixed nail lacquers alongside a variety of unique jewelry and trinkets. As a proudly queer-owned business, and someone who didn’t have an environment to embrace my true self when I was younger, I strive to create products that can provide a way for everyone to express their unique and beautiful selves!",
-  "img": "vendors/tyler-s-trinkets.jpg"
+  "img": "vendors/tyler-s-trinkets.jpg",
+  "airtableInfo": "Just A Lil' Snack\n\nA new PBE exclusive quad of polishes inspired by Chicago staples: Chicago Dog, Malort, Neon Relish, and the Rainbow Cone.\n\nLimited quantities will be available individually as well as in a limited-edition collectible Lunch Box which comes with a bunch of bonus goodies!\n\nJust A Lil’ Snack created in Collab with Jeanne @salmondesignco\nPolish $13/each or $55w/collection Box\nAbsolutely No Ketchup\n Citrus Gasoline\n Neon Relish\n Rainbow Cone",
+  "website": "https://tylerstrinkets.com/",
+  "swatches": [
+   {
+    "name": "Panic! At the Expo",
+    "file": "swatches/tyler-s-trinkets/00.jpg"
+   },
+   {
+    "name": "Panic! at the Expo",
+    "file": "swatches/tyler-s-trinkets/01.jpg"
+   },
+   {
+    "name": "#BeProud Toppers",
+    "file": "swatches/tyler-s-trinkets/02.jpg"
+   },
+   {
+    "name": "Drag Queen Candy Shop",
+    "file": "swatches/tyler-s-trinkets/03.jpg"
+   },
+   {
+    "name": "The Unapologetic Collection",
+    "file": "swatches/tyler-s-trinkets/04.jpg"
+   },
+   {
+    "name": "The Queer Dictionary Collection",
+    "file": "swatches/tyler-s-trinkets/05.jpg"
+   },
+   {
+    "name": "Polished Joy",
+    "file": "swatches/tyler-s-trinkets/06.jpg"
+   },
+   {
+    "name": "Golden Hour Rodeo",
+    "file": "swatches/tyler-s-trinkets/07.jpg"
+   },
+   {
+    "name": "Just Add Sprinkles",
+    "file": "swatches/tyler-s-trinkets/08.jpg"
+   },
+   {
+    "name": "The Candy Siblings",
+    "file": "swatches/tyler-s-trinkets/09.jpg"
+   },
+   {
+    "name": "A lil' snack",
+    "file": "swatches/tyler-s-trinkets/10.jpg"
+   },
+   {
+    "name": "A lil' snack",
+    "file": "swatches/tyler-s-trinkets/11.jpg"
+   },
+   {
+    "name": "A lil' snack",
+    "file": "swatches/tyler-s-trinkets/12.jpg"
+   },
+   {
+    "name": "City in a Garden",
+    "file": "swatches/tyler-s-trinkets/13.jpg"
+   },
+   {
+    "name": "Dear Maria, Count me In",
+    "file": "swatches/tyler-s-trinkets/14.jpg"
+   },
+   {
+    "name": "Misery Business",
+    "file": "swatches/tyler-s-trinkets/15.jpg"
+   },
+   {
+    "name": "Level-Headed Glitter Smoother",
+    "file": "swatches/tyler-s-trinkets/16.jpg"
+   }
+  ]
  },
  {
   "name": "Victorian Varnish",
@@ -553,7 +2193,107 @@
   },
   "slug": "victorian-varnish",
   "bio": "Victorian Varnish is thrilled to be back in Tinley Park for our 3rd year! VV was founded on a love of Steampunk, Indie Polish, & a passion for Nail Art. Always in The Pursuit of Polish we offer creative and unique finishes in our polishes as well as our Apothecary items. We believe everyone has the ability in every mani to let your creativity soar higher than the Airships! We look forward to seeing familiar faces and meeting new ones!",
-  "img": "vendors/victorian-varnish.jpg"
+  "img": "vendors/victorian-varnish.jpg",
+  "airtableInfo": "PBE Exclusives: Price is $12\nFAVORITE FASHION ACCESSORY - a bright neon red with pink undertones and an orange/red/gold aurora shimmer. Comes with a RING POP in Cherry or Strawberry!\nJELLY SHOES (REFLECTIVE)- a bright silvery blue reflective loaded with glitters that dazzle and sparkle and draw us in just like the shoes!\nGAME OVER -  neon yellow base, blue shimmer, blue to black duo chrome flakes, ghost flakes, and glitters that dance on the screen like your favorite game!\nBIG HAIR, MIXED TAPES & A BOOM BOX (GLOW IN THE DARK)- a white crelly loaded with everything a track suit was made of - blue/ purple large particle shimmer, assorted glitters and aqua/blue glow in the dark (comes with a UV keychain!)\nYOU HAVE DIED OF DYSENTERY - A bright neon green with green/aqua shimmer, black micro flakes, green/aqua/blue ghost flakies and UCC flakies.\nCUBED & CONFUSED - a clear jelly base gives way to a lovely sparkly shimmer in pink/red/peach and all the cube (square) glitters we could find! Be sure to pick up a mini version of the rubik's cube at the Meet & Greet (while supplies last)\n\nJazzed Jellies, 10 neon jellies with an 1980s vibe! They are a matte formula and do not require a topcoat, but it will make them juicy! Swatches shown in 1, 2, and 3 coats $12 each | $100 for all 10\nRad Ride - Red\nGag me with a Spoon - Orange\nBodacious - Red Orange\nCheeuh - Hot Pink\nLike Totally - Fuschia \nBogus - Yellow\nWicked Cool - Lime Green\nGnarly - Green\nFunky Fresh - Blue\nTubular - Purple\n\n\nPBE Doorbuster $9 each\nMoonwalking At Tinley- holo, holo, and more holo. Clear base packed with small, large, and scattered holo glitters and moons and stars! Perfect for a sparkly topper to your favorite polish or built up on its own.\n80s Game Inspired Nostril Series $12 each\nSmells Like Peaches- blue, pink, yellow and peach glitters in a clear base with peach shimmer and black “nose hair” bar glitters. Can be worn on its own or as a topper.\nDrink On My Nails Thermals $12 each\nMoon-Tini- bright magenta (cold) to clear (warm) loaded with violet/blue aurora shimmer, blue to black multichrome flakies, and a host of rainbow ghost flakies.\nMartian Mule- peachy (cold) to yellow (warm) loaded with violet/blue aurora shimmer, blue to black multichrome flakies, and a host of rainbow ghost flakies.\nLunar Libations- deep blue (cold) to pink (warm) loaded with violet/blue aurora shimmer, blue to black multichrome flakies, and a host of rainbow ghost flakies.\nAny overpours will be available on VVs website July 31st 8am CT. *With the exception of thermals not releasing until fall with cooler weather.",
+  "website": "https://www.victorianvarnish.com/",
+  "swatches": [
+   {
+    "name": "FAVORITE FASHION ACCESSORY",
+    "file": "swatches/victorian-varnish/00.jpg"
+   },
+   {
+    "name": "JELLY SHOES (REFLECTIVE)",
+    "file": "swatches/victorian-varnish/01.jpg"
+   },
+   {
+    "name": "JELLY SHOES (REFLECTIVE)",
+    "file": "swatches/victorian-varnish/02.jpg"
+   },
+   {
+    "name": "GAME OVER",
+    "file": "swatches/victorian-varnish/03.jpg"
+   },
+   {
+    "name": "CUBED & CONFUSED",
+    "file": "swatches/victorian-varnish/04.jpg"
+   },
+   {
+    "name": "CUBED & CONFUSED",
+    "file": "swatches/victorian-varnish/05.jpg"
+   },
+   {
+    "name": "BIG HAIR, MIXED TAPES & A BOOM BOX (GLOW IN THE DARK)",
+    "file": "swatches/victorian-varnish/06.jpg"
+   },
+   {
+    "name": "BIG HAIR, MIXED TAPES & A BOOM BOX (GLOW IN THE DARK)",
+    "file": "swatches/victorian-varnish/07.jpg"
+   },
+   {
+    "name": "YOU HAVE DIED OF DYSENTERY",
+    "file": "swatches/victorian-varnish/08.jpg"
+   },
+   {
+    "name": "Rad Ride",
+    "file": "swatches/victorian-varnish/09.jpg"
+   },
+   {
+    "name": "Gag me with a Spoon",
+    "file": "swatches/victorian-varnish/10.jpg"
+   },
+   {
+    "name": "Bodacious",
+    "file": "swatches/victorian-varnish/11.jpg"
+   },
+   {
+    "name": "Cheeuh",
+    "file": "swatches/victorian-varnish/12.jpg"
+   },
+   {
+    "name": "Like Totally",
+    "file": "swatches/victorian-varnish/13.jpg"
+   },
+   {
+    "name": "Bogus",
+    "file": "swatches/victorian-varnish/14.jpg"
+   },
+   {
+    "name": "Wicked Cool",
+    "file": "swatches/victorian-varnish/15.jpg"
+   },
+   {
+    "name": "Gnarly",
+    "file": "swatches/victorian-varnish/16.jpg"
+   },
+   {
+    "name": "Funky Fresh",
+    "file": "swatches/victorian-varnish/17.jpg"
+   },
+   {
+    "name": "Tubular",
+    "file": "swatches/victorian-varnish/18.jpg"
+   },
+   {
+    "name": "Moonwalking At Tinley",
+    "file": "swatches/victorian-varnish/19.jpg"
+   },
+   {
+    "name": "Smells Like Peaches",
+    "file": "swatches/victorian-varnish/20.jpg"
+   },
+   {
+    "name": "Moon-Tini",
+    "file": "swatches/victorian-varnish/21.jpg"
+   },
+   {
+    "name": "Martian Mule",
+    "file": "swatches/victorian-varnish/22.jpg"
+   },
+   {
+    "name": "Lunar Libations",
+    "file": "swatches/victorian-varnish/23.jpg"
+   }
+  ]
  },
  {
   "name": "Waabooz Cosmetics",
@@ -565,7 +2305,10 @@
   },
   "slug": "waabooz-cosmetics",
   "bio": "Waabooz Cosmetics (pronounced WAH-BOOZE) is proudly indigenous (Ojibwe) and two spirit owned. From N.E Minneapolis, Minnesota we make nail polishes, nail care products and other fun things including beadwork!",
-  "img": "vendors/waabooz-cosmetics.jpg"
+  "img": "vendors/waabooz-cosmetics.jpg",
+  "airtableInfo": "",
+  "website": "https://waaboozcosmetics.com/",
+  "swatches": []
  },
  {
   "name": "Zombie Claw",
@@ -578,6 +2321,46 @@
   },
   "slug": "zombie-claw",
   "bio": "Zombie Claw Polish brings the undead to your fingertips with bold, haunting shades inspired by books, romance, and TV shows. Our #1 best-seller? Deep black flakie polishes that shimmer like shadows and scream individuality. Whether you’re drawn to moody lyrics, twisted tales, or binge-worthy horror, our polishes channel the vibe—one claw at a time. Dare to be dark. Stay beautifully twisted and crawl into color!",
-  "img": "vendors/zombie-claw.jpg"
+  "img": "vendors/zombie-claw.jpg",
+  "airtableInfo": "Zombie Claw here showing off our exclusives and our Brainrot Boutique trio \nPolish 1 Description: a cyan base with electric green shimmer.\nPrice: $12 at show\nPolish 2 Description: a pastel green with purple flakies, blue-purple-pink chameleon flakies, and white glitters.\nPrice: $12 at show\nPolish 3 Description: a pastel purple with a pastel green, purple, yellow, pink and blue glitters. \nPrice: $12 at show\nPolish 4 Description: a dark red base with blue electric shimmer and silver holo glitters.\nPrice: $12 at show \nShark Week Description: a bright ocean blue base with silver magnetic.\nPrice: $12 at show\nPBE Exclusives: \nSus - a red base with red magnetic that has a gold shift. \nDelulu -  a deep violet with blue-purple-green chameleon flakes\n3. Zombie Berries Duo our contribution to this duo with Jen & Berries is a red base with blue flakies and silver reflective glitters.\n**still finalizing names, cause I get so indecisive with names",
+  "website": "https://zombieclawpolish.com/",
+  "swatches": [
+   {
+    "name": "Brainrot Trio, Zombie Berries, Doorbuster",
+    "file": "swatches/zombie-claw/00.jpg"
+   },
+   {
+    "name": "Scuba",
+    "file": "swatches/zombie-claw/01.jpg"
+   },
+   {
+    "name": "67",
+    "file": "swatches/zombie-claw/02.jpg"
+   },
+   {
+    "name": "Mewing",
+    "file": "swatches/zombie-claw/03.jpg"
+   },
+   {
+    "name": "Bussin",
+    "file": "swatches/zombie-claw/04.jpg"
+   },
+   {
+    "name": "Bruce",
+    "file": "swatches/zombie-claw/05.jpg"
+   },
+   {
+    "name": "Sus",
+    "file": "swatches/zombie-claw/06.jpg"
+   },
+   {
+    "name": "Delulu",
+    "file": "swatches/zombie-claw/07.jpg"
+   },
+   {
+    "name": "Zombie Claw Jen & Berries duo",
+    "file": "swatches/zombie-claw/08.jpg"
+   }
+  ]
  }
 ]

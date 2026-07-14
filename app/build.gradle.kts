@@ -1,4 +1,4 @@
-plugins {
+﻿plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
 }
@@ -11,8 +11,8 @@ android {
         applicationId = "com.aria.pbe26"
         minSdk = 29
         targetSdk = 36
-        versionCode = 10
-        versionName = "1.9"
+        versionCode = 13
+        versionName = "2.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

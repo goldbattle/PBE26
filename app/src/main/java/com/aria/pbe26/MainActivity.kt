@@ -51,18 +51,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
@@ -238,7 +234,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-private val Pink = Color(0xFFF48FB1)
+internal val Pink = Color(0xFFF48FB1)
 private val PbeDark = darkColorScheme(
     primary = Pink,
     onPrimary = Color.Black,
@@ -297,25 +293,30 @@ fun App(vendors: List<Vendor>, saved: Saved) {
         }
     }
 
+    // The map is a full-bleed page: it keeps the bottom bar and drops the title bar.
+    val bare = tab == Tab.Map && journal == null && vendor == null
+
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        journal ?: vendor?.name ?: "Polish & Beauty Expo 2026",
-                        fontWeight = FontWeight.SemiBold,
-                        maxLines = 1,
-                    )
-                },
-                navigationIcon = {
-                    if (journal != null || vendor != null) {
-                        IconButton(onClick = { journal = null; openVendor = null; openSwatch = null }) {
-                            Icon(Icons.Default.ArrowBack, "Back")
+            if (!bare) {
+                TopAppBar(
+                    title = {
+                        Text(
+                            journal ?: vendor?.name ?: "Polish & Beauty Expo 2026",
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1,
+                        )
+                    },
+                    navigationIcon = {
+                        if (journal != null || vendor != null) {
+                            IconButton(onClick = { journal = null; openVendor = null; openSwatch = null }) {
+                                Icon(Icons.Default.ArrowBack, "Back")
+                            }
                         }
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Black),
-            )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Black),
+                )
+            }
         },
         bottomBar = {
             NavigationBar(containerColor = Color(0xFF101010)) {
@@ -347,7 +348,9 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                         vendors, saved, vendorList, query, { query = it },
                         { openVendor = it.name }, ::showOnMap,
                     )
-                    Tab.Map -> MapScreen(vendors.firstOrNull { it.name == mapFocus }) { mapFocus = null }
+                    Tab.Map -> MapScreen(vendors, vendors.firstOrNull { it.name == mapFocus }) {
+                        openVendor = it.name
+                    }
                     Tab.Saved -> SavedScreen(
                         vendors, saved, { journal = it }, { openVendor = it.name }, ::showOnMap,
                     ) { v, file -> openVendor = v.name; openSwatch = file }
@@ -788,119 +791,6 @@ private fun ZoomableImage(bmp: ImageBitmap, desc: String) {
         )
     }
 }
-
-// ---------- map ----------
-
-private enum class Layer(val label: String, val res: Int) {
-    Booths("Booths", R.drawable.booth_map),
-    Venue("Venue", R.drawable.floorplan),
-}
-
-private const val MAP_ASPECT = 2048f / 1387f // booth_map.png
-private const val PIN_ZOOM = 3.5f
-private val PIN_SIZE = 30.dp
-
-@Composable
-private fun MapScreen(focus: Vendor?, onFocusShown: () -> Unit) {
-    var layer by rememberSaveable { mutableStateOf(Layer.Booths) }
-    var scale by remember { mutableStateOf(1f) }
-    var offsetX by remember { mutableStateOf(0f) }
-    var offsetY by remember { mutableStateOf(0f) }
-    fun reset() { scale = 1f; offsetX = 0f; offsetY = 0f }
-
-    val booth = focus?.booth?.takeIf { layer == Layer.Booths }
-
-    Column(Modifier.fillMaxSize()) {
-        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth().padding(12.dp)) {
-            Layer.entries.forEachIndexed { i, l ->
-                SegmentedButton(
-                    selected = layer == l,
-                    onClick = { layer = l; reset() },
-                    shape = SegmentedButtonDefaults.itemShape(i, Layer.entries.size),
-                ) { Text(l.label) }
-            }
-        }
-        Text(
-            when {
-                booth != null -> "${focus.name} — table ${booth.table}"
-                layer == Layer.Booths -> "Show floor tables. Pinch to zoom, drag to pan, double-tap to reset."
-                else -> "Whole building: show floor is South Exhibit (11), reception is South Pavilion (12) & Promenade (32)."
-            },
-            Modifier.padding(horizontal = 16.dp),
-            color = if (booth != null) Pink else MaterialTheme.colorScheme.onSurfaceVariant,
-            fontWeight = if (booth != null) FontWeight.SemiBold else FontWeight.Normal,
-            fontSize = if (booth != null) 14.sp else 12.sp,
-        )
-        Box(
-            Modifier.weight(1f).fillMaxWidth().padding(top = 8.dp).background(Color(0xFF1A1A1A))
-                .clipToBounds() // a zoomed map must not paint over the layer switch
-                .pointerInput(Unit) {
-                    detectTransformGestures { _, pan, zoom, _ ->
-                        scale = (scale * zoom).coerceIn(1f, 8f)
-                        offsetX += pan.x
-                        offsetY += pan.y
-                        onFocusShown() // touching the map drops the pin
-                    }
-                }
-                .pointerInput(Unit) { detectTapGestures(onDoubleTap = { reset(); onFocusShown() }) },
-            contentAlignment = Alignment.Center,
-        ) {
-            // The transformed box IS the drawn image, so a booth's fractional position maps
-            // straight onto it and the pin pans and zooms with the map.
-            var mapSize by remember { mutableStateOf(IntSize.Zero) }
-            BoxWithConstraints(
-                Modifier
-                    .fillMaxSize()
-                    .wrapContentSize()
-                    .aspectRatioOfMap(layer)
-                    .onSizeChanged { mapSize = it }
-                    .graphicsLayer(
-                        scaleX = scale, scaleY = scale, translationX = offsetX, translationY = offsetY,
-                    ),
-            ) {
-                Image(
-                    painter = painterResource(layer.res),
-                    contentDescription = layer.label,
-                    modifier = Modifier.fillMaxSize(),
-                )
-                if (booth != null) {
-                    // The pin lives inside the zoomed layer, so undo the zoom on it: it stays the
-                    // same size on screen and its tip keeps pointing at the table.
-                    Icon(
-                        Icons.Default.Place,
-                        "Table ${booth.table}",
-                        Modifier
-                            .size(PIN_SIZE)
-                            .offset(
-                                x = maxWidth * booth.x - PIN_SIZE / 2,
-                                y = maxHeight * booth.y - PIN_SIZE,
-                            )
-                            .graphicsLayer {
-                                scaleX = 1f / scale
-                                scaleY = 1f / scale
-                                transformOrigin = TransformOrigin(0.5f, 1f) // the pin's tip
-                            },
-                        tint = Pink,
-                    )
-                }
-            }
-
-            LaunchedEffect(booth, mapSize) {
-                if (booth != null && mapSize != IntSize.Zero) {
-                    // Scaling happens about the centre, so shifting by this much lands the
-                    // booth's point in the middle of the viewport.
-                    scale = PIN_ZOOM
-                    offsetX = (0.5f - booth.x) * mapSize.width * PIN_ZOOM
-                    offsetY = (0.5f - booth.y) * mapSize.height * PIN_ZOOM
-                }
-            }
-        }
-    }
-}
-
-/** Both maps are drawn to fill their box, so pin maths only needs the booth map's shape. */
-private fun Modifier.aspectRatioOfMap(layer: Layer) =
-    if (layer == Layer.Booths) this.aspectRatio(MAP_ASPECT) else this
 
 // ---------- saved ----------
 

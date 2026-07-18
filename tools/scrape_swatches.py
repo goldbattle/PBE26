@@ -8,8 +8,13 @@ script writes:
 
 Writes:
     app/src/main/assets/swatches/<slug>/NN.jpg   one image per polish
-    app/src/main/assets/vendors.json             + swatches[], swatchers[], airtableInfo, website
+    app/src/main/assets/extras/<slug>/NN.jpg     shopping list first, then merch
+    app/src/main/assets/vendors.json             + swatches[], extras[], swatchers[], airtableInfo
     app/src/main/assets/maps/booth_map.png       the expo's booth map, only if we don't have it yet
+
+Finishes by running tools/remap_swatches.py, which keeps already-saved favourites pointing at the
+swatch they were saved for even when the Airtable re-orders or re-photographs its rows, and then
+tools/booths.py, which puts back the booth numbers scrape_vendors.py just overwrote.
 
 Needs: python 3, ImageMagick (`magick`) on PATH.
 """
@@ -21,14 +26,20 @@ import random
 import re
 import string
 import subprocess
+import time
 import urllib.parse
 import urllib.request
+
+import booths
+import remap_swatches
 
 SHARE = "https://airtable.com/embed/appHCStOEjlIqVBea/shrPc6rx46s6keM1T"
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ASSETS = os.path.join(ROOT, "app", "src", "main", "assets")
 SWATCH_DIR = os.path.join(ASSETS, "swatches")
+EXTRAS_DIR = os.path.join(ASSETS, "extras")
 MAP_PNG = os.path.join(ASSETS, "maps", "booth_map.png")
+IDS_DIR = os.path.join(ROOT, "tools", "swatch_ids")
 
 # The expo's own row (Brand = "Polish & Beauty Expo"). Its Swatches cell holds, in order:
 #   [0] accepted-payment-methods chart, [1] THE BOOTH MAP.
@@ -38,11 +49,21 @@ MAP_ATTACHMENT = 1
 SWATCH_WIDTH = 600  # px; keeps 400+ images to a sane APK size
 
 
+def fetch(req, tries=5):
+    """Airtable resets the connection when we pull a few hundred images; back off and retry."""
+    for n in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+            return gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data
+        except Exception:
+            if n == tries - 1:
+                raise
+            time.sleep(2 ** n)
+
+
 def get(url, headers=None):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0", **(headers or {})})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = r.read()
-    return gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data
+    return fetch(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0", **(headers or {})}))
 
 
 def fetch_view():
@@ -135,10 +156,7 @@ class Signer:
                 "x-requested-with": "XMLHttpRequest",
             },
         )
-        with urllib.request.urlopen(req, timeout=60) as r:
-            raw = r.read()
-        raw = gzip.decompress(raw) if raw[:2] == b"\x1f\x8b" else raw
-        return json.loads(raw)["data"]
+        return json.loads(fetch(req))["data"]
 
 
 def save_image(url, dst, width=SWATCH_WIDTH):
@@ -150,16 +168,46 @@ def save_image(url, dst, width=SWATCH_WIDTH):
     )
 
 
+def pull(attachments, signed, out_dir, ids_path, rel):
+    """Download one cell's attachments into out_dir as NN.jpg -> [{name, file}].
+
+    Slots are positional and an ids sidecar records which attachment each one holds, so a
+    re-ordered Airtable re-fetches the slots that actually changed instead of leaving NN.jpg
+    holding the previous run's picture under a new name.
+    """
+    os.makedirs(out_dir, exist_ok=True)
+    cached = json.load(open(ids_path)) if os.path.exists(ids_path) else {}
+    items = []
+    for i, att in enumerate(attachments):
+        name = os.path.splitext(att.get("filename") or "")[0]
+        if name.lower() in ("image", ""):  # unnamed upload
+            name = ""
+        dst = os.path.join(out_dir, f"{i:02d}.jpg")
+        stale = cached.get(f"{i:02d}") != att["id"]
+        if stale or not os.path.exists(dst) or os.path.getsize(dst) == 0:  # resumable
+            try:
+                save_image(signed.get(att["url"], att["url"]), dst)
+            except Exception as e:
+                print("  failed:", rel, i, e)
+                continue
+        cached[f"{i:02d}"] = att["id"]
+        items.append({"name": name, "file": f"{rel}/{i:02d}.jpg"})
+    json.dump(cached, open(ids_path, "w"))
+    return items
+
+
 def main():
     data, signer = fetch_view()
     cols = {c["name"]: c["id"] for c in data["columns"]}
     swatch_col = cols["Swatches"]
+    image_cols = [swatch_col, cols["Shopping List"], cols["Merch"]]
 
     vendors_path = os.path.join(ASSETS, "vendors.json")
     with open(vendors_path, encoding="utf-8") as f:
         vendors = json.load(f)
 
     os.makedirs(SWATCH_DIR, exist_ok=True)
+    os.makedirs(IDS_DIR, exist_ok=True)
 
     unmatched, total = [], 0
     for row in data["rows"]:
@@ -190,29 +238,24 @@ def main():
         vendor["swatchers"] = people(cell.get(cols["Owner/Swatcher info"]))
 
         slug = vendor["slug"]
-        out = os.path.join(SWATCH_DIR, slug)
-        os.makedirs(out, exist_ok=True)
+        # The shopping list is what the brand is bringing, so it leads; merch follows it.
+        extra_atts = (cell.get(cols["Shopping List"]) or []) + (cell.get(cols["Merch"]) or [])
+        signed = signer.sign_row(row["id"], image_cols) if attachments or extra_atts else {}
 
-        signed = signer.sign_row(row["id"], [swatch_col]) if attachments else {}
-        swatches = []
-        for i, att in enumerate(attachments):
-            name = os.path.splitext(att.get("filename") or "")[0]
-            if name.lower() in ("image", ""):  # unnamed upload
-                name = ""
-            dst = os.path.join(out, f"{i:02d}.jpg")
-            if not os.path.exists(dst) or os.path.getsize(dst) == 0:  # resumable
-                try:
-                    save_image(signed.get(att["url"], att["url"]), dst)
-                except Exception as e:
-                    print("  swatch failed:", slug, i, e)
-                    continue
-            swatches.append({"name": name, "file": f"swatches/{slug}/{i:02d}.jpg"})
-        vendor["swatches"] = swatches
-        total += len(swatches)
-        print(f"{brand}: {len(swatches)} swatches")
+        vendor["swatches"] = pull(
+            attachments, signed, os.path.join(SWATCH_DIR, slug),
+            os.path.join(IDS_DIR, f"{slug}.json"), f"swatches/{slug}",
+        )
+        vendor["extras"] = pull(
+            extra_atts, signed, os.path.join(EXTRAS_DIR, slug),
+            os.path.join(IDS_DIR, f"{slug}-extras.json"), f"extras/{slug}",
+        )
+        total += len(vendor["swatches"])
+        print(f"{brand}: {len(vendor['swatches'])} swatches, {len(vendor['extras'])} extras")
 
     for v in vendors:
         v.setdefault("swatches", [])
+        v.setdefault("extras", [])
         v.setdefault("swatchers", [])
         v.setdefault("airtableInfo", "")
         v.setdefault("website", "")
@@ -220,9 +263,20 @@ def main():
     with open(vendors_path, "w", encoding="utf-8") as f:
         json.dump(vendors, f, indent=1, ensure_ascii=False)
 
-    print(f"\n{total} swatches for {sum(1 for v in vendors if v['swatches'])} vendors")
+    print(f"\n{total} swatches for {sum(1 for v in vendors if v['swatches'])} vendors, "
+          f"{sum(len(v.get('extras', [])) for v in vendors)} shopping-list/merch images")
     if unmatched:
         print("no site vendor matched:", unmatched)
+
+    # Slots above are numbered by Airtable order, which moves between updates. Put every swatch
+    # back in the slot it shipped in, so the favourites people already saved still resolve.
+    print()
+    remap_swatches.main()
+
+    # scrape_vendors.py rewrites vendors.json from the website, which knows nothing about booths --
+    # so re-merge them here rather than leaving every pin on the map silently gone.
+    print()
+    booths.main()
 
 
 if __name__ == "__main__":

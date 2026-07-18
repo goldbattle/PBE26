@@ -162,12 +162,16 @@ fun VendorScreen(
     onSwatchShown: () -> Unit = {},
 ) {
     val ctx = LocalContext.current
-    var zoomed by remember { mutableStateOf<Int?>(null) } // index into v.swatches
+    // Which list is open in the viewer, and where in it. The two lists page separately, so a
+    // swipe through the swatches never runs on into the price lists.
+    var zoomed by remember { mutableStateOf<Pair<List<Swatch>, Int>?>(null) }
 
-    // Arriving from a favourited swatch: open straight onto it.
+    // Arriving from a favourite: open straight onto it, in whichever list it belongs to.
     LaunchedEffect(openSwatch) {
-        val i = v.swatches.indexOfFirst { it.file == openSwatch }
-        if (i >= 0) zoomed = i
+        listOf(v.swatches, v.extras).forEach { list ->
+            val i = list.indexOfFirst { it.file == openSwatch }
+            if (i >= 0) zoomed = list to i
+        }
     }
 
     LazyVerticalGrid(
@@ -234,33 +238,61 @@ fun VendorScreen(
             }
         }
         itemsIndexed(v.swatches, key = { _, sw -> sw.file }) { i, sw ->
-            Column(Modifier.clickable { zoomed = i }) {
-                val bmp = rememberAsset(sw.file, sample = 2)
-                Box(
-                    Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(10.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant),
-                ) {
-                    if (bmp != null) {
-                        Image(bmp, sw.name, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
-                    }
-                    HeartButton(sw.file, saved, Modifier.align(Alignment.TopEnd))
+            Thumbnail(sw, saved) { zoomed = v.swatches to i }
+        }
+
+        if (v.extras.isNotEmpty()) {
+            item(span = { GridItemSpan(2) }) {
+                Column(Modifier.padding(top = 14.dp)) {
+                    Text("Shopping list & merch", color = Pink, fontWeight = FontWeight.Bold)
+                    Text(
+                        "What they are bringing, and what it costs.",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 12.sp,
+                    )
                 }
-                if (sw.name.isNotBlank()) {
-                    Text(sw.name, fontSize = 12.sp, maxLines = 2, modifier = Modifier.padding(top = 4.dp))
-                }
+            }
+            itemsIndexed(v.extras, key = { _, sw -> sw.file }) { i, sw ->
+                Thumbnail(sw, saved) { zoomed = v.extras to i }
             }
         }
     }
 
-    zoomed?.let { start ->
-        SwatchPager(v, start, saved) { zoomed = null; onSwatchShown() }
+    zoomed?.let { (list, start) ->
+        SwatchPager(list, v.name, start, saved) { zoomed = null; onSwatchShown() }
+    }
+}
+
+/** One tile in a vendor's grid: the picture, its heart, and its name underneath. */
+@Composable
+private fun Thumbnail(sw: Swatch, saved: Saved, onOpen: () -> Unit) {
+    Column(Modifier.clickable(onClick = onOpen)) {
+        val bmp = rememberAsset(sw.file, sample = 2)
+        Box(
+            Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(10.dp))
+                .background(MaterialTheme.colorScheme.surfaceVariant),
+        ) {
+            if (bmp != null) {
+                Image(bmp, sw.name, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+            }
+            HeartButton(sw.file, saved, Modifier.align(Alignment.TopEnd))
+        }
+        if (sw.name.isNotBlank()) {
+            Text(sw.name, fontSize = 12.sp, maxLines = 2, modifier = Modifier.padding(top = 4.dp))
+        }
     }
 }
 
 /** Full-size swatches: swipe left/right through the vendor's swatches, pinch any of them to zoom. */
 @Composable
-private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit) {
-    val pager = rememberPagerState(initialPage = start) { v.swatches.size }
+private fun SwatchPager(
+    images: List<Swatch>,
+    vendorName: String,
+    start: Int,
+    saved: Saved,
+    onClose: () -> Unit,
+) {
+    val pager = rememberPagerState(initialPage = start) { images.size }
     // Full width, but only as tall as the swatch it is showing — a portrait photo and a wide one
     // should not both come wrapped in a screenful of black.
     Dialog(onDismissRequest = onClose, properties = DialogProperties(usePlatformDefaultWidth = false)) {
@@ -271,7 +303,7 @@ private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit
         ) {
             Box {
                 HorizontalPager(state = pager, Modifier.fillMaxWidth()) { page ->
-                    val sw = v.swatches[page]
+                    val sw = images[page]
                     Column(Modifier.fillMaxWidth().padding(12.dp)) {
                         rememberAsset(sw.file)?.let { ZoomableImage(it, sw.name) }
                         if (sw.name.isNotBlank()) {
@@ -282,14 +314,14 @@ private fun SwatchPager(v: Vendor, start: Int, saved: Saved, onClose: () -> Unit
                                 fontSize = 18.sp,
                             )
                         }
-                        Text(v.name, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
+                        Text(vendorName, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
                     }
                 }
                 Row(
                     Modifier.align(Alignment.TopEnd).padding(4.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    HeartButton(v.swatches[pager.currentPage].file, saved)
+                    HeartButton(images[pager.currentPage].file, saved)
                     IconButton(onClick = onClose) { Icon(Icons.Default.Close, "Close", tint = Color.White) }
                 }
             }

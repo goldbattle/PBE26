@@ -34,6 +34,21 @@ class CatalogueTest {
     }
 
     @Test
+    fun `shopping list and merch images point at a real asset`() {
+        val files = vendors.flatMap { it.extras }.map { it.file }
+        assertTrue("some vendor should have a shopping list", files.isNotEmpty())
+        val missing = files.filterNot { File("src/main/assets/$it").exists() }
+        assertTrue("extra files not in assets: ${missing.take(5)}", missing.isEmpty())
+    }
+
+    /** Favourites are keyed by file path, so the two lists must never claim the same one. */
+    @Test
+    fun `swatches and extras never share a file`() {
+        val all = vendors.flatMap { it.swatches + it.extras }.map { it.file }
+        assertEquals("a file is in two lists", all.size, all.distinct().size)
+    }
+
+    @Test
     fun `booths are on the booth map, at their own table`() {
         assertTrue("no booths parsed", booths.size > 20)
         booths.forEach { (v, b) ->

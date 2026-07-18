@@ -66,6 +66,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
     val infoScroll = rememberScrollState()
     val savedList = rememberLazyListState()
     val savedSwatchRow = rememberLazyListState()
+    val savedExtrasRow = rememberLazyListState()
     var query by rememberSaveable { mutableStateOf("") }
 
     // True while the Map tab was opened from a vendor, so back returns to the vendor list.
@@ -152,7 +153,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                         openVendor = it.name
                     }
                     Tab.Saved -> SavedScreen(
-                        vendors, saved, savedList, savedSwatchRow,
+                        vendors, saved, savedList, savedSwatchRow, savedExtrasRow,
                         { journal = it }, { openVendor = it.name }, ::showOnMap,
                     ) { v, file -> openVendor = v.name; openSwatch = file }
                 }

@@ -31,6 +31,7 @@ fun SavedScreen(
     saved: Saved,
     listState: LazyListState,
     swatchRow: LazyListState,
+    extrasRow: LazyListState,
     openJournal: (String) -> Unit,
     openVendor: (Vendor) -> Unit,
     onMap: (Vendor) -> Unit,
@@ -42,6 +43,7 @@ fun SavedScreen(
     val mine = vendors.filter { it.name in saved.bookmarks || !saved.notes[it.name].isNullOrBlank() }
     val entries = saved.journals.filterValues { it.isNotBlank() }.keys.sorted()
     val loved = vendors.flatMap { v -> v.swatches.filter { it.file in saved.favourites }.map { v to it } }
+    val lovedExtras = vendors.flatMap { v -> v.extras.filter { it.file in saved.favourites }.map { v to it } }
 
     LazyColumn(
         Modifier.fillMaxSize(),
@@ -74,37 +76,14 @@ fun SavedScreen(
 
         if (loved.isNotEmpty()) {
             item { Section("Saved Swatches") }
-            item {
-                LazyRow(
-                    state = swatchRow,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    items(loved, key = { (_, sw) -> sw.file }) { (v, sw) ->
-                        Column(Modifier.width(110.dp).clickable { openSwatch(v, sw.file) }) {
-                            rememberAsset(sw.file, sample = 4)?.let {
-                                Image(
-                                    it,
-                                    sw.name,
-                                    Modifier.size(110.dp).clip(RoundedCornerShape(10.dp)),
-                                    contentScale = ContentScale.Crop,
-                                )
-                            }
-                            Text(
-                                sw.name.ifBlank { v.name },
-                                fontSize = 11.sp,
-                                maxLines = 2,
-                                modifier = Modifier.padding(top = 4.dp),
-                            )
-                            Text(
-                                v.name,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                fontSize = 10.sp,
-                                maxLines = 1,
-                            )
-                        }
-                    }
-                }
-            }
+            item { SavedImageRow(loved, swatchRow, openSwatch) }
+        }
+
+        // Its own row, below the swatches: a saved price list is a different kind of thing from a
+        // saved colour, and swiping through one should not drag you into the other.
+        if (lovedExtras.isNotEmpty()) {
+            item { Section("Saved Shopping Lists & Merch") }
+            item { SavedImageRow(lovedExtras, extrasRow, openSwatch) }
         }
 
         item { Section("Saved Vendors") }
@@ -117,5 +96,40 @@ fun SavedScreen(
             }
         }
         items(mine, key = { it.name }) { VendorRow(it, saved, openVendor, onMap) }
+    }
+}
+
+/** A horizontal strip of saved images, each tagged with the vendor it came from. */
+@Composable
+private fun SavedImageRow(
+    items: List<Pair<Vendor, Swatch>>,
+    state: LazyListState,
+    openSwatch: (Vendor, String) -> Unit,
+) {
+    LazyRow(state = state, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        items(items, key = { (_, sw) -> sw.file }) { (v, sw) ->
+            Column(Modifier.width(110.dp).clickable { openSwatch(v, sw.file) }) {
+                rememberAsset(sw.file, sample = 4)?.let {
+                    Image(
+                        it,
+                        sw.name,
+                        Modifier.size(110.dp).clip(RoundedCornerShape(10.dp)),
+                        contentScale = ContentScale.Crop,
+                    )
+                }
+                Text(
+                    sw.name.ifBlank { v.name },
+                    fontSize = 11.sp,
+                    maxLines = 2,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+                Text(
+                    v.name,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 10.sp,
+                    maxLines = 1,
+                )
+            }
+        }
     }
 }

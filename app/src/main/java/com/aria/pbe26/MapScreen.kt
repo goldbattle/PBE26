@@ -75,6 +75,9 @@ private const val MARKER = 30f
 
 /** The focused pin, in a colour no other pin uses, so it reads at a glance among the pink dots. */
 private val Focused = Color(0xFFE53935)
+
+/** A starred vendor's pin, so the tables you already picked are findable without opening Saved. */
+private val Starred = Color(0xFFEF6C00)
 private const val TAP_SLOP = 44.0
 
 /**
@@ -189,7 +192,7 @@ private fun rememberLocation(enabled: Boolean): Location? {
 // ---------- screen ----------
 
 @Composable
-fun MapScreen(vendors: List<Vendor>, focus: Vendor?, onOpenVendor: (Vendor) -> Unit) {
+fun MapScreen(vendors: List<Vendor>, saved: Saved, focus: Vendor?, onOpenVendor: (Vendor) -> Unit) {
     val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
     val tiles = remember { TileStore(ctx, scope) }
@@ -269,11 +272,14 @@ fun MapScreen(vendors: List<Vendor>, focus: Vendor?, onOpenVendor: (Vendor) -> U
                     pins.sortedBy { (v, _) -> v.name == focus?.name }.forEach { (v, b) ->
                         val (wx, wy) = BOOTHS.world(b.x, b.y, zoom)
                         val p = at(wx, wy)
-                        if (v.name == focus?.name) {
-                            rotate(Cam.bearing, p) { drawMarker(p) } // upright however the map is turned
-                        } else {
-                            drawCircle(Color.Black.copy(alpha = 0.55f), DOT + 3f, p)
-                            drawCircle(Pink, DOT, p)
+                        when {
+                            // Upright however the map is turned.
+                            v.name == focus?.name -> rotate(Cam.bearing, p) { drawMarker(p) }
+                            v.name in saved.bookmarks -> rotate(Cam.bearing, p) { drawStar(p) }
+                            else -> {
+                                drawCircle(Color.Black.copy(alpha = 0.55f), DOT + 3f, p)
+                                drawCircle(Pink, DOT, p)
+                            }
                         }
                     }
                 }
@@ -438,6 +444,23 @@ private fun DrawScope.drawMarker(tip: Offset) {
     drawPath(neck, Focused)
     drawCircle(Focused, MARKER, head)
     drawCircle(Color.Black.copy(alpha = 0.55f), MARKER * 0.34f, head) // the hole
+}
+
+/** A five-pointed star, centred on the table it marks. */
+private fun DrawScope.drawStar(centre: Offset, r: Float = DOT * 1.8f) {
+    val star = Path()
+    // Ten alternating points, outer then inner, starting at the top.
+    repeat(10) { i ->
+        val a = Math.toRadians(-90.0 + i * 36.0)
+        val d = if (i % 2 == 0) r else r * 0.42f
+        val x = centre.x + (cos(a) * d).toFloat()
+        val y = centre.y + (sin(a) * d).toFloat()
+        if (i == 0) star.moveTo(x, y) else star.lineTo(x, y)
+    }
+    star.close()
+    drawPath(star, Color.Black, style = Stroke(width = 6f))
+    drawPath(star, Color.White, style = Stroke(width = 3f))
+    drawPath(star, Starred)
 }
 
 /** Paste an aligned image onto the map: centred on its anchor, turned to its bearing, ground-scaled. */

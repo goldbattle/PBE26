@@ -149,7 +149,7 @@ fun App(vendors: List<Vendor>, saved: Saved) {
                         vendors, saved, vendorList, query, { query = it },
                         { openVendor = it.name }, ::showOnMap,
                     )
-                    Tab.Map -> MapScreen(vendors, vendors.firstOrNull { it.name == mapFocus }) {
+                    Tab.Map -> MapScreen(vendors, saved, vendors.firstOrNull { it.name == mapFocus }) {
                         openVendor = it.name
                     }
                     Tab.Saved -> SavedScreen(

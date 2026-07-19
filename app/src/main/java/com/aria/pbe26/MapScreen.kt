@@ -71,7 +71,10 @@ private const val MAX_Z = 24f
 
 // Pins are finger targets, not decorations: a fat dot, and a generous radius to tap it by.
 private const val DOT = 11f
-private const val MARKER = 15f
+private const val MARKER = 30f
+
+/** The focused pin, in a colour no other pin uses, so it reads at a glance among the pink dots. */
+private val Focused = Color(0xFFE53935)
 private const val TAP_SLOP = 44.0
 
 /**
@@ -427,10 +430,13 @@ private fun DrawScope.drawMarker(tip: Offset) {
         lineTo(head.x + MARKER * 0.72f, head.y + MARKER * 0.72f)
         close()
     }
-    drawCircle(Color.White, MARKER + 2.5f, head)
-    drawPath(neck, Color.White, style = Stroke(width = 5f))
-    drawPath(neck, Pink)
-    drawCircle(Pink, MARKER, head)
+    // Black under white: the map is busy and pale in places, and a white rim alone disappears on it.
+    drawCircle(Color.Black, MARKER + 6f, head)
+    drawPath(neck, Color.Black, style = Stroke(width = 12f))
+    drawCircle(Color.White, MARKER + 3f, head)
+    drawPath(neck, Color.White, style = Stroke(width = 6f))
+    drawPath(neck, Focused)
+    drawCircle(Focused, MARKER, head)
     drawCircle(Color.Black.copy(alpha = 0.55f), MARKER * 0.34f, head) // the hole
 }
 

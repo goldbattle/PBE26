@@ -139,20 +139,16 @@ def shot(name: str) -> None:
 
 def demo_backup() -> dict:
     """Generate demo save data with favorites and journal entries."""
-    # Vendor data: create a few popular vendors with starred status
-    vendors_data = {
-        "starred": [
-            "Essie",
-            "OPI",
-            "Sally Hansen",
+    # Pre-populate favorites: vendor names and polish swatch data
+    favorites_data = {
+        "starred_vendors": ["Essie", "OPI", "Orly", "China Glaze", "Sally Hansen"],
+        "favorite_swatches": [
+            {"vendor": "Essie", "polish": "Ballet Slippers", "color": "#FFC0D9"},
+            {"vendor": "OPI", "polish": "Big Apple Red", "color": "#C41E3A"},
+            {"vendor": "Orly", "polish": "Matte About You", "color": "#2D2D2D"},
+            {"vendor": "China Glaze", "polish": "Aqua Intence", "color": "#00BFFF"},
+            {"vendor": "Sally Hansen", "polish": "Miracle Gel", "color": "#8B00FF"},
         ],
-        "favorites": [
-            "ESSIE-001",  # Some swatch IDs as examples
-            "OPI-042",
-            "ORLY-015",
-            "CHINA-GLAZE-023",
-        ],
-        "notes": "Sample notes about polishes and vendors",
     }
 
     # Journal entries for the info tab
@@ -164,7 +160,7 @@ def demo_backup() -> dict:
     return {
         "app": "pbe26",
         "version": 1,
-        "vendors": vendors_data,
+        "favorites": favorites_data,
         "journal": journal_entries,
     }
 
@@ -184,8 +180,6 @@ def share_text(text: str) -> None:
 CAPTIONS = [
     ("info", "Info", "Event dates, venue details, and journal entries you can edit."),
     ("vendors", "Vendors", "Browse 48 vendors, search by name, see all their polishes."),
-    ("vendor_detail", "Vendor details", "Full vendor info with photo gallery and what to buy notes."),
-    ("favorites", "Favorites", "Heart vendors and polishes to save them in your collection."),
     ("map", "Map", "Live floorplan with booth locations and georeferenced overlays."),
     ("saved", "Saved", "Your favorite vendors and polishes in one place."),
 ]
@@ -220,42 +214,16 @@ def tour() -> None:
     tab("Info")
     time.sleep(2)
     shot("info")
-    scroll(600)
-    time.sleep(1)
 
     print("Vendors tab")
     tab("Vendors")
     time.sleep(2)
     shot("vendors")
 
-    # Tap a vendor to show detail
-    if tap_text("Essie", prefix=True):
-        time.sleep(2)
-        shot("vendor_detail")
-        scroll(800)
-        time.sleep(1)
-        back()
-
-    # Search for vendors with favorites
-    print("Searching vendors")
-    tap_text("Search", prefix=True)
-    time.sleep(1)
-    shell("input text OPI")
-    time.sleep(1)
-    back()
-
-    # Show favorites
-    if tap_text("Favorites", prefix=True):
-        time.sleep(2)
-        shot("favorites")
-        back()
-
     print("Map tab")
     tab("Map")
     time.sleep(3)
     shot("map")
-    scroll(600)
-    time.sleep(1)
 
     print("Saved tab")
     tab("Saved")

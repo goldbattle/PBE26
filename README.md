@@ -37,6 +37,15 @@ venue. When editing an overlay PNG, keep its pixel dimensions: booth positions a
 image, so cropping or padding moves every pin.
 
 
+## Screenshots
+
+<p align="center">
+<img src="docs/screenshots/info.png" width="200" alt="Info tab with event schedule and journal">
+<img src="docs/screenshots/vendors.png" width="200" alt="Vendors list and search">
+<img src="docs/screenshots/map.png" width="200" alt="Interactive floorplan map">
+<img src="docs/screenshots/saved.png" width="200" alt="Saved favorites">
+</p>
+
 ## Credits
 
 Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, ©

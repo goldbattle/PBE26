@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Screenshots of PBE26 with demo data, and a Screenshots section in the README built from them.
+"""Screenshots of PBE26's four tabs, with a few vendors starred and swatches hearted so Saved isn't empty.
 
-    python tools/screenshots.py              # build, install, capture, update README
+    python tools/screenshots.py              # build, install, capture
     python tools/screenshots.py --no-build   # reuse the last APK
     python tools/screenshots.py --avd pbe26  # which emulator to boot if none is running
 
@@ -10,14 +10,12 @@ the full-size PNGs are kept. It WIPES the app's data on the device it runs on, s
 at an emulator, not your phone.
 """
 import argparse
-import json
 import os
 import re
 import shutil
 import subprocess
 import sys
 import time
-import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -135,97 +133,47 @@ def shot(name: str) -> None:
     print(f"  saved {path.relative_to(ROOT)}")
 
 
-# ---------- Example data ----------
-
-def demo_backup() -> dict:
-    """Generate demo save data with favorites and journal entries."""
-    # Pre-populate favorites: vendor names and polish swatch data
-    favorites_data = {
-        "starred_vendors": ["Essie", "OPI", "Orly", "China Glaze", "Sally Hansen"],
-        "favorite_swatches": [
-            {"vendor": "Essie", "polish": "Ballet Slippers", "color": "#FFC0D9"},
-            {"vendor": "OPI", "polish": "Big Apple Red", "color": "#C41E3A"},
-            {"vendor": "Orly", "polish": "Matte About You", "color": "#2D2D2D"},
-            {"vendor": "China Glaze", "polish": "Aqua Intence", "color": "#00BFFF"},
-            {"vendor": "Sally Hansen", "polish": "Miracle Gel", "color": "#8B00FF"},
-        ],
-    }
-
-    # Journal entries for the info tab
-    journal_entries = {
-        "2026-07-18": "Opening day! Can't wait to see all the vendors. Starting with the front rows.",
-        "2026-07-19": "Second day - found some amazing new shades! Need to check out more booths.",
-    }
-
-    return {
-        "app": "pbe26",
-        "version": 1,
-        "favorites": favorites_data,
-        "journal": journal_entries,
-    }
-
-
-def share_text(text: str) -> None:
-    """Shares [text] into the app, as another app's share sheet would."""
-    tmp = ROOT / "app" / "build" / "share.txt"
-    tmp.parent.mkdir(parents=True, exist_ok=True)
-    tmp.write_text(text, encoding="utf-8")
-    adb("push", str(tmp), "/data/local/tmp/share.txt")
-    shell(f'am start -a android.intent.action.SEND -t text/plain --es android.intent.extra.TEXT "$(cat /data/local/tmp/share.txt)" -n {PKG}/.MainActivity')
-    time.sleep(4)
-
-
-# ---------- README ----------
-
-CAPTIONS = [
-    ("info", "Info", "Event dates, venue details, and journal entries you can edit."),
-    ("vendors", "Vendors", "Browse 48 vendors, search by name, see all their polishes."),
-    ("map", "Map", "Live floorplan with booth locations and georeferenced overlays."),
-    ("saved", "Saved", "Your favorite vendors and polishes in one place."),
-]
-
-# Only these make the README; the rest are still captured for reference
-README_SELECT = ["info", "vendors", "map", "saved"]
-
-
-def update_readme() -> None:
-    have = [n for n in README_SELECT if (OUT / f"{n}.png").exists()]
-    imgs = " ".join(f'<img src="docs/screenshots/{n}.png" width="200" alt="{n}">' for n in have)
-    section = "\n".join([
-        "<!-- screenshots:start -->",
-        f'<p align="center">{imgs}</p>',
-        "<!-- screenshots:end -->",
-    ])
-    readme = ROOT / "README.md"
-    text = readme.read_text(encoding="utf-8")
-    if "<!-- screenshots:start -->" in text:
-        text = re.sub(r"<!-- screenshots:start -->.*?<!-- screenshots:end -->", lambda _: section, text, flags=re.S)
-    else:  # after the intro paragraph
-        head, sep, rest = text.partition("\n## ")
-        text = head.rstrip() + "\n\n" + section + "\n\n" + sep.lstrip("\n") + rest if sep else text + "\n\n" + section + "\n"
-    readme.write_text(text, encoding="utf-8")
-    print("README.md updated")
-
-
 # ---------- Tour ----------
 
+def tap_each(desc: str, picks: list[int]) -> None:
+    """Taps the [picks]-th on-screen elements labelled [desc], top to bottom."""
+    hits = sorted((n for n in nodes() if n[0] == desc), key=lambda n: n[2])
+    for i in picks:
+        if i < len(hits):
+            shell(f"input tap {hits[i][1]} {hits[i][2]}")
+            time.sleep(0.8)
+
+
 def tour() -> None:
-    print("Info tab")
+    print("Info")
     tab("Info")
     time.sleep(2)
     shot("info")
 
-    print("Vendors tab")
+    print("Vendors (starring a few)")
     tab("Vendors")
     time.sleep(2)
+    tap_each("Bookmark", [0, 2, 3])
+    scroll(1200)
+    tap_each("Bookmark", [1, 3])
+    scroll(-1200)
+    scroll(-1200)
     shot("vendors")
 
-    print("Map tab")
+    print("Hearting swatches")
+    for vendor, picks in [("BCB Lacquers", [0, 3, 4]), ("Atomic Polish", [1, 2])]:
+        if tap_text(vendor):
+            time.sleep(2)
+            scroll(900)  # the swatch grid starts below the fold
+            tap_each("Save this swatch", picks)
+            back()
+
+    print("Map")
     tab("Map")
-    time.sleep(3)
+    time.sleep(4)
     shot("map")
 
-    print("Saved tab")
+    print("Saved")
     tab("Saved")
     time.sleep(2)
     shot("saved")
@@ -235,23 +183,16 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--avd", default="pbe26", help="emulator to boot if no device is connected")
     ap.add_argument("--no-build", action="store_true", help="install the existing release APK")
-    ap.add_argument("--no-readme", action="store_true", help="don't touch README.md")
     args = ap.parse_args()
 
     ensure_device(args.avd)
     build_and_install(not args.no_build)
 
-    print("Resetting the app and loading example data...")
+    print("Resetting the app...")
     shell(f"pm clear {PKG}", check=False)
     shell(f"am start -n {PKG}/.MainActivity")
     time.sleep(4)
-    backup = demo_backup()
-    share_text(json.dumps(backup))
-    time.sleep(2)
-
     tour()
-    if not args.no_readme:
-        update_readme()
 
 
 if __name__ == "__main__":
